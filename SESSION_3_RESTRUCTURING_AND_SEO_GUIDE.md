@@ -1,87 +1,118 @@
 # Ascentix Ladders — Session 3 Restructuring & Search Integration Guide
 
 This guide provides the complete action blueprint for:
-1. **Website Restructuring** (Information Architecture, Navigation hierarchy, Siloing, Internal Linking & Breadcrumbs).
-2. **Connecting to Google Search Console (GSC)** & **Bing Webmaster Tools (BWT)**.
-3. **Connecting to Google Analytics 4 (GA4)** with conversion tracking.
+1. **Website Restructuring & Information Architecture** (10-Model Hierarchy, Siloing, Internal Linking, Conflict Resolution & Breadcrumbs).
+2. **Phase 3 Restructuring Updates** (CarbonApex X1 B2B Repositioning & Home Page 10-Card Grid Expansion).
+3. **Connecting to Google Search Console (GSC)** & **Bing Webmaster Tools (BWT)**.
+4. **Connecting to Google Analytics 4 (GA4)** with conversion tracking.
+5. **Sitewide SEO & Navigation Embed Snippets** (Breadcrumb Trails & 10-Model SEO Master Footer).
 
 ---
 
 ## 🏗️ Part 1: Website Restructuring (Session 3 Framework)
 
-### 1.1 The Problem with the Current Structure
-The existing site layout displays 6-7 items in the top navigation bar:
+### 1.1 The Problem with the Initial Structure
+The initial site layout displayed 6–7 unstructured items in the top navigation bar:
 `Home` | `About Us` | `The Team` | `Products` | `Social Media Hub` | `Contact Us`
 
-**Key Issues Identified in Session 3 Learning**:
-1. **Navigational Clutter & Cognitive Overload**: Having "The Team" and "Social Media Hub" on the top level eats up valuable visual space, causing menu wrapping on smaller laptops and mobile screens.
+**Key Issues Identified**:
+1. **Navigational Clutter & Cognitive Overload**: Having "The Team" and "Social Media Hub" on the top level eats up valuable visual space, causing menu wrapping on laptops and mobile devices.
 2. **Improper Content Hierarchy (Siloing)**: "The Team" is not an independent top-level entity; it is a direct sub-component of "About Us".
-3. **Weak Crawlability / Internal Linking**: Product subpages lack breadcrumb trails back to category hubs, reducing crawl depth efficiency for search spiders.
-4. **Poor Commercial Prioritization**: In a B2B / industrial climbing equipment business, transactional and trust-building pages (*Products*, *BIS IS Certifications*, *Fleet Quote*) must take priority over external social media links.
+3. **Catalog Under-Representation**: The original navigation only accommodated 6 models, omitting high-demand specialist segments (Solar EPC, 1000V Electricians, Attic/Loft, and Industrial Modular Platforms).
+4. **Pricing Friction & Choice Paralysis**: MultiFlex Transform and AeroReach Pro shared the identical ₹34,999 price point without clear buyer decision segmentation.
+5. **Weak Crawlability / Internal Linking**: Product subpages lacked breadcrumb trails back to category hubs, reducing crawl depth efficiency for search spiders.
 
 ---
 
 ### 1.2 The Restructured Information Architecture (Target Hierarchy)
 
-```
+```text
 ascentix-ladders (Root)
 │
 ├── 🏠 Home (/home)
-│     └── [Hero -> Stat Bar -> Commercial Video -> Fleet Highlights -> BIS Proof -> Testimonials -> Contact Teaser]
+│     └── [Hero (10 Models CTA) -> Stat Bar -> Commercial Video -> 10-Product 5×2 Grid -> BIS Proof -> Testimonials -> Contact Teaser]
 │
 ├── 🏢 About Us (/about-us)  [Parent Page]
 │     ├── 👥 The Team (/about-us/the-team)  [Subpage]
 │     └── 🛡️ Quality & Certifications (/about-us/certifications)  [Subpage or anchored section]
 │
-├── 🪜 Products Hub (/products)  [Parent Page]
-│     ├── 1. TelePro 360 Telescopic (/products/telepro-360)
-│     ├── 2. CarbonApex X1 Non-Conductive (/products/carbonapex-x1)
-│     ├── 3. MultiFlex Transform Multi-Position (/products/multiflex-transform)
-│     ├── 4. TitanSafe Industrial Platform (/products/titansafe-industrial)
-│     ├── 5. AeroReach Pro High-Reach (/products/aeroreach-pro)
-│     └── 6. VaultStep Deluxe Safety Stool (/products/vaultstep-deluxe)
+├── 🪜 Products Hub (/products)  [Parent Page — 10 Models]
+│     ├── Electrical & Heavy Duty (Silo A)
+│     │     ├── 1. TelePro 360 Telescopic (/products/telepro-360)
+│     │     ├── 2. CarbonApex X1 35kV Dielectric Fleet (/products/carbonapex-x1)
+│     │     ├── 4. TitanSafe 500 Industrial Platform (/products/titansafe-industrial)
+│     │     ├── 7. SolarStep FX Rooftop Solar (/products/solarstep-fx)
+│     │     └── 8. VoltShield FG5 1000V Electrician (/products/voltshield-fg5)
+│     │
+│     └── Multi-Use, Commercial & Architectural (Silo B)
+│           ├── 3. MultiFlex Transform 14-in-1 [Best For: Versatility] (/products/multiflex-transform)
+│           ├── 5. AeroReach Pro High-Reach [Best For: Exterior Reach] (/products/aeroreach-pro)
+│           ├── 6. VaultStep Deluxe Step Stool (/products/vaultstep-deluxe)
+│           ├── 9. AtticMaster HA3 Insulated Loft (/products/atticmaster-ha3)
+│           └── 10. DeckRise Modular Adjustable Platform (/products/deckrise-modular)
 │
 ├── 🌐 Community & Media (/social-media-hub)  [Secondary or Footer-Anchored]
 │
 ├── 📞 Contact & Fleet Inquiries (/contact-us)
 │     └── [Interactive Fleet Calculator -> PAN-India Dispatch -> WhatsApp Desk]
 │
-└── 📑 Global SEO Footer (Embedded on every page for crawlability & internal links)
+└── 📑 Global SEO Footer (Embedded sitewide for instant indexing of all 10 models in 1 hop)
 ```
 
 ---
 
-### 1.3 Step-by-Step Instructions in Google Sites Editor
+### 1.3 Recent Phase 3 Restructuring Enhancements
+
+| Area | What Changed | Implementation Rationale |
+|---|---|---|
+| **CarbonApex X1** (`05_PRODUCT_2_CARBONAPEX_X1.md`) | Repositioned from generic consumer to **B2B DISCOM & Electrical Fleet Procurement**. CTA updated to `Request DISCOM Fleet Quote`. | Aligns with its 35 kV dielectric rating and ₹84,999 enterprise price point. Replaced "Architects" card with high-value "Film & Broadcast Riggers". |
+| **Home Page Product Grid** (`01_HOME_PAGE.md`) | Expanded from 6 cards to **10 cards** in a responsive 5×2 CSS grid (`card-grid-10`). | Seamlessly integrates SolarStep FX, VoltShield FG5, AtticMaster HA3, and DeckRise Modular without layout breaking. |
+| **Conflict Resolution Tags** | Added `Best For: Versatile Multi-Angle Jobs` to MultiFlex and `Best For: High-Reach Exterior Work` to AeroReach. | Eliminates consumer hesitation over identical ₹34,999 pricing. |
+| **Asset Suite & Git Tracking** | Added all multi-variant product photography (46 images) and initialized clean version control on [GitHub](https://github.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites). | Ensures full asset reproducibility and collaboration. |
+
+---
+
+### 1.4 Step-by-Step Instructions in Google Sites Editor
 
 #### Step A: Move "The Team" into a Subpage of "About Us"
-1. In Google Sites editor, go to the right sidebar and click the **Pages** tab.
+1. In Google Sites editor, open the right sidebar and click the **Pages** tab.
 2. Locate **The Team**.
-3. Click and drag **The Team** directly on top of **About Us** until a blue highlight box envelopes "About Us", then release.
-   *(Or click the three vertical dots `⋮` on "The Team" -> select **Make subpage of...** -> select **About Us**).*
-4. The URL slug automatically cleanly reorganizes into `/about-us/the-team`.
+3. Drag **The Team** directly on top of **About Us** until a blue highlight box envelopes "About Us", then release.
+   *(Or click `⋮` next to "The Team" -> select **Make subpage of...** -> select **About Us**).*
+4. The URL slug cleanly organizes into `/about-us/the-team`.
 
-#### Step B: Streamline the Top Navigation Menu
-1. Click **Settings (⚙️ Gear icon)** at the top toolbar -> **Navigation**.
-2. Keep **Mode** as **Top** and **Color** as **Black** (or Transparent).
-3. Confirm that your main navigation bar now cleanly contains:
+#### Step B: Organize the 10 Products under "Products"
+1. In the **Pages** tab, ensure **Products** is created as a top-level page.
+2. Nest all 10 product pages as subpages under **Products**:
+   - `telepro-360`
+   - `carbonapex-x1`
+   - `multiflex-transform`
+   - `titansafe-industrial`
+   - `aeroreach-pro`
+   - `vaultstep-deluxe`
+   - `solarstep-fx` *(New)*
+   - `voltshield-fg5` *(New)*
+   - `atticmaster-ha3` *(New)*
+   - `deckrise-modular` *(New)*
+3. Verify that your top navigation bar displays clean dropdown menus:
    - **Home**
-   - **About Us ▾** *(reveals "The Team" in a clean dropdown)*
-   - **Products ▾** *(reveals the 6 ladder models)*
+   - **About Us ▾** *(reveals "The Team")*
+   - **Products ▾** *(reveals the 10 ladder models)*
    - **Social Media Hub**
    - **Contact Us**
 
 #### Step C: Add Breadcrumb Trails to Product Subpages
-Add a small responsive breadcrumb bar at the very top of each product page (e.g. `/products/telepro-360`).
-*Snippet provided in Section 4 below.*
+Add a responsive breadcrumb bar at the very top of each product page (e.g. `/products/solarstep-fx`).
+*Use Snippet A below.*
 
-#### Step D: Embed the Master SEO Footer
-In Google Sites, either paste the **SEO Multi-Column Footer Snippet** into the global footer or at the bottom of key landing pages to pass internal PageRank and enable search crawlers to index all 6 product models in 1 hop.
+#### Step D: Embed the 10-Model Master SEO Footer
+In Google Sites, paste the **10-Model SEO Multi-Column Footer Snippet** (*Snippet B*) into your site footer or bottom embed block. This passes PageRank and allows search engines to discover and crawl all 10 models in a single hop.
 
 ---
 
 ## 📈 Part 2: Connect to Google Analytics (GA4)
 
-Google Sites has native integration for Google Analytics 4:
+Google Sites provides native integration for Google Analytics 4:
 
 ### Step 1: Create GA4 Property
 1. Visit [analytics.google.com](https://analytics.google.com) and log in with your Google account.
@@ -109,19 +140,19 @@ Google Sites has native integration for Google Analytics 4:
 4. In the text box under **Google Analytics measurement ID**, paste your `G-XXXXXXXXXX`.
 5. Ensure the switch **Enable analytics** is toggled **ON** (green).
 6. Close the modal.
-7. Click the blue **Publish** button at the top right to push the tracker live!
+7. Click the blue **Publish** button at the top right to deploy the tracker live.
 
 ### Step 4: Verify Realtime Tracking
 1. Open a new Incognito browser tab and visit:
    `https://sites.google.com/view/ascentix-ladders/home`
 2. Go back to Google Analytics -> In the left menu, click **Reports** -> **Realtime**.
-3. You will immediately see **1 active user** on the map in India!
+3. You will immediately see **1 active user** on the map in India.
 
 ---
 
 ## 🔍 Part 3: Connect to Google Search Console (GSC)
 
-Because Google Sites is hosted on `sites.google.com`, the ownership verification workflow has specific rules:
+Because Google Sites is hosted on `sites.google.com`, the ownership verification workflow follows these specific rules:
 
 ### Step 1: Choose the URL-Prefix Property Method
 1. Go to [search.google.com/search-console](https://search.google.com/search-console).
@@ -138,10 +169,10 @@ Because Google Sites is hosted on `sites.google.com`, the ownership verification
 ### Step 2: Instant Automatic Verification
 Because you already set up **Google Analytics (GA4)** in Part 2 using the same Google account:
 - Search Console detects your active GA4 Measurement ID and automatically displays:
-  **"Ownership auto-verified via Google Analytics"**!
+  **"Ownership auto-verified via Google Analytics"**.
 - Click **Go to Property**.
 
-*(Note: If you haven't linked GA4 yet, make sure you complete Part 2 first, or verify using the same Google account that created the Google Site).*
+*(Note: If you haven't linked GA4 yet, make sure you complete Part 2 first, or verify using the same Google account that owns the Google Site).*
 
 ### Step 3: Submit the Google Sites XML Sitemap
 Google Sites maintains an automated XML feed for all published pages:
@@ -152,7 +183,7 @@ Google Sites maintains an automated XML feed for all published pages:
    ```
    *(Full URL resolves to: `https://sites.google.com/view/ascentix-ladders/system/feeds/sitemap`)*
 3. Click **Submit**.
-4. Status will switch to **"Success"**, allowing Googlebot to crawl all restructured product pages and subpages!
+4. Status will switch to **"Success"**, allowing Googlebot to crawl all 10 product pages and subpages.
 
 ---
 
@@ -165,7 +196,7 @@ Microsoft Bing powers search results for Bing, Yahoo, and Windows Search. Connec
 2. Click **Get Started** and sign in using the **same Google account** you used for Google Search Console.
 
 ### Step 2: 1-Click Import from Google Search Console
-1. Bing will present two options to add your site:
+1. Bing presents two options to add your site:
    - *Import your sites from GSC* (**RECOMMENDED**)
    - *Add your site manually*
 2. Click **Import** under **Google Search Console**.
@@ -179,7 +210,7 @@ Microsoft Bing powers search results for Bing, Yahoo, and Windows Search. Connec
 ## 🧩 Part 5: On-Page SEO & Navigation Embed Snippets
 
 ### Snippet A: Product Page Breadcrumb Trail
-*Place this at the very top of each product subpage (above the product hero card).*
+*Place this at the very top of each product subpage (above the product hero card). Replace the product name and slug accordingly.*
 
 ```html
 <!DOCTYPE html>
@@ -213,7 +244,8 @@ Microsoft Bing powers search results for Bing, Yahoo, and Windows Search. Connec
     <span class="separator">/</span>
     <a href="https://sites.google.com/view/ascentix-ladders/products" target="_top">Products</a>
     <span class="separator">/</span>
-    <span class="current">TelePro 360 Telescopic</span>
+    <!-- Replace with current product name -->
+    <span class="current">SolarStep FX Rooftop Solar</span>
   </nav>
 </body>
 </html>
@@ -221,8 +253,8 @@ Microsoft Bing powers search results for Bing, Yahoo, and Windows Search. Connec
 
 ---
 
-### Snippet B: Sitewide Multi-Column SEO Master Footer
-*Embed this at the bottom of your Google Sites pages to build complete internal linking across every page, subpage, and certification authority.*
+### Snippet B: Sitewide 10-Model SEO Master Footer
+*Embed this at the bottom of your Google Sites pages. It provides full internal linking across all 10 product models divided into clear category silos, boosting crawl efficiency and user navigation.*
 
 ```html
 <!DOCTYPE html>
@@ -234,10 +266,10 @@ Microsoft Bing powers search results for Bing, Yahoo, and Windows Search. Connec
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
   body { background: #0f172a; color: #cbd5e1; padding: 40px 20px 24px; }
-  .footer-container { max-width: 1180px; margin: 0 auto; }
+  .footer-container { max-width: 1200px; margin: 0 auto; }
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1.4fr 1.1fr 1.1fr 1fr;
     gap: 32px;
     margin-bottom: 36px;
   }
@@ -279,7 +311,7 @@ Microsoft Bing powers search results for Bing, Yahoo, and Windows Search. Connec
     display: inline-block;
   }
   .footer-links { list-style: none; }
-  .footer-links li { margin-bottom: 9px; }
+  .footer-links li { margin-bottom: 8px; }
   .footer-links a {
     color: #94a3b8;
     text-decoration: none;
@@ -304,10 +336,10 @@ Microsoft Bing powers search results for Bing, Yahoo, and Windows Search. Connec
   }
   .bottom-bar a { color: #94a3b8; text-decoration: none; }
   .bottom-bar a:hover { color: #ff5e14; }
-  @media (max-width: 840px) {
+  @media (max-width: 900px) {
     .footer-grid { grid-template-columns: 1fr 1fr; }
   }
-  @media (max-width: 520px) {
+  @media (max-width: 540px) {
     .footer-grid { grid-template-columns: 1fr; gap: 24px; }
     .bottom-bar { flex-direction: column; text-align: center; }
   }
@@ -316,41 +348,46 @@ Microsoft Bing powers search results for Bing, Yahoo, and Windows Search. Connec
 <body>
   <div class="footer-container">
     <div class="footer-grid">
+      <!-- Col 1: Brand & Certifications -->
       <div>
         <div class="brand-title">ASCENTIX <span>LADDERS</span></div>
-        <p class="brand-desc">India's premier manufacturer of aerospace-alloy and Toray carbon composite industrial climbing systems. BIS IS 4130 / 4131 certified for Indian job sites.</p>
-        <span class="badge-tag">BIS IS 4130 Certified • Mumbai, India</span>
+        <p class="brand-desc">India's premier manufacturer of 7075-T6 aerospace-alloy and Toray carbon dielectric industrial climbing systems. BIS IS 4130 / 4131 certified for Indian industrial & commercial operations.</p>
+        <span class="badge-tag">BIS IS 4130 / 4131 Certified • Mumbai, India</span>
       </div>
 
+      <!-- Col 2: Electrical & Heavy Duty Fleet (Silo A) -->
       <div>
-        <div class="col-heading">Product Fleet</div>
+        <div class="col-heading">Electrical & Heavy Duty</div>
         <ul class="footer-links">
           <li><a href="https://sites.google.com/view/ascentix-ladders/products/telepro-360" target="_top">TelePro 360 Telescopic</a></li>
-          <li><a href="https://sites.google.com/view/ascentix-ladders/products/carbonapex-x1" target="_top">CarbonApex X1 Non-Conductive</a></li>
-          <li><a href="https://sites.google.com/view/ascentix-ladders/products/multiflex-transform" target="_top">MultiFlex Transform Multi-Mode</a></li>
-          <li><a href="https://sites.google.com/view/ascentix-ladders/products/titansafe-industrial" target="_top">TitanSafe 500 Industrial</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/carbonapex-x1" target="_top">CarbonApex X1 35kV Fleet</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/titansafe-industrial" target="_top">TitanSafe 500 Platform</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/solarstep-fx" target="_top">SolarStep FX Rooftop Solar</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/voltshield-fg5" target="_top">VoltShield FG5 1000V Stepladder</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Multi-Use & Architectural (Silo B) -->
+      <div>
+        <div class="col-heading">Commercial & Multi-Use</div>
+        <ul class="footer-links">
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/multiflex-transform" target="_top">MultiFlex Transform (14-in-1)</a></li>
           <li><a href="https://sites.google.com/view/ascentix-ladders/products/aeroreach-pro" target="_top">AeroReach Pro High-Reach</a></li>
           <li><a href="https://sites.google.com/view/ascentix-ladders/products/vaultstep-deluxe" target="_top">VaultStep Deluxe Step Stool</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/atticmaster-ha3" target="_top">AtticMaster HA3 Loft Ladder</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/deckrise-modular" target="_top">DeckRise Modular Platform</a></li>
         </ul>
       </div>
 
+      <!-- Col 4: Trust & Support -->
       <div>
-        <div class="col-heading">Company & Trust</div>
+        <div class="col-heading">Company & Fleet Desk</div>
         <ul class="footer-links">
           <li><a href="https://sites.google.com/view/ascentix-ladders/about-us" target="_top">About Ascentix</a></li>
-          <li><a href="https://sites.google.com/view/ascentix-ladders/about-us/the-team" target="_top">Leadership & Engineering Team</a></li>
-          <li><a href="https://sites.google.com/view/ascentix-ladders/social-media-hub" target="_top">Social Media & Drop Tests</a></li>
-          <li><a href="https://sites.google.com/view/ascentix-ladders/contact-us" target="_top">Fleet Sales & Inquiries</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="col-heading">Headquarters & Support</div>
-        <ul class="footer-links">
-          <li style="color:#94a3b8; font-size:0.84rem; line-height:1.5;">Ascentix Industrial Tower, MIDC Andheri East, Mumbai, MH 400093</li>
-          <li style="margin-top:8px;"><a href="mailto:contact@ascentix-ladders.in" target="_top">contact@ascentix-ladders.in</a></li>
-          <li><a href="tel:+912249876543" target="_top">+91 (022) 4987-6543</a></li>
-          <li><a href="https://wa.me/919876543210" target="_blank" style="color:#22c55e; font-weight:600;">Chat on WhatsApp ↗</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/about-us/the-team" target="_top">Leadership & Engineering</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/social-media-hub" target="_top">Drop Tests & Field Media</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/contact-us" target="_top">Fleet RFP & Inquiries</a></li>
+          <li style="margin-top: 8px;"><a href="https://wa.me/919876543210" target="_blank" style="color:#22c55e; font-weight:600;">Chat on WhatsApp ↗</a></li>
         </ul>
       </div>
     </div>
@@ -359,11 +396,27 @@ Microsoft Bing powers search results for Bing, Yahoo, and Windows Search. Connec
       <div>© 2026 Ascentix Ladders Pvt. Ltd. All rights reserved. BIS IS 4130 / 4131 Compliant.</div>
       <div>
         <a href="https://sites.google.com/view/ascentix-ladders/home" target="_top">Home</a> • 
-        <a href="https://sites.google.com/view/ascentix-ladders/products" target="_top">Products</a> • 
-        <a href="https://sites.google.com/view/ascentix-ladders/contact-us" target="_top">Contact</a>
+        <a href="https://sites.google.com/view/ascentix-ladders/products" target="_top">All 10 Models</a> • 
+        <a href="https://sites.google.com/view/ascentix-ladders/contact-us" target="_top">Contact</a> •
+        <a href="https://github.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites" target="_blank">GitHub Repository ↗</a>
       </div>
     </div>
   </div>
 </body>
 </html>
 ```
+
+---
+
+## 🏁 Summary Checklist for Session 3 Implementation
+
+- [ ] Nest **The Team** under **About Us** in Google Sites Pages panel.
+- [ ] Nest all **10 Product subpages** under **Products**.
+- [ ] Confirm **CarbonApex X1** displays the B2B CTA: `Request DISCOM Fleet Quote`.
+- [ ] Confirm **Home Page** has the 10-card responsive grid (`card-grid-10`) with `Best For` decision tags on MultiFlex and AeroReach.
+- [ ] Embed the **Breadcrumb snippet** on each product subpage.
+- [ ] Embed the updated **10-Model SEO Master Footer** sitewide.
+- [ ] Connect **GA4 Measurement ID** (`G-XXXXXXXXXX`) in Site Settings -> Analytics.
+- [ ] Verify URL-prefix property in **Google Search Console** and submit `system/feeds/sitemap`.
+- [ ] 1-Click Import into **Bing Webmaster Tools**.
+- [ ] Hit blue **Publish** button to push changes live!
