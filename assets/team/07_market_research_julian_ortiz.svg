@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="jBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="50%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5e14" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+    <linearGradient id="jSkinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4a373" />
+      <stop offset="100%" stop-color="#bc8a5f" />
+    </linearGradient>
+    <linearGradient id="charcoalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#374151" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#jBgGrad)" />
+
+  <g opacity="0.18" stroke="#ff5e14" stroke-width="1.5">
+    <circle cx="400" cy="350" r="280" fill="none" stroke-dasharray="4,6" />
+    <circle cx="400" cy="350" r="210" fill="none" />
+    <path d="M 190,350 Q 400,200 610,350" fill="none" />
+    <path d="M 190,350 Q 400,500 610,350" fill="none" />
+    <line x1="400" y1="70" x2="400" y2="630" />
+  </g>
+
+  <circle cx="400" cy="330" r="180" fill="url(#orangeGrad)" opacity="0.12" />
+
+  <path d="M 210,780 C 230,610 290,550 400,550 C 510,550 570,610 590,780 Z" fill="url(#charcoalGrad)" />
+  <path d="M 360,550 L 400,660 L 440,550 Z" fill="#f3f4f6" />
+  <path d="M 390,590 L 410,590 L 415,750 L 400,770 L 385,750 Z" fill="url(#orangeGrad)" />
+
+  <rect x="365" y="460" width="70" height="100" rx="15" fill="url(#jSkinGrad)" />
+  <ellipse cx="400" cy="350" rx="100" ry="128" fill="url(#jSkinGrad)" />
+
+  <path d="M 290,320 C 285,210 330,170 400,165 C 465,160 515,200 510,320 C 500,240 450,210 400,210 C 340,210 300,250 290,320 Z" fill="#262626" />
+  <path d="M 325,350 C 330,465 370,495 400,495 C 430,495 470,465 475,350 C 455,425 435,465 400,465 C 365,465 345,425 325,350 Z" fill="#262626" opacity="0.9" />
+
+  <ellipse cx="365" cy="340" rx="12" ry="8" fill="#1c1917" />
+  <circle cx="367" cy="338" r="3" fill="#ffffff" />
+  <ellipse cx="435" cy="340" rx="12" ry="8" fill="#1c1917" />
+  <circle cx="437" cy="338" r="3" fill="#ffffff" />
+
+  <path d="M 345,322 Q 365,316 385,322" fill="none" stroke="#1c1917" stroke-width="4.5" stroke-linecap="round" />
+  <path d="M 455,322 Q 435,316 415,322" fill="none" stroke="#1c1917" stroke-width="4.5" stroke-linecap="round" />
+
+  <path d="M 378,415 Q 400,432 422,415" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+
+  <rect x="170" y="710" width="460" height="60" rx="12" fill="#111827" opacity="0.9" stroke="#ff5e14" stroke-width="1.5" />
+  <text x="400" y="736" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" text-anchor="middle">JULIAN ORTIZ</text>
+  <text x="400" y="756" fill="#ff5e14" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" letter-spacing="1.5" text-anchor="middle">DIRECTOR OF MARKET RESEARCH &amp; TRADE INSIGHTS</text>
+</svg>

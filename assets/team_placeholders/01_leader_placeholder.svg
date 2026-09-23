@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+    <rect width="600" height="600" fill="#181c24" rx="24"/>
+    <rect x="25" y="25" width="550" height="550" rx="16" fill="none" stroke="#ff5e14" stroke-width="3" stroke-dasharray="10 10" opacity="0.7"/>
+    
+    <!-- User Avatar Icon -->
+    <circle cx="300" cy="230" r="85" fill="#222834" stroke="#ff5e14" stroke-width="2.5"/>
+    <circle cx="300" cy="205" r="38" fill="#94a3b8"/>
+    <path d="M 240,290 C 240,250 265,245 300,245 C 335,245 360,250 360,290 Z" fill="#94a3b8"/>
+    
+    <!-- Upload Symbol -->
+    <circle cx="370" cy="285" r="22" fill="#ff5e14"/>
+    <path d="M 370,274 L 379,284 L 373,284 L 373,296 L 367,296 L 367,284 L 361,284 Z" fill="#ffffff"/>
+    
+    <!-- Text Labels -->
+    <rect x="120" y="360" width="360" height="34" rx="8" fill="#ff5e14" opacity="0.15"/>
+    <text x="300" y="383" fill="#ff5e14" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" letter-spacing="2" text-anchor="middle">ROLE #1: LEADER</text>
+    
+    <text x="300" y="435" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" text-anchor="middle">Leader (CEO / Founder)</text>
+    <text x="300" y="475" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" text-anchor="middle">[Click or Drag to Upload Photo]</text>
+    <text x="300" y="505" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">Recommended: 800 x 800 JPG/PNG</text>
+  </svg>

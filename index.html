@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ascentix Ladders | Engineered for the Summit of Safety</title>
+  <meta name="description" content="Ascentix Ladders — aerospace-grade climbing systems built with 7075-T6 aluminium, Toray carbon fibre, and zero-wobble geometry. 6 professional models with BIS IS 4130/4131 certification for Indian industrial and electrical job sites." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page:   #f4f5f7;
+      --bg-white:  #ffffff;
+      --bg-card:   #ffffff;
+      --bg-card-hover: #fef6f2;
+      --bg-muted:  #f8f9fa;
+      --accent:    #ff5e14;
+      --accent-hover: #e04f08;
+      --accent-light: rgba(255, 94, 20, 0.08);
+      --accent-border: rgba(255, 94, 20, 0.25);
+      --text-main: #1a1d23;
+      --text-body: #3d4350;
+      --text-muted: #7b8290;
+      --border: #e2e5ea;
+      --border-focus: #ff5e14;
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.09);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+      --radius: 10px;
+      --font-heading: 'Oswald', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── TOP NOTICE BAR ── */
+    .top-bar {
+      background: var(--accent);
+      padding: 7px 24px;
+      font-size: 0.82rem;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+    .top-bar a { color: #fff; text-decoration: underline; font-weight: 700; }
+
+    /* ── HEADER / NAV ── */
+    header {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+    }
+    .brand-logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+    .brand-logo-area img {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      border: 2px solid var(--accent-border);
+      object-fit: cover;
+    }
+    .brand-text h1 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+    .brand-text span {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    nav { display: flex; align-items: center; gap: 4px; }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .nav-btn:hover { background: var(--bg-muted); color: var(--accent); }
+    .nav-btn.active { color: var(--accent); font-weight: 600; }
+
+    .dropdown { position: relative; }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-width: 240px;
+      box-shadow: var(--shadow-lg);
+      padding: 6px 0;
+      z-index: 200;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-item {
+      display: block;
+      padding: 10px 18px;
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 0.87rem;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+    .dropdown-item:hover { background: var(--accent-light); color: var(--accent); padding-left: 22px; }
+
+    .cta-btn {
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.87rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .cta-btn:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(255,94,20,0.28); }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--text-body);
+      padding: 10px 20px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+    }
+
+    .page-view { display: none; animation: fadeUp 0.3s ease forwards; }
+    .page-view.active { display: block; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── HERO BOX ── */
+    .hero-box {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--accent);
+      border-radius: 14px 0 0 14px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      line-height: 1.05;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+    .hero-title span { color: var(--accent); }
+    .hero-desc { color: var(--text-body); font-size: 1.1rem; margin-bottom: 30px; max-width: 520px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-visual > img {
+      width: 100%;
+      height: 460px;
+      object-fit: contain;
+      background: #f1f3f6;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      transition: opacity 0.2s ease;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header { margin-bottom: 28px; }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .section-title span { color: var(--accent); }
+    .section-subtitle { color: var(--text-muted); font-size: 1rem; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* ── CARD GRIDS ── */
+    .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 44px; }
+    .card-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-bottom: 44px; }
+    .card-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-bottom: 44px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .card:hover {
+      border-color: var(--accent-border);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      background: var(--bg-card-hover);
+    }
+    .card img.card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      border-radius: 7px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      background: #f1f3f6;
+    }
+    .card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .card p { color: var(--text-body); font-size: 0.91rem; margin-bottom: 14px; flex-grow: 1; }
+
+    /* ── ROLE BADGE ── */
+    .role-badge {
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* ── STATS / CERT BAR ── */
+    .stat-bar {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 44px;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--accent);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ── COLOR SWATCHES ── */
+    .swatch-group { margin: 18px 0; }
+    .swatch-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; display: block;
+    }
+    .swatches { display: flex; gap: 8px; }
+    .swatch-btn {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2.5px solid var(--border); cursor: pointer; transition: all 0.18s;
+    }
+    .swatch-btn.active, .swatch-btn:hover { transform: scale(1.2); border-color: var(--accent); }
+
+    /* ── SPEC TABLE ── */
+    .specs-table { width: 100%; border-collapse: collapse; margin: 22px 0 36px; font-size: 0.91rem; }
+    .specs-table th, .specs-table td { padding: 12px 18px; text-align: left; border-bottom: 1px solid var(--border); }
+    .specs-table th {
+      background: var(--bg-muted); color: var(--accent); font-weight: 700;
+      text-transform: uppercase; font-size: 0.78rem; letter-spacing: 1px;
+    }
+    .specs-table tr:hover td { background: var(--accent-light); }
+    .specs-table td { color: var(--text-body); }
+    .specs-table td:first-child { font-weight: 600; color: var(--text-main); }
+
+    /* ── TEAM CARDS ── */
+    .team-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+    .team-card:hover { box-shadow: var(--shadow-md); border-color: var(--accent-border); }
+    .team-card img {
+      width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+      margin: 0 auto 14px; display: block;
+      border: 3px solid var(--accent-border);
+      background: var(--bg-muted);
+    }
+    .team-card input.name-input {
+      width: 100%;
+      background: var(--bg-muted);
+      border: 1.5px solid var(--border);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-align: center;
+      margin-bottom: 4px;
+      transition: border-color 0.2s;
+    }
+    .team-card input.name-input:focus { outline: none; border-color: var(--accent); background: var(--accent-light); }
+    .team-card .role-title { font-size: 0.83rem; font-weight: 600; color: var(--text-body); margin-bottom: 6px; }
+    .team-card .role-desc { color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; margin-top: 6px; }
+
+    /* ── INFO BOX / NOTE ── */
+    .info-box {
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin-bottom: 26px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+    }
+    .info-box strong { color: var(--accent); }
+
+    /* ── CONTACT FORM ── */
+    .form-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .form-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      color: var(--text-main);
+    }
+    .form-card input, .form-card select, .form-card textarea {
+      width: 100%; background: var(--bg-muted);
+      border: 1.5px solid var(--border);
+      color: var(--text-main); padding: 10px 14px;
+      border-radius: 6px; font-family: var(--font-body);
+      font-size: 0.92rem; transition: border-color 0.2s;
+      margin-bottom: 12px;
+    }
+    .form-card input:focus, .form-card select:focus, .form-card textarea:focus {
+      outline: none; border-color: var(--accent); background: #fff;
+    }
+
+    /* ── SOCIAL CARDS ── */
+    .social-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--accent-light); border: 1px solid var(--accent-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 12px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-white);
+      padding: 48px 24px 32px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .footer-container {
+      max-width: 1300px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px;
+    }
+    .footer-col h4 {
+      color: var(--text-main); font-family: var(--font-heading);
+      font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { color: var(--text-muted); text-decoration: none; transition: color 0.15s; cursor: pointer; }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-bottom {
+      max-width: 1300px; margin: 24px auto 0;
+      border-top: 1px solid var(--border); padding-top: 18px;
+      font-size: 0.8rem; color: var(--text-muted);
+      display: flex; justify-content: space-between;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .stat-bar { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .hero-box { grid-template-columns: 1fr; }
+      .card-grid-3, .card-grid-4 { grid-template-columns: 1fr 1fr; }
+      .footer-container { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 580px) {
+      .card-grid-3, .card-grid-4, .card-grid-2 { grid-template-columns: 1fr; }
+      .footer-container { grid-template-columns: 1fr; }
+      .hero-box { padding: 32px 24px; }
+      .hero-title { font-size: 2.2rem; }
+      .stat-bar { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span>📋 Google Sites Project Kit • <strong>Ascentix Ladders Official</strong></span>
+    <span><a href="GOOGLE_SITES_STEP_BY_STEP_GUIDE.md" target="_blank">View Setup Guide →</a></span>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="nav-container">
+      <div class="brand-logo-area" onclick="switchPage('home')">
+        <img src="assets/logo/ascentix_logo.jpg" alt="Ascentix Ladders Logo" />
+        <div class="brand-text">
+          <h1>Ascentix</h1>
+          <span>Ladders Pvt. Ltd.</span>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-btn active" id="nav-home" onclick="switchPage('home')">Home</button>
+        <button class="nav-btn" id="nav-about" onclick="switchPage('about')">About Us</button>
+        <div class="dropdown">
+          <button class="nav-btn" id="nav-products" onclick="switchPage('products')">Products ▾</button>
+          <div class="dropdown-content">
+            <a class="dropdown-item" onclick="switchPage('telepro')">1. TelePro 360 — Telescopic</a>
+            <a class="dropdown-item" onclick="switchPage('carbonapex')">2. CarbonApex X1 — Carbon Step</a>
+            <a class="dropdown-item" onclick="switchPage('multiflex')">3. MultiFlex Transform — 14-in-1</a>
+            <a class="dropdown-item" onclick="switchPage('titansafe')">4. TitanSafe Industrial — Platform</a>
+            <a class="dropdown-item" onclick="switchPage('aeroreach')">5. AeroReach Pro — Telescoping Extension</a>
+            <a class="dropdown-item" onclick="switchPage('vaultstep')">6. VaultStep Deluxe — 5-in-1 Combo</a>
+          </div>
+        </div>
+        <button class="nav-btn" id="nav-team" onclick="switchPage('team')">The Team</button>
+        <button class="nav-btn" id="nav-social" onclick="switchPage('social')">Social Media</button>
+        <button class="nav-btn" id="nav-contact" onclick="switchPage('contact')">Contact Us</button>
+        <a href="advertisement_clip.html" target="_blank" class="nav-btn" style="color: var(--accent); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">🎬 Ad Film</a>
+        <button class="cta-btn" onclick="switchPage('contact')">Get Quote</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════ PAGE: HOME ═══════════════════════════ -->
+    <section id="page-home" class="page-view active">
+
+      <!-- HERO -->
+      <div class="hero-box">
+        <div>
+          <span class="hero-badge">Aerospace Climbing Systems — India</span>
+          <h2 class="hero-title">Engineered for the <span>Summit of Safety.</span></h2>
+          <p class="hero-desc">We combine aerospace-grade 7075-T6 alloys, pure Toray carbon fibre, and zero-wobble geometry to build India's most trusted industrial climbing equipment — BIS IS 4130/4131 certified for Indian job sites.</p>
+          <div class="hero-actions">
+            <button class="cta-btn" onclick="switchPage('products')">Explore 6 Product Models</button>
+            <a href="advertisement_clip.html" target="_blank" class="btn-secondary" style="border-color: var(--accent); color: var(--accent); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">🎬 Watch Commercial Film</a>
+            <button class="btn-secondary" onclick="switchPage('about')">The Ascentix Story</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/products/model_1_telepro_360.jpg" alt="Ascentix TelePro 360" />
+        </div>
+      </div>
+
+      <!-- STATS BAR -->
+      <div class="stat-bar">
+        <div class="stat-item">
+          <div class="stat-num">84%</div>
+          <div class="stat-label">Less Torsional Sway</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">35kV</div>
+          <div class="stat-label">Dielectric Rated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">170 kg</div>
+          <div class="stat-label">BIS IS 4130 Heavy Duty</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">50K</div>
+          <div class="stat-label">BIS IS Certified</div>
+        </div>
+      </div>
+
+      <!-- ENGINEERING PILLARS -->
+      <div class="section-header">
+        <h3 class="section-title">The Ascentix <span>Zero-Fail</span> Matrix</h3>
+        <p class="section-subtitle">Why 90% of Indian construction & electrical job-site ladder injuries are eliminated with our structural engineering approach.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="card">
+          <h3>1. Zero-Wobble Geometry</h3>
+          <p>Milled 7075-T6 extruded box-beam stiles eliminate torsional twisting by 84%. Absolute stability at full 5.5 m reach — built for India's toughest infrastructure and high-rise projects.</p>
+        </div>
+        <div class="card">
+          <h3>2. Toray Carbon Fibre</h3>
+          <p>Non-conductive dielectric composite frames tested up to 35,000 Volts. Essential for Indian electricians working on 33kV & 66kV overhead lines, weighing 60% less than fibreglass.</p>
+        </div>
+        <div class="card">
+          <h3>3. Zero-Pinch Air Damping</h3>
+          <p>Patented quad-valve pneumatic air cartridges guarantee controlled, whisper-soft retraction — critical for fatigue-free use across India's long construction shifts.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- PRODUCT GRID -->
+      <div class="section-header">
+        <h3 class="section-title">The Product <span>Lineup</span></h3>
+        <p class="section-subtitle">Click any model to explore its dedicated page, full specifications, and 4 specialized color finishes.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="card" onclick="switchPage('telepro')" style="cursor:pointer">
+          <img src="assets/products/model_1_telepro_360.jpg" class="card-img" alt="TelePro 360">
+          <span class="role-badge">Model 01 • Telescopic</span>
+          <h3>TelePro 360</h3>
+          <p>3.8m reach aerospace aluminium ladder that collapses to 88 cm for car-boot storage. BIS IS 4130 certified.</p>
+          <button class="btn-secondary" style="width:100%; margin-top:auto">View Model &amp; Colors →</button>
+        </div>
+        <div class="card" onclick="switchPage('carbonapex')" style="cursor:pointer">
+          <img src="assets/products/model_2_carbonapex_x1.jpg" class="card-img" alt="CarbonApex X1">
+          <span class="role-badge">Model 02 • Carbon Fiber</span>
+          <h3>CarbonApex X1</h3>
+          <p>Only 3.2 kg. 100% dielectric Toray 3K carbon fibre. BIS IS 4131 certified — safe for Indian 33kV/66kV HV sites.</p>
+          <button class="btn-secondary" style="width:100%; margin-top:auto">View Model &amp; Colors →</button>
+        </div>
+        <div class="card" onclick="switchPage('multiflex')" style="cursor:pointer">
+          <img src="assets/products/model_3_multiflex_transform.jpg" class="card-img" alt="MultiFlex Transform">
+          <span class="role-badge">Model 03 • 14-in-1</span>
+          <h3>MultiFlex Transform</h3>
+          <p>Quad-lock dual-pin hinges and auto-leveling outriggers — stable on India's uneven terrain, sloped rooftops, and stairwells.</p>
+          <button class="btn-secondary" style="width:100%; margin-top:auto">View Model &amp; Colors →</button>
+        </div>
+        <div class="card" onclick="switchPage('titansafe')" style="cursor:pointer">
+          <img src="assets/products/model_4_titansafe_industrial.jpg" class="card-img" alt="TitanSafe Industrial">
+          <span class="role-badge">Model 04 • Industrial</span>
+          <h3>TitanSafe Industrial</h3>
+          <p>BIS IS 4130 Heavy Duty 170 kg rated with full 360° safety cage &amp; auto-braking casters — ideal for Indian factories &amp; warehouses.</p>
+          <button class="btn-secondary" style="width:100%; margin-top:auto">View Model &amp; Colors →</button>
+        </div>
+        <div class="card" onclick="switchPage('aeroreach')" style="cursor:pointer">
+          <img src="assets/products/model_5_aeroreach_pro.jpg" class="card-img" alt="AeroReach Pro">
+          <span class="role-badge">Model 05 • Telescoping Extension</span>
+          <h3>AeroReach Pro</h3>
+          <p>One-touch AeroLock™ telescoping rungs reach 6.2m. 6061-T6 alloy rails with self-adjusting stabiliser feet. BIS IS 1875 certified.</p>
+          <button class="btn-secondary" style="width:100%; margin-top:auto">View Model &amp; Colors →</button>
+        </div>
+        <div class="card" onclick="switchPage('vaultstep')" style="cursor:pointer">
+          <img src="assets/products/model_6_vaultstep_deluxe.jpg" class="card-img" alt="VaultStep Deluxe">
+          <span class="role-badge">Model 06 • 5-in-1 Combo</span>
+          <h3>VaultStep Deluxe</h3>
+          <p>VaultFlex™ 5-in-1 hinge: A-frame, extension, staircase, scaffold &amp; lean modes. Extra-wide steps &amp; integrated tool caddy. BIS IS 1364 certified.</p>
+          <button class="btn-secondary" style="width:100%; margin-top:auto">View Model &amp; Colors →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ PAGE: ABOUT US ═══════════════════════════ -->
+    <section id="page-about" class="page-view">
+      <div class="section-header">
+        <h2 class="section-title">About <span>Ascentix</span> Ladders</h2>
+        <p class="section-subtitle">Company Incorporation, Engineering Philosophy & The Zero-Fail Mission</p>
+      </div>
+
+      <div class="hero-box">
+        <div>
+          <span class="hero-badge">Company Incorporation</span>
+          <h2 class="hero-title" style="font-size:2.2rem">The Genesis of <span>Ascentix</span></h2>
+          <p class="hero-desc" style="font-size:1rem; margin-bottom:14px">Every year, the NCRB and India's National Safety Council report tens of thousands of serious injuries from ladder and elevated-work falls — making height-related accidents one of the leading causes of occupational fatality across India's booming construction and electrical sectors.</p>
+          <p style="color: var(--text-body); font-size:0.96rem"><strong>Ascentix Ladders Pvt. Ltd.</strong> was incorporated to treat climbing hardware with the uncompromising engineering standards of aerospace structures — milled 7075-T6 aluminium, Toray carbon fibre, and pneumatic damping eliminate the root causes of job-site falls. BIS IS 4130/4131 certified for India.</p>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/logo/ascentix_logo.jpg" alt="Ascentix Official Logo" />
+        </div>
+      </div>
+
+      <div class="card-grid-3">
+        <div class="card">
+          <span class="role-badge">Our Mission</span>
+          <h3>Engineered Certainty</h3>
+          <p>To design and manufacture India's most structurally rigid and ergonomically advanced climbing tools — empowering electricians, civil contractors, and telecom crews to climb with zero hesitation.</p>
+        </div>
+        <div class="card">
+          <span class="role-badge">Our Vision</span>
+          <h3>Accident-Free Height</h3>
+          <p>An Indian job site where elevation accidents are obsolete — from Mumbai skyscrapers to remote DISCOM substations in Rajasthan — through intelligent materials and positive lock indicators.</p>
+        </div>
+        <div class="card">
+          <span class="role-badge">Our Standards</span>
+          <h3>300% Proof Load</h3>
+          <p>Every batch is tested to triple its duty rating before shipping. Certified by BIS IS 4130/IS 4131, ISO 9001:2015, and European EN131 for international compliance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ PAGE: THE TEAM ═══════════════════════════ -->
+    <section id="page-team" class="page-view">
+      <div class="section-header">
+        <h2 class="section-title">The <span>Team</span></h2>
+        <p class="section-subtitle">The 7 Mandatory Functional Leads — type your actual names in the editable fields below.</p>
+      </div>
+
+      <div class="info-box">
+        <strong>Interactive Customization Mode:</strong> Click any name field and type your actual team member name. You can also upload personal photos directly in Google Sites instead of the placeholder SVGs.
+      </div>
+
+      <div class="card-grid-4">
+        <!-- 1 Leader -->
+        <div class="team-card">
+          <img src="assets/team_placeholders/01_leader_placeholder.svg" alt="Leader Placeholder" />
+          <span class="role-badge">1. Leader (1)</span>
+          <input type="text" class="name-input" value="[INSERT LEADER NAME]" />
+          <div class="role-title">Chief Executive Officer</div>
+          <p class="role-desc">Strategic vision, investor relations, and championing zero-injury job site standards.</p>
+        </div>
+        <!-- 2 Developer Lead -->
+        <div class="team-card">
+          <img src="assets/team_placeholders/02_developer_lead_placeholder.svg" alt="Dev Lead" />
+          <span class="role-badge">2. Developer Lead</span>
+          <input type="text" class="name-input" value="[INSERT DEV LEAD NAME]" />
+          <div class="role-title">VP of Engineering</div>
+          <p class="role-desc">CAD design, FEA stress modeling, aerospace alloy selection, and pneumatic damping.</p>
+        </div>
+        <!-- 3 Design Lead -->
+        <div class="team-card">
+          <img src="assets/team_placeholders/03_design_lead_placeholder.svg" alt="Design Lead" />
+          <span class="role-badge">3. Design Lead</span>
+          <input type="text" class="name-input" value="[INSERT DESIGN LEAD NAME]" />
+          <div class="role-title">Head of Industrial Design</div>
+          <p class="role-desc">Anti-fatigue tread geometry, co-molded non-slip feet, and tactile colorway finishes.</p>
+        </div>
+        <!-- 4 Social Media -->
+        <div class="team-card">
+          <img src="assets/team_placeholders/04_social_media_placeholder.svg" alt="Social Media" />
+          <span class="role-badge">4. Social Media</span>
+          <input type="text" class="name-input" value="[INSERT SOCIAL MEDIA NAME]" />
+          <div class="role-title">Global Community Lead</div>
+          <p class="role-desc">Directs #DropTestThursday, contractor ambassador network, TikTok & YouTube.</p>
+        </div>
+        <!-- 5 Product Managers -->
+        <div class="team-card">
+          <img src="assets/team_placeholders/05_product_managers_placeholder.svg" alt="PM" />
+          <span class="role-badge">5. Product Managers</span>
+          <input type="text" class="name-input" value="[INSERT PM NAME]" />
+          <div class="role-title">Director of Product Management</div>
+          <p class="role-desc">Product roadmap delivery, BIS IS 4130/4131 compliance testing, and Indian fleet feedback cycles.</p>
+        </div>
+        <!-- 6 Analytics -->
+        <div class="team-card">
+          <img src="assets/team_placeholders/06_analytics_lead_placeholder.svg" alt="Analytics" />
+          <span class="role-badge">6. Analytics</span>
+          <input type="text" class="name-input" value="[INSERT ANALYTICS NAME]" />
+          <div class="role-title">Head of Safety Analytics</div>
+          <p class="role-desc">50,000-cycle digital-twin fatigue simulations, sensor telemetry, and warranty insights.</p>
+        </div>
+        <!-- 7 Market Research -->
+        <div class="team-card">
+          <img src="assets/team_placeholders/07_market_research_placeholder.svg" alt="Market Research" />
+          <span class="role-badge">7. Market Research</span>
+          <input type="text" class="name-input" value="[INSERT RESEARCH NAME]" />
+          <div class="role-title">Director of Market Intelligence</div>
+          <p class="role-desc">Contractor field interviews, competitive intelligence, and global safety regulation tracking.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ PAGE: PRODUCTS LISTING ═══════════════════════════ -->
+    <section id="page-products" class="page-view">
+      <div class="section-header">
+        <h2 class="section-title">Ascentix <span>Climbing Systems</span> Portfolio</h2>
+        <p class="section-subtitle">Select any model to view its full technical breakdown, color finishes, and applications.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="card" onclick="switchPage('telepro')" style="cursor:pointer">
+          <img src="assets/products/model_1_telepro_360.jpg" class="card-img" alt="TelePro 360">
+          <span class="role-badge">Model 01</span>
+          <h3>TelePro 360</h3>
+          <p>Telescopic aerospace aluminium with pinch-free air damping. 3.8m reach. BIS IS 4130 certified.</p>
+          <div style="font-size:0.8rem;color:var(--accent);margin-bottom:12px;font-weight:700">● 4 Color Finishes Available</div>
+          <button class="cta-btn" style="width:100%">View Model Details</button>
+        </div>
+        <div class="card" onclick="switchPage('carbonapex')" style="cursor:pointer">
+          <img src="assets/products/model_2_carbonapex_x1.jpg" class="card-img" alt="CarbonApex X1">
+          <span class="role-badge">Model 02</span>
+          <h3>CarbonApex X1</h3>
+          <p>Ultra-light 3.2 kg Toray carbon fibre step ladder. 100% dielectric non-conductive. BIS IS 4131 certified for Indian HV sites.</p>
+          <div style="font-size:0.8rem;color:var(--accent);margin-bottom:12px;font-weight:700">● 4 Color Finishes Available</div>
+          <button class="cta-btn" style="width:100%">View Model Details</button>
+        </div>
+        <div class="card" onclick="switchPage('multiflex')" style="cursor:pointer">
+          <img src="assets/products/model_3_multiflex_transform.jpg" class="card-img" alt="MultiFlex Transform">
+          <span class="role-badge">Model 03</span>
+          <h3>MultiFlex Transform</h3>
+          <p>14-in-1 articulated ladder with patented quad-lock hinges &amp; auto-leveling outriggers — built for India's uneven terrain &amp; stairwells.</p>
+          <div style="font-size:0.8rem;color:var(--accent);margin-bottom:12px;font-weight:700">● 4 Color Finishes Available</div>
+          <button class="cta-btn" style="width:100%">View Model Details</button>
+        </div>
+        <div class="card" onclick="switchPage('titansafe')" style="cursor:pointer">
+          <img src="assets/products/model_4_titansafe_industrial.jpg" class="card-img" alt="TitanSafe Industrial">
+          <span class="role-badge">Model 04</span>
+          <h3>TitanSafe Industrial</h3>
+          <p>BIS IS 4130 Heavy Duty 170 kg rated platform ladder with 360° surround safety cage — for Indian factories, warehouses &amp; MRO hangars.</p>
+          <div style="font-size:0.8rem;color:var(--accent);margin-bottom:12px;font-weight:700">● 4 Color Finishes Available</div>
+          <button class="cta-btn" style="width:100%">View Model Details</button>
+        </div>
+        <div class="card" onclick="switchPage('aeroreach')" style="cursor:pointer">
+          <img src="assets/products/model_5_aeroreach_pro.jpg" class="card-img" alt="AeroReach Pro">
+          <span class="role-badge">Model 05</span>
+          <h3>AeroReach Pro</h3>
+          <p>One-touch AeroLock™ slide-and-lock rungs extend to 6.2m. 6061-T6 alloy rails, self-adjusting stabiliser feet. BIS IS 1875 &amp; ANSI A14.2 certified.</p>
+          <div style="font-size:0.8rem;color:var(--accent);margin-bottom:12px;font-weight:700">● 4 Color Finishes Available</div>
+          <button class="cta-btn" style="width:100%">View Model Details</button>
+        </div>
+        <div class="card" onclick="switchPage('vaultstep')" style="cursor:pointer">
+          <img src="assets/products/model_6_vaultstep_deluxe.jpg" class="card-img" alt="VaultStep Deluxe">
+          <span class="role-badge">Model 06</span>
+          <h3>VaultStep Deluxe</h3>
+          <p>VaultFlex™ 5-in-1 combination ladder: A-frame, extension, staircase, scaffold &amp; leaning modes. 260 mm wide steps &amp; tool caddy. BIS IS 1364 certified.</p>
+          <div style="font-size:0.8rem;color:var(--accent);margin-bottom:12px;font-weight:700">● 4 Color Finishes Available</div>
+          <button class="cta-btn" style="width:100%">View Model Details</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ PRODUCT 1: TELEPRO 360 ═══════════════════════════ -->
+    <section id="page-telepro" class="page-view">
+      <div class="hero-box">
+        <div>
+          <span class="hero-badge">Model 01 • Telescopic Extension Ladder</span>
+          <h2 class="hero-title">Ascentix <span>TelePro 360</span></h2>
+          <p class="hero-desc">Full 3.8-metre reach in a compact package that collapses into an 88 cm boot-friendly cylinder. Engineered with pinch-free air damping for India's long-shift electricians and civil contractors.</p>
+          <div class="swatch-group">
+            <span class="swatch-label">Select Finish:</span>
+            <div class="swatches">
+              <div class="swatch-btn active" id="swatch-telepro-0" style="background:linear-gradient(135deg,#94a3b8 50%,#ff5e14 50%)" title="Apex Titanium & Safety Orange" onclick="setColor('telepro','Apex Titanium & Safety Orange (Signature)','assets/products/model_1_telepro_signature.jpg',0)"></div>
+              <div class="swatch-btn" id="swatch-telepro-1" style="background:#12151b" title="Matte Obsidian Stealth" onclick="setColor('telepro','Matte Obsidian Stealth (Tactical Blackout)','assets/products/model_1_telepro_stealth.jpg',1)"></div>
+              <div class="swatch-btn" id="swatch-telepro-2" style="background:linear-gradient(135deg,#e2e8f0 50%,#1d4ed8 50%)" title="Arctic Silver & Cobalt" onclick="setColor('telepro','Arctic Silver & Cobalt Blue (Nordic Edition)','assets/products/model_1_telepro_cobalt.jpg',2)"></div>
+              <div class="swatch-btn" id="swatch-telepro-3" style="background:linear-gradient(135deg,#facc15 50%,#18181b 50%)" title="High-Vis Yellow" onclick="setColor('telepro','High-Vis Jobsite Yellow & Graphite','assets/products/model_1_telepro_yellow.jpg',3)"></div>
+            </div>
+            <p id="telepro-color-text" style="font-size:0.88rem;color:var(--accent);margin-top:8px;font-weight:700">● Apex Titanium & Safety Orange (Signature)</p>
+          </div>
+          <div class="hero-actions">
+            <button class="cta-btn" onclick="switchPage('contact')">Configure &amp; Order — ₹28,999</button>
+            <button class="btn-secondary" onclick="switchPage('products')">All Products</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img id="telepro-img" src="assets/products/model_1_telepro_signature.jpg" alt="TelePro 360" />
+          <div style="display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap">
+            <img src="assets/products/model_1_telepro_signature.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:2px solid var(--accent)" onclick="setColor('telepro','Apex Titanium & Safety Orange (Signature)','assets/products/model_1_telepro_signature.jpg',0)" alt="Signature">
+            <img src="assets/products/model_1_telepro_stealth.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('telepro','Matte Obsidian Stealth (Tactical Blackout)','assets/products/model_1_telepro_stealth.jpg',1)" alt="Stealth">
+            <img src="assets/products/model_1_telepro_cobalt.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('telepro','Arctic Silver & Cobalt Blue (Nordic Edition)','assets/products/model_1_telepro_cobalt.jpg',2)" alt="Cobalt">
+            <img src="assets/products/model_1_telepro_yellow.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('telepro','High-Vis Jobsite Yellow & Graphite','assets/products/model_1_telepro_yellow.jpg',3)" alt="Yellow">
+          </div>
+        </div>
+      </div>
+      <h3 class="section-title">Technical <span>Specifications</span></h3>
+      <table class="specs-table">
+        <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+        <tr><td>Max Extended Height</td><td>3.80 meters</td><td>12.5 feet (15.7 ft Reach)</td></tr>
+        <tr><td>Storage Height (Closed)</td><td>0.88 meters</td><td>34.6 inches</td></tr>
+        <tr><td>Unit Weight</td><td>10.8 kg</td><td>23.8 lbs</td></tr>
+        <tr><td>Duty Load Rating</td><td>150 kg (BIS IS 4130 Heavy Duty)</td><td>330 lbs Rated</td></tr>
+        <tr><td>Material Composition</td><td>Milled 7075-T6 Aerospace Aluminium</td><td>High-Strength Alloy</td></tr>
+        <tr><td>Retraction Mechanism</td><td>Sealed Quad-Valve Air Damping Piston</td><td>Pinch-Free Controlled Close</td></tr>
+        <tr><td>Certifications</td><td><strong>BIS IS 4130 : 1994</strong> — Indian Standard for Portable Metal Ladders</td><td>BIS IS Certified</td></tr>
+      </table>
+    </section>
+
+    <!-- ═══════════════════════════ PRODUCT 2: CARBONAPEX X1 ═══════════════════════════ -->
+    <section id="page-carbonapex" class="page-view">
+      <div class="hero-box">
+        <div>
+          <span class="hero-badge">Model 02 • Ultralight Carbon Fiber Step Ladder</span>
+          <h2 class="hero-title">Ascentix <span>CarbonApex X1</span></h2>
+          <p class="hero-desc">India's lightest professional step ladder. 100% dielectric non-conductive Toray 3K carbon composite frame weighing only 3.2 kg — essential for Indian electricians working on 33kV/66kV sites.</p>
+          <div class="swatch-group">
+            <span class="swatch-label">Select Finish:</span>
+            <div class="swatches">
+              <div class="swatch-btn active" id="swatch-carbonapex-0" style="background:linear-gradient(135deg,#1e1e24 50%,#ff5e14 50%)" title="Raw Toray 3K" onclick="setColor('carbonapex','Raw Toray 3K Matte Weave (Signature)','assets/products/model_2_carbonapex_signature.jpg',0)"></div>
+              <div class="swatch-btn" id="swatch-carbonapex-1" style="background:#0a0a0a" title="Stealth Blackout" onclick="setColor('carbonapex','Stealth Shadow Blackout','assets/products/model_2_carbonapex_blackout.jpg',1)"></div>
+              <div class="swatch-btn" id="swatch-carbonapex-2" style="background:linear-gradient(135deg,#1c1917 50%,#d97706 50%)" title="Burnt Copper" onclick="setColor('carbonapex','Anodized Burnt Copper Edition','assets/products/model_2_carbonapex_copper.jpg',2)"></div>
+              <div class="swatch-btn" id="swatch-carbonapex-3" style="background:linear-gradient(135deg,#18181b 50%,#dc2626 50%)" title="Formula Crimson" onclick="setColor('carbonapex','Formula Crimson Apex','assets/products/model_2_carbonapex_crimson.jpg',3)"></div>
+            </div>
+            <p id="carbonapex-color-text" style="font-size:0.88rem;color:var(--accent);margin-top:8px;font-weight:700">● Raw Toray 3K Matte Weave (Signature)</p>
+          </div>
+          <div class="hero-actions">
+            <button class="cta-btn" onclick="switchPage('contact')">Configure &amp; Order — ₹39,999</button>
+            <button class="btn-secondary" onclick="switchPage('products')">All Products</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img id="carbonapex-img" src="assets/products/model_2_carbonapex_signature.jpg" alt="CarbonApex X1" />
+          <div style="display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap">
+            <img src="assets/products/model_2_carbonapex_signature.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:2px solid var(--accent)" onclick="setColor('carbonapex','Raw Toray 3K Matte Weave (Signature)','assets/products/model_2_carbonapex_signature.jpg',0)" alt="Signature">
+            <img src="assets/products/model_2_carbonapex_blackout.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('carbonapex','Stealth Shadow Blackout','assets/products/model_2_carbonapex_blackout.jpg',1)" alt="Blackout">
+            <img src="assets/products/model_2_carbonapex_copper.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('carbonapex','Anodized Burnt Copper Edition','assets/products/model_2_carbonapex_copper.jpg',2)" alt="Copper">
+            <img src="assets/products/model_2_carbonapex_crimson.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('carbonapex','Formula Crimson Apex','assets/products/model_2_carbonapex_crimson.jpg',3)" alt="Crimson">
+          </div>
+        </div>
+      </div>
+      <h3 class="section-title">Technical <span>Specifications</span></h3>
+      <table class="specs-table">
+        <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+        <tr><td>Open Height / Reach</td><td>1.45 meters</td><td>4.75 ft Height / 9.3 ft Reach</td></tr>
+        <tr><td>Ultra-Slim Folded Depth</td><td>68 mm</td><td>2.68 inches</td></tr>
+        <tr><td>Unit Weight</td><td>3.20 kg</td><td>7.05 lbs</td></tr>
+        <tr><td>Duty Load Rating</td><td>180 kg (BIS IS 4131 Heavy Duty)</td><td>400 lbs Rated</td></tr>
+        <tr><td>Material Composition</td><td>Torayca® 3K Continuous Carbon Composite</td><td>Dielectric High-Modulus</td></tr>
+        <tr><td>Electrical Voltage Isolation</td><td>Tested up to 35,000 Volts</td><td>Safe for Indian 33kV/66kV Live Wires</td></tr>
+        <tr><td>Certifications</td><td><strong>BIS IS 4131 : 1994</strong> — Indian Standard for Portable Non-Metallic Ladders</td><td>BIS IS Certified</td></tr>
+      </table>
+    </section>
+
+    <!-- ═══════════════════════════ PRODUCT 3: MULTIFLEX TRANSFORM ═══════════════════════════ -->
+    <section id="page-multiflex" class="page-view">
+      <div class="hero-box">
+        <div>
+          <span class="hero-badge">Model 03 • 14-in-1 Articulated Multi-Position</span>
+          <h2 class="hero-title">Ascentix <span>MultiFlex Transform</span></h2>
+          <p class="hero-desc">Replaces 4 different ladders on your vehicle. Converts into A-frame, stairwell easel, 5.4-metre straight extension ladder, or scaffold workbench in seconds — ideal for India's varied construction sites.</p>
+          <div class="swatch-group">
+            <span class="swatch-label">Select Finish:</span>
+            <div class="swatches">
+              <div class="swatch-btn active" id="swatch-multiflex-0" style="background:linear-gradient(135deg,#64748b 50%,#ff5e14 50%)" title="Industrial Alloy & Orange" onclick="setColor('multiflex','Industrial Brushed Alloy & Orange (Flagship)','assets/products/model_3_multiflex_flagship.jpg',0)"></div>
+              <div class="swatch-btn" id="swatch-multiflex-1" style="background:linear-gradient(135deg,#334155 50%,#84cc16 50%)" title="Tungsten & Acid Lime" onclick="setColor('multiflex','Tactical Tungsten & Acid Lime','assets/products/model_3_multiflex_lime.jpg',1)"></div>
+              <div class="swatch-btn" id="swatch-multiflex-2" style="background:linear-gradient(135deg,#eab308 50%,#1f2937 50%)" title="Contractor Yellow & Black" onclick="setColor('multiflex','Contractor Yellow & Black','assets/products/model_3_multiflex_yellow.jpg',2)"></div>
+              <div class="swatch-btn" id="swatch-multiflex-3" style="background:linear-gradient(135deg,#1e3a8a 50%,#cbd5e1 50%)" title="Pacific Navy & Chrome" onclick="setColor('multiflex','Pacific Studio Navy & Polished Chrome','assets/products/model_3_multiflex_navy.jpg',3)"></div>
+            </div>
+            <p id="multiflex-color-text" style="font-size:0.88rem;color:var(--accent);margin-top:8px;font-weight:700">● Industrial Brushed Alloy & Orange (Flagship)</p>
+          </div>
+          <div class="hero-actions">
+            <button class="cta-btn" onclick="switchPage('contact')">Configure &amp; Order — ₹34,999</button>
+            <button class="btn-secondary" onclick="switchPage('products')">All Products</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img id="multiflex-img" src="assets/products/model_3_multiflex_flagship.jpg" alt="MultiFlex Transform" />
+          <div style="display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap">
+            <img src="assets/products/model_3_multiflex_flagship.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:2px solid var(--accent)" onclick="setColor('multiflex','Industrial Brushed Alloy & Orange (Flagship)','assets/products/model_3_multiflex_flagship.jpg',0)" alt="Flagship">
+            <img src="assets/products/model_3_multiflex_lime.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('multiflex','Tactical Tungsten & Acid Lime','assets/products/model_3_multiflex_lime.jpg',1)" alt="Lime">
+            <img src="assets/products/model_3_multiflex_yellow.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('multiflex','Contractor Yellow & Black','assets/products/model_3_multiflex_yellow.jpg',2)" alt="Yellow">
+            <img src="assets/products/model_3_multiflex_navy.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('multiflex','Pacific Studio Navy & Polished Chrome','assets/products/model_3_multiflex_navy.jpg',3)" alt="Navy">
+          </div>
+        </div>
+      </div>
+      <h3 class="section-title">Technical <span>Specifications</span></h3>
+      <table class="specs-table">
+        <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+        <tr><td>Full Straight Extension Reach</td><td>5.40 meters</td><td>17.7 feet</td></tr>
+        <tr><td>A-Frame Height</td><td>1.80 to 2.60 meters</td><td>5.9 to 8.5 feet</td></tr>
+        <tr><td>Hinge Mechanism</td><td>Internal Dual-Pin Hardened Steel Quad-Lock</td><td>1,800 kg Shear Load Rating</td></tr>
+        <tr><td>Stabilizer Stance Width</td><td>850 mm Wide Base Bar</td><td>33.5 inches with Outriggers</td></tr>
+        <tr><td>Unit Weight</td><td>14.2 kg</td><td>31.3 lbs</td></tr>
+        <tr><td>Duty Load Rating</td><td>150 kg (BIS IS 4130 Heavy Duty)</td><td>330 lbs Duty Rating</td></tr>
+        <tr><td>Certifications</td><td><strong>BIS IS 4130 : 1994</strong> — Indian Standard for Portable Metal Ladders (Multi-Use)</td><td>BIS IS Certified</td></tr>
+      </table>
+    </section>
+
+    <!-- ═══════════════════════════ PRODUCT 4: TITANSAFE INDUSTRIAL ═══════════════════════════ -->
+    <section id="page-titansafe" class="page-view">
+      <div class="hero-box">
+        <div>
+          <span class="hero-badge">Model 04 • Heavy Industrial Platform Ladder</span>
+          <h2 class="hero-title">Ascentix <span>TitanSafe Industrial</span></h2>
+          <p class="hero-desc">BIS IS 4130 Heavy Duty 170 kg rated with full 360° perimeter safety surround guardrail, auto-closing swing gate, and spring-loaded auto-braking wheels — Factories Act 1948 compliant for Indian industrial facilities.</p>
+          <div class="swatch-group">
+            <span class="swatch-label">Select Finish:</span>
+            <div class="swatches">
+              <div class="swatch-btn active" id="swatch-titansafe-0" style="background:linear-gradient(135deg,#facc15 50%,#171717 50%)" title="Yellow & Black" onclick="setColor('titansafe','Dielectric Electric Yellow & Safety Black (OSHA)','assets/products/model_4_titansafe_yellow.jpg',0)"></div>
+              <div class="swatch-btn" id="swatch-titansafe-1" style="background:linear-gradient(135deg,#ff6b00 50%,#f1f5f9 50%)" title="Safety Orange & Silver" onclick="setColor('titansafe','Fluorescent Safety Orange & Silver','assets/products/model_4_titansafe_orange.jpg',1)"></div>
+              <div class="swatch-btn" id="swatch-titansafe-2" style="background:linear-gradient(135deg,#ffffff 50%,#0284c7 50%)" title="Aero White & Cyan" onclick="setColor('titansafe','Aero White & Cyan Blue (Cleanroom)','assets/products/model_4_titansafe_cyan.jpg',2)"></div>
+              <div class="swatch-btn" id="swatch-titansafe-3" style="background:linear-gradient(135deg,#0f172a 50%,#f59e0b 50%)" title="Maritime Navy & Amber" onclick="setColor('titansafe','Heavy Maritime Navy & Hazard Amber','assets/products/model_4_titansafe_navy.jpg',3)"></div>
+            </div>
+            <p id="titansafe-color-text" style="font-size:0.88rem;color:var(--accent);margin-top:8px;font-weight:700">● Dielectric Electric Yellow & Safety Black (OSHA)</p>
+          </div>
+          <div class="hero-actions">
+            <button class="cta-btn" onclick="switchPage('contact')">Request Fleet Quote — ₹51,999</button>
+            <button class="btn-secondary" onclick="switchPage('products')">All Products</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img id="titansafe-img" src="assets/products/model_4_titansafe_yellow.jpg" alt="TitanSafe Industrial" />
+          <div style="display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap">
+            <img src="assets/products/model_4_titansafe_yellow.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:2px solid var(--accent)" onclick="setColor('titansafe','Dielectric Electric Yellow & Safety Black (OSHA)','assets/products/model_4_titansafe_yellow.jpg',0)" alt="Yellow">
+            <img src="assets/products/model_4_titansafe_orange.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('titansafe','Fluorescent Safety Orange & Silver','assets/products/model_4_titansafe_orange.jpg',1)" alt="Orange">
+            <img src="assets/products/model_4_titansafe_cyan.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('titansafe','Aero White & Cyan Blue (Cleanroom)','assets/products/model_4_titansafe_cyan.jpg',2)" alt="Cyan">
+            <img src="assets/products/model_4_titansafe_navy.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('titansafe','Heavy Maritime Navy & Hazard Amber','assets/products/model_4_titansafe_navy.jpg',3)" alt="Navy">
+          </div>
+        </div>
+      </div>
+      <h3 class="section-title">Technical <span>Specifications</span></h3>
+      <table class="specs-table">
+        <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+        <tr><td>Standing Platform Height</td><td>2.45 meters (8-Step)</td><td>8.0 ft (14.0 ft Working Reach)</td></tr>
+        <tr><td>Platform Standing Area</td><td>610 x 510 mm Wide Deck</td><td>24" × 20" Diamond Plate</td></tr>
+        <tr><td>Safety Guardrail Height</td><td>1,070 mm</td><td>42" Waist-High Cage with Gate</td></tr>
+        <tr><td>Duty Load Rating</td><td>170 kg (BIS IS 4130 Heavy Duty)</td><td>375 lbs Heavy Special Duty</td></tr>
+        <tr><td>Stile Material</td><td>Pultruded Dielectric Fibreglass</td><td>35 kV High-Voltage Isolated</td></tr>
+        <tr><td>Casters &amp; Mobility</td><td>100 mm Spring-Depressing Casters</td><td>Rolls freely, locks on step-up</td></tr>
+        <tr><td>Certifications</td><td><strong>BIS IS 4130 : 1994</strong> — Heavy Duty, Factories Act 1948 Compliant</td><td>BIS IS Heavy-Duty Certified</td></tr>
+      </table>
+    </section>
+
+    <!-- ═══════════════════════════ PRODUCT 5: AEROREACH PRO ═══════════════════════════ -->
+    <section id="page-aeroreach" class="page-view">
+      <div class="hero-box">
+        <div>
+          <span class="hero-badge">Model 05 • Telescoping Extension Ladder</span>
+          <h2 class="hero-title">Ascentix <span>AeroReach Pro</span></h2>
+          <p class="hero-desc">One-touch AeroLock™ rung-by-rung deployment reaches 6.2 metres from a 1.17 m transport length. 6061-T6 aerospace rails and self-adjusting stabiliser feet rated for 15° slopes — built for Indian construction, telecom, and solar installation sites.</p>
+          <div class="swatch-group">
+            <span class="swatch-label">Select Finish:</span>
+            <div class="swatches">
+              <div class="swatch-btn active" id="swatch-aeroreach-0" style="background:linear-gradient(135deg,#f97316 50%,#cbd5e1 50%)" title="Blaze Orange &amp; Anodized Silver" onclick="setColor('aeroreach','Blaze Orange &amp; Anodized Silver (Signature)','assets/products/model_5_aeroreach_orange.jpg',0)"></div>
+              <div class="swatch-btn" id="swatch-aeroreach-1" style="background:linear-gradient(135deg,#eab308 50%,#1c1917 50%)" title="Volt Yellow &amp; Graphite Black" onclick="setColor('aeroreach','Volt Yellow &amp; Graphite Black','assets/products/model_5_aeroreach_yellow.jpg',1)"></div>
+              <div class="swatch-btn" id="swatch-aeroreach-2" style="background:linear-gradient(135deg,#475569 50%,#f8fafc 50%)" title="Slate Grey &amp; Ice White" onclick="setColor('aeroreach','Slate Grey &amp; Ice White','assets/products/model_5_aeroreach_grey.jpg',2)"></div>
+              <div class="swatch-btn" id="swatch-aeroreach-3" style="background:linear-gradient(135deg,#166534 50%,#d4b896 50%)" title="Forest Green &amp; Khaki Sand" onclick="setColor('aeroreach','Forest Green &amp; Khaki Sand (Field Edition)','assets/products/model_5_aeroreach_green.jpg',3)"></div>
+            </div>
+            <p id="aeroreach-color-text" style="font-size:0.88rem;color:var(--accent);margin-top:8px;font-weight:700">● Blaze Orange &amp; Anodized Silver (Signature)</p>
+          </div>
+          <div class="hero-actions">
+            <button class="cta-btn" onclick="switchPage('contact')">Order Now — ₹34,999</button>
+            <button class="btn-secondary" onclick="switchPage('products')">All Products</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img id="aeroreach-img" src="assets/products/model_5_aeroreach_orange.jpg" alt="AeroReach Pro" />
+          <div style="display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap">
+            <img src="assets/products/model_5_aeroreach_orange.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:2px solid var(--accent)" onclick="setColor('aeroreach','Blaze Orange &amp; Anodized Silver (Signature)','assets/products/model_5_aeroreach_orange.jpg',0)" alt="Blaze Orange">
+            <img src="assets/products/model_5_aeroreach_yellow.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('aeroreach','Volt Yellow &amp; Graphite Black','assets/products/model_5_aeroreach_yellow.jpg',1)" alt="Volt Yellow">
+            <img src="assets/products/model_5_aeroreach_grey.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('aeroreach','Slate Grey &amp; Ice White','assets/products/model_5_aeroreach_grey.jpg',2)" alt="Slate Grey">
+            <img src="assets/products/model_5_aeroreach_green.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('aeroreach','Forest Green &amp; Khaki Sand (Field Edition)','assets/products/model_5_aeroreach_green.jpg',3)" alt="Forest Green">
+          </div>
+        </div>
+      </div>
+      <h3 class="section-title">Technical <span>Specifications</span></h3>
+      <table class="specs-table">
+        <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+        <tr><td>Closed Transport Length</td><td>1.17 meters (12-Rung Model)</td><td>3.84 feet</td></tr>
+        <tr><td>Maximum Extended Reach</td><td>6.20 meters</td><td>20.34 feet</td></tr>
+        <tr><td>Maximum Working Height</td><td>7.40 meters</td><td>24.28 feet</td></tr>
+        <tr><td>Unit Weight</td><td>8.4 kg</td><td>18.5 lbs</td></tr>
+        <tr><td>Duty Load Rating</td><td>150 kg (BIS IS 1875 Type 1)</td><td>330 lbs Rated</td></tr>
+        <tr><td>Rail Material</td><td>6061-T6 Aerospace Aluminium Alloy</td><td>Cold-Drawn Heat-Treated</td></tr>
+        <tr><td>Rung Locking System</td><td>AeroLock™ Slide-and-Lock D-Section Rungs</td><td>One-Touch Deploy</td></tr>
+        <tr><td>Stabiliser Feet</td><td>180° Pivoting Self-Adjusting Rubber</td><td>15° Slope Tolerance</td></tr>
+        <tr><td>Certifications</td><td><strong>BIS IS 1875 : 2003</strong> — Indian Standard for Telescoping Ladders</td><td>BIS IS Certified</td></tr>
+        <tr><td>Warranty</td><td>7-Year Structural Warranty</td><td>Commercial Grade</td></tr>
+      </table>
+    </section>
+
+    <!-- ═══════════════════════════ PRODUCT 6: VAULTSTEP DELUXE ═══════════════════════════ -->
+    <section id="page-vaultstep" class="page-view">
+      <div class="hero-box">
+        <div>
+          <span class="hero-badge">Model 06 • 5-in-1 Multi-Position Combination Ladder</span>
+          <h2 class="hero-title">Ascentix <span>VaultStep Deluxe</span></h2>
+          <p class="hero-desc">VaultFlex™ die-cast hinges lock into 5 configurations: A-frame stepladder, lean-to extension, staircase mode, scaffold base, and ultra-compact flat fold. Extra-wide 260 mm grooved steps with integrated tool caddy — the only ladder an Indian home or trade team needs.</p>
+          <div class="swatch-group">
+            <span class="swatch-label">Select Finish:</span>
+            <div class="swatches">
+              <div class="swatch-btn active" id="swatch-vaultstep-0" style="background:linear-gradient(135deg,#1d4ed8 50%,#cbd5e1 50%)" title="Cobalt Blue &amp; Brushed Silver" onclick="setColor('vaultstep','Cobalt Blue &amp; Brushed Silver (Signature)','assets/products/model_6_vaultstep_blue.jpg',0)"></div>
+              <div class="swatch-btn" id="swatch-vaultstep-1" style="background:linear-gradient(135deg,#dc2626 50%,#f1f5f9 50%)" title="Ember Red &amp; Pearl White" onclick="setColor('vaultstep','Ember Red &amp; Pearl White','assets/products/model_6_vaultstep_red.jpg',1)"></div>
+              <div class="swatch-btn" id="swatch-vaultstep-2" style="background:linear-gradient(135deg,#18181b 50%,#c2857a 50%)" title="Onyx Black &amp; Rose Gold" onclick="setColor('vaultstep','Onyx Black &amp; Rose Gold (Luxury Edition)','assets/products/model_6_vaultstep_black.jpg',2)"></div>
+              <div class="swatch-btn" id="swatch-vaultstep-3" style="background:linear-gradient(135deg,#3f6212 50%,#c2410c 50%)" title="Forest Moss &amp; Terracotta" onclick="setColor('vaultstep','Forest Moss &amp; Terracotta','assets/products/model_6_vaultstep_moss.jpg',3)"></div>
+            </div>
+            <p id="vaultstep-color-text" style="font-size:0.88rem;color:var(--accent);margin-top:8px;font-weight:700">● Cobalt Blue &amp; Brushed Silver (Signature)</p>
+          </div>
+          <div class="hero-actions">
+            <button class="cta-btn" onclick="switchPage('contact')">Buy Now — ₹22,999</button>
+            <button class="btn-secondary" onclick="switchPage('products')">All Products</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img id="vaultstep-img" src="assets/products/model_6_vaultstep_blue.jpg" alt="VaultStep Deluxe" />
+          <div style="display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap">
+            <img src="assets/products/model_6_vaultstep_blue.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:2px solid var(--accent)" onclick="setColor('vaultstep','Cobalt Blue &amp; Brushed Silver (Signature)','assets/products/model_6_vaultstep_blue.jpg',0)" alt="Cobalt Blue">
+            <img src="assets/products/model_6_vaultstep_red.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('vaultstep','Ember Red &amp; Pearl White','assets/products/model_6_vaultstep_red.jpg',1)" alt="Ember Red">
+            <img src="assets/products/model_6_vaultstep_black.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('vaultstep','Onyx Black &amp; Rose Gold (Luxury Edition)','assets/products/model_6_vaultstep_black.jpg',2)" alt="Onyx Black">
+            <img src="assets/products/model_6_vaultstep_moss.jpg" style="width:52px;height:52px;border-radius:6px;cursor:pointer;object-fit:cover;border:1.5px solid var(--border)" onclick="setColor('vaultstep','Forest Moss &amp; Terracotta','assets/products/model_6_vaultstep_moss.jpg',3)" alt="Forest Moss">
+          </div>
+        </div>
+      </div>
+      <h3 class="section-title">Technical <span>Specifications</span></h3>
+      <table class="specs-table">
+        <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+        <tr><td>A-Frame Height (Fully Open)</td><td>1.82 meters (6-Step per Side)</td><td>5.97 feet</td></tr>
+        <tr><td>Extension Mode Reach</td><td>3.65 meters</td><td>11.97 feet</td></tr>
+        <tr><td>Maximum Working Reach</td><td>5.05 meters</td><td>16.57 feet</td></tr>
+        <tr><td>Step Width</td><td>260 mm (Extra-Wide Platform Grade)</td><td>10.24 inches</td></tr>
+        <tr><td>Unit Weight</td><td>11.8 kg</td><td>26.0 lbs</td></tr>
+        <tr><td>Duty Load Rating</td><td>150 kg (BIS IS 1364 Type 1)</td><td>330 lbs Rated</td></tr>
+        <tr><td>Hinge Mechanism</td><td>VaultFlex™ Die-Cast CNC Zinc Alloy — 5-Position</td><td>Multi-Lock Combo</td></tr>
+        <tr><td>Tool Tray Capacity</td><td>5 kg Rated Polypropylene Pail Shelf</td><td>11 lbs Tool Station</td></tr>
+        <tr><td>Certifications</td><td><strong>BIS IS 1364 : 2002</strong> — Indian Standard for Portable Combination Ladders</td><td>BIS IS Certified</td></tr>
+        <tr><td>Warranty</td><td>5-Year Residential / 3-Year Commercial</td><td>Multi-Position Certified</td></tr>
+      </table>
+    </section>
+
+    <!-- ═══════════════════════════ PAGE: SOCIAL MEDIA ═══════════════════════════ -->
+    <section id="page-social" class="page-view">
+      <div class="section-header">
+        <h2 class="section-title">Social Media & <span>Community Hub</span></h2>
+        <p class="section-subtitle">Follow our extreme torture tests, contractor showcases, and trade community across India (#AscentixClimb #EngineeredForSafety)</p>
+      </div>
+
+      <div class="card-grid-4" style="margin-bottom:36px">
+        <div class="card" style="text-align:center">
+          <div style="width:48px;height:48px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center">
+            <svg width="48" height="48" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="10" fill="#FF0000"/>
+              <polygon points="18,14.5 30,22 18,29.5" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <span class="role-badge">YouTube</span>
+          <h3>@AscentixLadders</h3>
+          <p>4K Drop Tests, destructive stress testing, and engineering breakdown videos for Indian contractors.</p>
+          <button class="btn-secondary" style="width:100%" onclick="alert('YouTube: @AscentixLadders')">Subscribe (1.42L+)</button>
+        </div>
+
+        <div class="card" style="text-align:center">
+          <div style="width:48px;height:48px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center">
+            <svg width="48" height="48" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ig-grad-idx" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#fed373"/>
+                  <stop offset="25%" stop-color="#f15245"/>
+                  <stop offset="60%" stop-color="#d92e7f"/>
+                  <stop offset="100%" stop-color="#9b36b7"/>
+                </linearGradient>
+              </defs>
+              <rect width="44" height="44" rx="10" fill="url(#ig-grad-idx)"/>
+              <rect x="9" y="9" width="26" height="26" rx="7" fill="none" stroke="#FFFFFF" stroke-width="2.6"/>
+              <circle cx="22" cy="22" r="6.2" fill="none" stroke="#FFFFFF" stroke-width="2.6"/>
+              <circle cx="29.5" cy="14.5" r="1.5" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <span class="role-badge">Instagram</span>
+          <h3>@AscentixOfficial</h3>
+          <p>Indian job-site photography, colorway drops, and ambassador takeovers from across India.</p>
+          <button class="btn-secondary" style="width:100%" onclick="alert('Instagram: @AscentixOfficial')">Follow (89K)</button>
+        </div>
+
+        <div class="card" style="text-align:center">
+          <div style="width:48px;height:48px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center">
+            <svg width="48" height="48" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="22" cy="22" r="22" fill="#000000"/>
+              <path fill="#FFFFFF" d="M25.8 12.5h3.1l-6.8 7.8 8 10.6H23.9l-4.9-6.3-5.6 6.3h-3.1l7.3-8.3-7.7-10.1h6.4l4.4 5.8 5.1-5.8zm-1.1 16.6h1.7L16.1 14.2h-1.8l10.4 14.9z"/>
+            </svg>
+          </div>
+          <span class="role-badge">X (Twitter)</span>
+          <h3>@AscentixLadders</h3>
+          <p>Viral durability challenges, ACETECH &amp; Elecrama trade show clips, and Indian site safety bulletins.</p>
+          <button class="btn-secondary" style="width:100%" onclick="alert('X (Twitter): @AscentixLadders')">Follow (45K)</button>
+        </div>
+
+        <div class="card" style="text-align:center">
+          <div style="width:48px;height:48px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center">
+            <svg width="48" height="48" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="10" fill="#0A66C2"/>
+              <path fill="#FFFFFF" d="M12.5 17.5h5V32.5h-5V17.5zm2.5-7.5c1.6 0 2.9 1.3 2.9 2.9 0 1.6-1.3 2.9-2.9 2.9-1.6 0-2.9-1.3-2.9-2.9 0-1.6 1.3-2.9 2.9-2.9zm6.2 7.5h4.8v2.1h.1c.7-1.3 2.3-2.6 4.8-2.6 5.1 0 6.1 3.4 6.1 7.7V32.5h-5v-7.6c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V32.5h-5V17.5z"/>
+            </svg>
+          </div>
+          <span class="role-badge">LinkedIn</span>
+          <h3>Ascentix Ladders Pvt. Ltd.</h3>
+          <p>BIS IS compliance updates, fleet announcements, and Indian industrial distributor partnerships.</p>
+          <button class="btn-secondary" style="width:100%" onclick="alert('LinkedIn: Ascentix Ladders Pvt. Ltd.')">Connect (34K)</button>
+        </div>
+      </div>
+
+      <div class="hero-box" style="margin-bottom:0">
+        <div>
+          <span class="hero-badge">Trade Community</span>
+          <h2 class="hero-title" style="font-size:2rem">The Ascentix <span>Ambassador Program</span></h2>
+          <p class="hero-desc" style="font-size:0.95rem;margin-bottom:20px">Are you a licensed contractor, electrician, or craftsman with a passionate following across India? Test unreleased prototypes on your real job sites before they hit the market — monsoon, dust, and all.</p>
+          <button class="cta-btn" onclick="switchPage('contact')">Apply to Join the Program</button>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/products/model_3_multiflex_transform.jpg" alt="Ambassador Program" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ PAGE: CONTACT US ═══════════════════════════ -->
+    <section id="page-contact" class="page-view">
+      <div class="section-header">
+        <h2 class="section-title">Contact <span>Ascentix</span> Ladders</h2>
+        <p class="section-subtitle">Commercial Fleet Sales, Technical Support &amp; PAN India Distribution</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:32px;margin-bottom:0;align-items:start">
+        <div>
+          <div class="card" style="margin-bottom:18px;border-left:4px solid var(--accent);position:relative">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span class="role-badge" style="margin:0">Commercial Fleet Sales &bull; PAN-India</span>
+              <span style="font-size:0.7rem;color:var(--text-muted);font-weight:600">GST 18% ITC</span>
+            </div>
+            <div style="font-size:1.1rem;font-weight:700;color:var(--text-main);margin-bottom:4px">
+              <a href="mailto:fleet@ascentixladders.in" style="color:var(--text-main);text-decoration:none">fleet@ascentixladders.in</a>
+            </div>
+            <div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:10px">
+              Toll-Free: <strong>1800-120-2546</strong> &middot; Mon–Sat 9:30 AM–6:30 PM IST
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a href="tel:18001202546" style="display:inline-block;padding:4px 10px;border-radius:4px;background:rgba(255,94,20,0.1);color:var(--accent);font-size:0.75rem;font-weight:700;text-decoration:none">📞 Call Toll-Free</a>
+              <a href="https://wa.me/919820045678" target="_blank" style="display:inline-block;padding:4px 10px;border-radius:4px;background:rgba(34,197,94,0.1);color:#16a34a;font-size:0.75rem;font-weight:700;text-decoration:none">💬 WhatsApp Fleet Desk</a>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:18px;border-left:4px solid var(--accent)">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span class="role-badge" style="margin:0">Technical Support &amp; BIS Compliance</span>
+              <span style="font-size:0.7rem;color:var(--text-muted);font-weight:600">BIS IS 4130 / 4131</span>
+            </div>
+            <div style="font-size:1.1rem;font-weight:700;color:var(--text-main);margin-bottom:4px">
+              <a href="mailto:support@ascentixladders.in" style="color:var(--text-main);text-decoration:none">support@ascentixladders.in</a>
+            </div>
+            <div style="color:var(--text-muted);font-size:0.85rem">
+              Guaranteed response within 4 business hours (IST) &middot; Desk: +91 (22) 6985 4100
+            </div>
+          </div>
+
+          <div class="card" style="border-left:4px solid var(--accent)">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span class="role-badge" style="margin:0">India Corporate HQ &amp; Experience Centre</span>
+              <span style="font-size:0.7rem;color:var(--text-muted);font-weight:600">Mumbai</span>
+            </div>
+            <div style="font-size:1.1rem;font-weight:700;color:var(--text-main);margin-bottom:4px">Ascentix Ladders Pvt. Ltd.</div>
+            <div style="color:var(--text-muted);font-size:0.85rem;line-height:1.4">
+              Unit 502, Pinnacle Business Park, Andheri East, Mumbai, Maharashtra — 400069<br>
+              <span style="font-size:0.75rem;color:var(--text-muted)">CIN: U28112MH2021PTC368942 &middot; GSTIN: 27AABCA1234F1Z5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h4>🇮🇳 Commercial &amp; Fleet Quote Request</h4>
+          <input type="text" placeholder="Full Name *" required>
+          <input type="email" placeholder="Official Work Email *" required>
+          <input type="tel" placeholder="Mobile / WhatsApp Number (+91) *" required>
+          <select>
+            <option>Commercial Fleet Procurement (10+ Units - 15% Disc.)</option>
+            <option>GeM / Public Sector Undertaking Tender</option>
+            <option>Technical Support &amp; BIS 4130/4131 Certificates</option>
+            <option>DISCOM 35kV Dielectric Batch Test Documentation</option>
+            <option>Trade Ambassador / Industrial Dealership</option>
+          </select>
+          <input type="text" placeholder="Company Name &amp; GSTIN (For 18% Input Tax Credit)">
+          <textarea rows="3" placeholder="Specific ladder models, reach heights, or project requirements..."></textarea>
+          <button class="cta-btn" style="width:100%" onclick="alert('Dhanyavaad! Your inquiry has been routed to the Ascentix Mumbai Corporate Sales Team.')">Request Formal Proforma Quote (IST)</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4 style="color:var(--accent)">Ascentix Ladders Pvt. Ltd.</h4>
+        <p style="margin-bottom:14px">Engineered for the summit of safety. Premium climbing systems built with aerospace 7075-T6 aluminium, Toray carbon fibre, and zero-wobble geometry. BIS IS 4130/4131 certified for India.</p>
+        <p style="font-size:0.8rem">© 2026 Ascentix Ladders Pvt. Ltd. All rights reserved.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a onclick="switchPage('home')">Home</a></li>
+          <li><a onclick="switchPage('about')">About Us</a></li>
+          <li><a onclick="switchPage('team')">The Team</a></li>
+          <li><a onclick="switchPage('social')">Social Media Hub</a></li>
+          <li><a onclick="switchPage('contact')">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Product Models</h4>
+        <ul>
+          <li><a onclick="switchPage('telepro')">1. TelePro 360</a></li>
+          <li><a onclick="switchPage('carbonapex')">2. CarbonApex X1</a></li>
+          <li><a onclick="switchPage('multiflex')">3. MultiFlex Transform</a></li>
+          <li><a onclick="switchPage('titansafe')">4. TitanSafe Industrial</a></li>
+          <li><a onclick="switchPage('aeroreach')">5. AeroReach Pro</a></li>
+          <li><a onclick="switchPage('vaultstep')">6. VaultStep Deluxe</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Google Sites Project Kit</h4>
+        <p style="margin-bottom:12px">All embed containers, page blueprints, and step-by-step instructions are ready to use. Open the <code>site_content/</code> folder for markdown files 01–09.</p>
+        <a href="GOOGLE_SITES_STEP_BY_STEP_GUIDE.md" style="color:var(--accent);font-weight:700;text-decoration:none">View Build Guide →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchPage(pageId) {
+      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+
+      const target = document.getElementById('page-' + pageId);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Highlight active nav btn
+      const navMap = { home:'home', about:'about', team:'team', social:'social', contact:'contact', products:'products', telepro:'products', carbonapex:'products', multiflex:'products', titansafe:'products', aeroreach:'products', vaultstep:'products' };
+      const navId = document.getElementById('nav-' + (navMap[pageId] || pageId));
+      if (navId) navId.classList.add('active');
+    }
+
+    function setColor(product, colorName, imagePath, swatchIndex) {
+      const textElem = document.getElementById(product + '-color-text');
+      if (textElem) textElem.innerText = '● ' + colorName;
+
+      if (imagePath) {
+        const imgElem = document.getElementById(product + '-img');
+        if (imgElem) {
+          imgElem.style.opacity = '0.4';
+          setTimeout(() => { imgElem.src = imagePath; imgElem.style.opacity = '1'; }, 140);
+        }
+      }
+
+      for (let i = 0; i < 4; i++) {
+        const sw = document.getElementById('swatch-' + product + '-' + i);
+        if (sw) {
+          if (i === swatchIndex) {
+            sw.classList.add('active');
+            sw.style.transform = 'scale(1.25)';
+            sw.style.borderColor = '#ff5e14';
+          } else {
+            sw.classList.remove('active');
+            sw.style.transform = 'scale(1)';
+            sw.style.borderColor = '#e2e5ea';
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ascentix Ladders — Commercial Advertisement Film</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff5e14;
+      --primary-glow: rgba(255, 94, 20, 0.45);
+      --primary-subtle: rgba(255, 94, 20, 0.12);
+      --bg-deep: #080a0f;
+      --bg-surface: #121620;
+      --bg-card: #181d2a;
+      --text-main: #f0f4f8;
+      --text-dim: #94a3b8;
+      --accent-cyan: #00f0ff;
+      --accent-danger: #ef4444;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --border-bright: rgba(255, 94, 20, 0.4);
+      --font-display: 'Oswald', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    /* ── HEADER / TOP STUDIO BAR ── */
+    .studio-header {
+      width: 100%;
+      max-width: 1120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding: 12px 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .brand-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .brand-logo-pill .badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.65rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .studio-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-tool {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-tool:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-bright);
+      transform: translateY(-1px);
+    }
+
+    .btn-tool.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 14px var(--primary-glow);
+    }
+
+    .btn-record {
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      color: #fff;
+      border: 1px solid #f87171;
+      font-weight: 700;
+    }
+
+    .btn-record:hover {
+      background: linear-gradient(135deg, #dc2626, #991b1b);
+      box-shadow: 0 0 16px rgba(239, 68, 68, 0.5);
+    }
+
+    .btn-record.recording {
+      animation: pulseRecord 1s infinite alternate;
+    }
+
+    @keyframes pulseRecord {
+      from { box-shadow: 0 0 10px rgba(239,68,68,0.5); }
+      to { box-shadow: 0 0 24px rgba(239,68,68,0.9); }
+    }
+
+    /* ── ADVERTISEMENT STAGE VIEWPORT ── */
+    .viewport-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 94, 20, 0.25);
+    }
+
+    /* Aspect Ratio Modes */
+    .viewport-wrapper.ratio-16-9 {
+      aspect-ratio: 16 / 9;
+    }
+    .viewport-wrapper.ratio-9-16 {
+      max-width: 440px;
+      aspect-ratio: 9 / 16;
+    }
+    .viewport-wrapper.ratio-1-1 {
+      max-width: 640px;
+      aspect-ratio: 1 / 1;
+    }
+
+    #adStage {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Particle & Motion Canvas */
+    #particleCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* Cinematic Film Grain & Vignette Overlay */
+    .cinematic-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 40;
+      pointer-events: none;
+      background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.7) 100%),
+                  repeating-linear-gradient(0deg, rgba(0,0,0,0.12) 0px, rgba(0,0,0,0.12) 1px, transparent 1px, transparent 3px);
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.8);
+    }
+
+    /* HUD Framing & Telemetry */
+    .hud-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 50;
+      pointer-events: none;
+      padding: 24px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hud-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hud-rec {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #ef4444;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .hud-rec-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ef4444;
+      animation: blinkRec 1s step-start infinite;
+    }
+
+    @keyframes blinkRec {
+      50% { opacity: 0; }
+    }
+
+    .hud-corners::before,
+    .hud-corners::after,
+    .hud-bottom-corners::before,
+    .hud-bottom-corners::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-color: rgba(255, 94, 20, 0.6);
+      border-style: solid;
+      pointer-events: none;
+    }
+    .hud-corners::before { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
+    .hud-corners::after { top: 12px; right: 12px; border-width: 2px 2px 0 0; }
+    .hud-bottom-corners::before { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; }
+    .hud-bottom-corners::after { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+
+    .hud-watermark {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+    }
+    .hud-watermark span {
+      color: var(--primary);
+    }
+
+    .hud-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .telemetry-tag {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 94, 20, 0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+
+    /* ── SCENE CONTAINER & LAYERS ── */
+    .scene-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(1.05);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .scene-container.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    /* ── SCENE 1: THE HAZARD ── */
+    .scene-1-hazard {
+      background: radial-gradient(circle at center, #260e0a 0%, #0d0606 60%, #000 100%);
+    }
+
+    .hazard-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 25;
+    }
+
+    .warning-icon-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(239, 68, 68, 0.15);
+      border: 2px solid #ef4444;
+      margin-bottom: 18px;
+      animation: alertPulse 1.2s infinite ease-in-out;
+    }
+
+    @keyframes alertPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+      50% { transform: scale(1.1); box-shadow: 0 0 28px rgba(239, 68, 68, 0.8); }
+    }
+
+    .hazard-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 14px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+    }
+
+    .hazard-title .highlight-red {
+      color: #ef4444;
+      text-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+    }
+
+    .hazard-sub {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .hazard-stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .hazard-stat-card {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 10px 20px;
+      border-radius: 8px;
+      min-width: 160px;
+    }
+
+    .hazard-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ef4444;
+    }
+
+    .hazard-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── SCENE 2: AEROSPACE DNA ── */
+    .scene-2-dna {
+      background: radial-gradient(circle at 70% 30%, #1e110a 0%, #0c0d14 60%, #06070a 100%);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      text-align: left;
+      gap: 40px;
+    }
+
+    .dna-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dna-img-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      height: 380px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--border-bright);
+      box-shadow: 0 20px 50px rgba(255, 94, 20, 0.25), 0 0 80px rgba(0,0,0,0.8);
+      transform: perspective(1000px) rotateY(-8deg) rotateX(4deg);
+      transition: transform 0.5s ease;
+    }
+
+    .dna-img-wrapper:hover {
+      transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+    }
+
+    .dna-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.1) brightness(1.05);
+    }
+
+    .dna-hologram-pin {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid var(--primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 0 16px var(--primary-glow);
+      animation: floatPin 3s ease-in-out infinite alternate;
+    }
+
+    .dna-hologram-pin.pin-1 { top: 20px; right: -10px; animation-delay: 0s; }
+    .dna-hologram-pin.pin-2 { bottom: 40px; left: -15px; animation-delay: 1.5s; }
+
+    @keyframes floatPin {
+      from { transform: translateY(0); }
+      to { transform: translateY(-8px); }
+    }
+
+    .dna-text {
+      position: relative;
+      z-index: 25;
+    }
+
+    .badge-dna {
+      display: inline-block;
+      background: var(--primary-subtle);
+      border: 1px solid var(--border-bright);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .dna-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      line-height: 1.1;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .dna-title span {
+      color: var(--primary);
+      text-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+
+    .feature-check {
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      box-shadow: 0 0 10px var(--primary-glow);
+      flex-shrink: 0;
+    }
+
+    /* ── SCENE 3: STRESS TEST TORTURE LAB ── */
+    .scene-3-stress {
+      background: radial-gradient(circle at center, #101622 0%, #090c12 70%, #000 100%);
+      flex-direction: column;
+    }
+
+    .stress-wrapper {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+      text-align: left;
+    }
+
+    .stress-media {
+      position: relative;
+      height: 360px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.15);
+    }
+
+    .stress-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stress-gauge-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .load-counter-box {
+      font-family: var(--font-display);
+    }
+
+    .load-counter-val {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+      line-height: 1;
+    }
+
+    .load-counter-unit {
+      font-size: 1rem;
+      color: #94a3b8;
+    }
+
+    .stress-badge-stamp {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 24px rgba(16, 185, 129, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stress-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .stress-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stress-headline span {
+      color: var(--accent-cyan);
+    }
+
+    .meter-bar-track {
+      width: 100%;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .meter-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #00f0ff, #ff5e14);
+      border-radius: 6px;
+      transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ── SCENE 4: 6-MODEL FLEET ── */
+    .scene-4-fleet {
+      background: radial-gradient(circle at center, #141824 0%, #090b10 70%, #000 100%);
+      flex-direction: column;
+    }
+
+    .fleet-heading-wrap {
+      margin-bottom: 24px;
+    }
+
+    .fleet-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .fleet-heading span {
+      color: var(--primary);
+    }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .fleet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fleet-card:hover,
+    .fleet-card.highlight {
+      border-color: var(--primary);
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(255, 94, 20, 0.3);
+      background: #202738;
+    }
+
+    .fleet-thumb {
+      width: 100%;
+      height: 120px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 8px;
+      background: #000;
+    }
+
+    .fleet-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .fleet-card:hover .fleet-thumb img {
+      transform: scale(1.1);
+    }
+
+    .fleet-card-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .fleet-card-tag {
+      font-size: 0.65rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* ── SCENE 5: CLIMAX & CALL TO ACTION ── */
+    .scene-5-climax {
+      background: radial-gradient(circle at center, #24130a 0%, #120a06 50%, #000 100%);
+      flex-direction: column;
+    }
+
+    .climax-logo-wrap {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 40px var(--primary-glow);
+      margin-bottom: 20px;
+      animation: pulseLogo 2s infinite alternate;
+    }
+
+    @keyframes pulseLogo {
+      from { transform: scale(1); box-shadow: 0 0 20px var(--primary-glow); }
+      to { transform: scale(1.06); box-shadow: 0 0 45px rgba(255, 94, 20, 0.8); }
+    }
+
+    .climax-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .climax-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      margin-bottom: 12px;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.8);
+    }
+
+    .climax-tagline span {
+      color: var(--primary);
+      text-shadow: 0 0 24px var(--primary-glow);
+    }
+
+    .climax-sub {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--text-dim);
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .climax-badges {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .climax-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-bright);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #f1f5f9;
+    }
+
+    .climax-cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 14px 34px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 26px var(--primary-glow);
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-hero-primary:hover {
+      background: #ff7536;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 36px rgba(255, 94, 20, 0.7);
+    }
+
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ── CINEMATIC CONTROLS & TIMELINE BAR ── */
+    .studio-timeline {
+      width: 100%;
+      max-width: 1120px;
+      margin-top: 16px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px 22px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    .timeline-scrubber-wrapper {
+      position: relative;
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 14px;
+    }
+
+    .timeline-scrubber-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff5e14, #ff8c42);
+      border-radius: 4px;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .timeline-scrubber-head {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
+      pointer-events: none;
+      transition: transform 0.1s ease;
+    }
+
+    .timeline-scrubber-wrapper:hover .timeline-scrubber-head {
+      transform: translate(-50%, -50%) scale(1.3);
+    }
+
+    .timeline-scene-markers {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .scene-marker {
+      position: absolute;
+      top: -2px;
+      bottom: -2px;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .timeline-controls-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .playback-main-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-play-pause {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+
+    .btn-play-pause:hover {
+      transform: scale(1.08);
+      background: #ff722b;
+    }
+
+    .timecode-display {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+
+    .timecode-display .time-current {
+      color: #fff;
+    }
+
+    .scene-pills-row {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 4px 0;
+    }
+
+    .pill-scene {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .pill-scene:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .pill-scene.active {
+      background: var(--primary-subtle);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .aux-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Subtitles / Caption Bar */
+    .caption-banner {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 45;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(255, 94, 20, 0.35);
+      backdrop-filter: blur(8px);
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.3px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      white-space: nowrap;
+      max-width: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      transition: all 0.3s ease;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 860px) {
+      .scene-2-dna, .stress-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+      }
+      .feature-list {
+        align-items: center;
+      }
+      .dna-img-wrapper {
+        max-width: 320px;
+        height: 240px;
+        margin: 0 auto;
+      }
+      .fleet-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .stress-media {
+        height: 220px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      body {
+        padding: 10px;
+      }
+      .studio-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .fleet-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .caption-banner {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+        bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── STUDIO TOP BAR ── -->
+  <header class="studio-header">
+    <div class="brand-meta">
+      <div class="brand-logo-pill">
+        ASCENTIX <span class="badge">CINEMATIC AD</span>
+      </div>
+      <span style="font-size: 0.8rem; color: var(--text-dim);">Broadcast Commercial 2026</span>
+    </div>
+
+    <div class="studio-actions">
+      <!-- Aspect Ratio Toggles -->
+      <button class="btn-tool active" id="btnRatio169" title="16:9 Landscape (Desktop / YouTube / Google Sites)">16:9 TV</button>
+      <button class="btn-tool" id="btnRatio916" title="9:16 Vertical Reel (Instagram / Shorts / TikTok)">9:16 Reel</button>
+      <button class="btn-tool" id="btnRatio11" title="1:1 Square (Instagram Feed)">1:1 Post</button>
+
+      <!-- Audio & Voiceover Toggles -->
+      <button class="btn-tool active" id="btnAudioToggle" title="Cinematic Synthesizer Audio">
+        <span id="audioIcon">🔊</span> Audio
+      </button>
+      <button class="btn-tool active" id="btnVoiceToggle" title="AI Voiceover Narration">
+        🎙️ Voiceover
+      </button>
+
+      <!-- 1-Click Video Export -->
+      <button class="btn-tool btn-record" id="btnRecordVideo" title="Record and export 35s commercial directly to .webm video file">
+        <span id="recordDot">⏺</span> Export Video
+      </button>
+    </div>
+  </header>
+
+  <!-- ── ADVERTISEMENT STAGE VIEWPORT ── -->
+  <div class="viewport-wrapper ratio-16-9" id="viewportWrapper">
+    <div id="adStage">
+
+      <!-- Particle Canvas (Background motion, sparks, embers) -->
+      <canvas id="particleCanvas"></canvas>
+
+      <!-- Film Grain, Scanlines & Vignette -->
+      <div class="cinematic-overlay"></div>
+
+      <!-- HUD Telemetry Layer -->
+      <div class="hud-layer">
+        <div class="hud-corners"></div>
+        <div class="hud-bottom-corners"></div>
+
+        <div class="hud-top">
+          <div class="hud-rec">
+            <div class="hud-rec-dot"></div>
+            <span>REC • 4K 60FPS</span>
+          </div>
+          <div class="hud-watermark">
+            ASCENTIX<span>.IN</span>
+          </div>
+          <div class="telemetry-tag" id="hudFpsTag">60 FPS • DCI-P3</div>
+        </div>
+
+        <div class="hud-bottom">
+          <div class="telemetry-tag" id="hudSceneTag">SCENE 01 // HAZARD_ANALYSIS</div>
+          <div class="telemetry-tag" id="hudIsoTag">ISO 400 • F/1.8 • 1/120s</div>
+        </div>
+      </div>
+
+      <!-- Dynamic Subtitle / Caption Banner -->
+      <div class="caption-banner" id="captionBanner">
+        Every 20 seconds, a ladder slips on a job site...
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCENE 1: THE HAZARD (0s - 7s)                      -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="scene-container scene-1-hazard active" id="scene1">
+        <div class="hazard-content">
+          <div class="warning-icon-box">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </div>
+          <h1 class="hazard-title">
+            Cheap Ladders <span class="highlight-red">Flex & Fail.</span>
+          </h1>
+          <p class="hazard-sub">
+            Rivet tears. Weak rails. Dangerous wobble. You shouldn't risk your life on standard ladders.
+          </p>
+          <div class="hazard-stats-row">
+            <div class="hazard-stat-card">
+              <div class="hazard-stat-num">500,000+</div>
+              <div class="hazard-stat-label">Fall Injuries Per Year</div>
+            </div>
+            <div class="hazard-stat-card">
+              <div class="hazard-stat-num">84%</div>
+              <div class="hazard-stat-label">Caused by Structural Flex</div>
+            </div>
+            <div class="hazard-stat-card">
+              <div class="hazard-stat-num">0%</div>
+              <div class="hazard-stat-label">Tolerance for Error</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCENE 2: AEROSPACE DNA (7s - 15s)                  -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="scene-container scene-2-dna" id="scene2">
+        <div class="dna-text">
+          <span class="badge-dna">AEROSPACE DNA • 7075-T6 ALLOY</span>
+          <h2 class="dna-title">
+            Engineered For The <span>Summit of Safety</span>
+          </h2>
+          <p style="color: var(--text-dim); font-size: 1.05rem; line-height: 1.5;">
+            Built with space-grade 7075-T6 aluminium and Toray carbon fibre. Zero-wobble geometry calibrated to survive extreme industrial job sites.
+          </p>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span><strong>7075-T6 Aluminium</strong> — 2.4x tensile strength of generic ladders</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span><strong>Toray Carbon Fibre</strong> — Non-conductive & ultra-lightweight</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span><strong>Zero-Wobble Geometry</strong> — Self-leveling reinforced feet</span>
+            </li>
+          </ul>
+        </div>
+        <div class="dna-visual">
+          <div class="dna-img-wrapper">
+            <img src="assets/products/model_1_telepro_360.jpg" alt="Ascentix TelePro 360" id="dnaImage" onerror="this.src='assets/products/model_1_telepro_signature.jpg'">
+            <div class="dna-hologram-pin pin-1">⚡ BIS IS 4130 / 4131</div>
+            <div class="dna-hologram-pin pin-2">🛡️ 150 KG TESTED</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCENE 3: STRESS TEST LAB (15s - 23s)               -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="scene-container scene-3-stress" id="scene3">
+        <div class="stress-wrapper">
+          <div class="stress-media">
+            <img src="assets/products/model_4_titansafe_industrial.jpg" alt="Stress Test" onerror="this.src='assets/products/model_3_multiflex_transform.jpg'">
+            <div class="stress-gauge-overlay">
+              <div class="load-counter-box">
+                <div class="load-counter-val" id="stressCounter">500</div>
+                <div class="load-counter-unit">KILOGRAM STATIC LOAD</div>
+              </div>
+              <div class="stress-badge-stamp">
+                <span>🛡️ ZERO DEFLECTION</span>
+              </div>
+            </div>
+          </div>
+          <div class="stress-info-col">
+            <span class="badge-dna" style="color: var(--accent-cyan); border-color: rgba(0, 240, 255, 0.4); background: rgba(0, 240, 255, 0.1);">
+              EXTREME STRESS TESTING // LAB CERTIFIED
+            </span>
+            <h2 class="stress-headline">
+              Tested Beyond <span>Human Limits</span>
+            </h2>
+            <p style="color: var(--text-dim); font-size: 0.95rem;">
+              Drop-tested from 10 meters. Hydraulic pressed to 500kg. Extreme torsion resistance. The ladder will not give up. Ever.
+            </p>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size: 0.75rem; color: #94a3b8; font-family: var(--font-mono);">
+                <span>LOAD PROGRESSION</span>
+                <span id="stressPercent">100% MAXIMUM LOAD</span>
+              </div>
+              <div class="meter-bar-track">
+                <div class="meter-bar-fill" id="stressMeterFill"></div>
+              </div>
+            </div>
+            <div style="display:flex; gap: 12px;">
+              <div class="hazard-stat-card" style="border-color: rgba(0,240,255,0.4); min-width: unset; flex: 1;">
+                <div class="hazard-stat-num" style="color: var(--accent-cyan);">10m</div>
+                <div class="hazard-stat-label">Impact Drop Survives</div>
+              </div>
+              <div class="hazard-stat-card" style="border-color: rgba(16,185,129,0.4); min-width: unset; flex: 1;">
+                <div class="hazard-stat-num" style="color: #10b981;">0.00mm</div>
+                <div class="hazard-stat-label">Permanent Flex</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCENE 4: 6-MODEL FLEET (23s - 29s)                 -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="scene-container scene-4-fleet" id="scene4">
+        <div class="fleet-heading-wrap">
+          <span class="badge-dna">THE PROFESSIONAL FLEET</span>
+          <h2 class="fleet-heading">
+            Built For <span>Every Climb</span>
+          </h2>
+        </div>
+        <div class="fleet-grid">
+          <!-- Model 1 -->
+          <div class="fleet-card active-card" id="card1">
+            <div class="fleet-thumb">
+              <img src="assets/products/model_1_telepro_360.jpg" alt="TelePro 360">
+            </div>
+            <div class="fleet-card-title">TelePro 360</div>
+            <div class="fleet-card-tag">Telescopic</div>
+          </div>
+          <!-- Model 2 -->
+          <div class="fleet-card" id="card2">
+            <div class="fleet-thumb">
+              <img src="assets/products/model_2_carbonapex_x1.jpg" alt="CarbonApex X1">
+            </div>
+            <div class="fleet-card-title">CarbonApex X1</div>
+            <div class="fleet-card-tag">Toray Carbon</div>
+          </div>
+          <!-- Model 3 -->
+          <div class="fleet-card" id="card3">
+            <div class="fleet-thumb">
+              <img src="assets/products/model_3_multiflex_transform.jpg" alt="MultiFlex Transform">
+            </div>
+            <div class="fleet-card-title">MultiFlex 14-in-1</div>
+            <div class="fleet-card-tag">Articulated</div>
+          </div>
+          <!-- Model 4 -->
+          <div class="fleet-card" id="card4">
+            <div class="fleet-thumb">
+              <img src="assets/products/model_4_titansafe_industrial.jpg" alt="TitanSafe Industrial">
+            </div>
+            <div class="fleet-card-title">TitanSafe</div>
+            <div class="fleet-card-tag">Heavy Duty</div>
+          </div>
+          <!-- Model 5 -->
+          <div class="fleet-card" id="card5">
+            <div class="fleet-thumb">
+              <img src="assets/products/model_5_aeroreach_pro.jpg" alt="AeroReach Pro">
+            </div>
+            <div class="fleet-card-title">AeroReach Pro</div>
+            <div class="fleet-card-tag">Extension 32ft</div>
+          </div>
+          <!-- Model 6 -->
+          <div class="fleet-card" id="card6">
+            <div class="fleet-thumb">
+              <img src="assets/products/model_6_vaultstep_deluxe.jpg" alt="VaultStep Deluxe">
+            </div>
+            <div class="fleet-card-title">VaultStep</div>
+            <div class="fleet-card-tag">Safety Platform</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCENE 5: CLIMAX & CTA (29s - 35s)                  -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="scene-container scene-5-climax" id="scene5">
+        <div class="climax-logo-wrap">
+          <img src="assets/logo/ascentix_logo.jpg" alt="Ascentix Official Logo" onerror="this.src='assets/products/model_1_telepro_360.jpg'">
+        </div>
+        <h2 class="climax-tagline">
+          Step Up To <span>The Summit</span>
+        </h2>
+        <p class="climax-sub">
+          Stop settling for second-best safety. Order your Ascentix system directly or book a job-site demonstration today.
+        </p>
+        <div class="climax-badges">
+          <div class="climax-pill">🛡️ 10-Year Warranty</div>
+          <div class="climax-pill">🇮🇳 BIS IS 4130 / 4131 Certified</div>
+          <div class="climax-pill">🚚 Free Express Pan-India Shipping</div>
+        </div>
+        <div class="climax-cta-group">
+          <a href="index.html" class="btn-hero-primary" target="_blank">
+            Explore All Models →
+          </a>
+          <a href="https://wa.me/919876543210?text=Hi%20Ascentix,%20I%20saw%20your%20commercial%20and%20want%20to%20order!" target="_blank" class="btn-hero-secondary">
+            💬 WhatsApp Us Now
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── STUDIO TIMELINE & PLAYBACK CONTROLS ── -->
+  <footer class="studio-timeline">
+    <!-- Scrubber Track -->
+    <div class="timeline-scrubber-wrapper" id="timelineScrubber">
+      <div class="timeline-scrubber-progress" id="timelineProgress"></div>
+      <div class="timeline-scrubber-head" id="timelineHead"></div>
+      <div class="timeline-scene-markers">
+        <div class="scene-marker" style="left: 0%;" title="Scene 1: The Hazard"></div>
+        <div class="scene-marker" style="left: 20%;" title="Scene 2: Aerospace DNA"></div>
+        <div class="scene-marker" style="left: 42.8%;" title="Scene 3: Stress Lab"></div>
+        <div class="scene-marker" style="left: 65.7%;" title="Scene 4: Fleet Showcase"></div>
+        <div class="scene-marker" style="left: 82.8%;" title="Scene 5: Climax CTA"></div>
+      </div>
+    </div>
+
+    <!-- Controls Row -->
+    <div class="timeline-controls-row">
+      <div class="playback-main-group">
+        <button class="btn-play-pause" id="btnPlayPause" title="Play / Pause Commercial">
+          ▶
+        </button>
+        <div class="timecode-display">
+          <span class="time-current" id="timeCurrent">00:00</span> / <span id="timeTotal">00:35</span>
+        </div>
+      </div>
+
+      <!-- Quick Scene Jumper Pills -->
+      <div class="scene-pills-row">
+        <button class="pill-scene active" data-scene="1">1. The Hazard</button>
+        <button class="pill-scene" data-scene="2">2. Aerospace DNA</button>
+        <button class="pill-scene" data-scene="3">3. Stress Lab</button>
+        <button class="pill-scene" data-scene="4">4. 6-Model Fleet</button>
+        <button class="pill-scene" data-scene="5">5. Summit CTA</button>
+      </div>
+
+      <div class="aux-controls">
+        <button class="btn-tool" id="btnReplay" title="Restart Commercial from Beginning">↺ Replay</button>
+        <button class="btn-tool" id="btnSpeed" title="Playback Speed">1.0x</button>
+        <button class="btn-tool" id="btnFullscreen" title="Fullscreen Commercial">⛶ Fullscreen</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── COMMERCIAL ENGINE LOGIC (WEB AUDIO + CANVAS PARTICLES + RECORDER) ── -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ── CONFIGURATION & STATE ──
+      const TOTAL_DURATION = 35; // 35 seconds commercial
+      let currentTime = 0;
+      let isPlaying = false;
+      let playbackSpeed = 1.0;
+      let lastTimestamp = null;
+      let audioEnabled = true;
+      let voiceEnabled = true;
+      let activeSceneIndex = 1;
+      let isRecording = false;
+      let mediaRecorder = null;
+      let recordedChunks = [];
+
+      // Scene Time Ranges (Seconds)
+      const SCENES = [
+        { id: 1, start: 0, end: 7, title: "SCENE 01 // HAZARD_ANALYSIS", caption: "Every 20 seconds, a ladder slips on a job site. Wobble. Flex. Failure." },
+        { id: 2, start: 7, end: 15, title: "SCENE 02 // AEROSPACE_DNA", caption: "Ascentix re-engineers climbing safety with space-grade 7075-T6 alloy." },
+        { id: 3, start: 15, end: 23, title: "SCENE 03 // TORTURE_LAB_STRESS", caption: "Drop tested from 10 meters. Hydraulic pressed to 500 kilograms. Zero flex." },
+        { id: 4, start: 23, end: 29, title: "SCENE 04 // 6_MODEL_FLEET", caption: "One precision-engineered fleet. Telescopic, Carbon, Articulated. Mission ready." },
+        { id: 5, start: 29, end: 35, title: "SCENE 05 // SUMMIT_OF_SAFETY", caption: "Step up to the summit of safety. Ascentix Ladders. 10-year warranty." }
+      ];
+
+      // DOM Elements
+      const viewportWrapper = document.getElementById('viewportWrapper');
+      const btnPlayPause = document.getElementById('btnPlayPause');
+      const timeCurrent = document.getElementById('timeCurrent');
+      const timeTotal = document.getElementById('timeTotal');
+      const timelineProgress = document.getElementById('timelineProgress');
+      const timelineHead = document.getElementById('timelineHead');
+      const timelineScrubber = document.getElementById('timelineScrubber');
+      const captionBanner = document.getElementById('captionBanner');
+      const hudSceneTag = document.getElementById('hudSceneTag');
+      const stressMeterFill = document.getElementById('stressMeterFill');
+      const stressCounter = document.getElementById('stressCounter');
+      const btnAudioToggle = document.getElementById('btnAudioToggle');
+      const btnVoiceToggle = document.getElementById('btnVoiceToggle');
+      const audioIcon = document.getElementById('audioIcon');
+      const btnRecordVideo = document.getElementById('btnRecordVideo');
+      const recordDot = document.getElementById('recordDot');
+      const btnSpeed = document.getElementById('btnSpeed');
+      const btnReplay = document.getElementById('btnReplay');
+      const btnFullscreen = document.getElementById('btnFullscreen');
+      const scenePills = document.querySelectorAll('.pill-scene');
+      const scenes = [
+        document.getElementById('scene1'),
+        document.getElementById('scene2'),
+        document.getElementById('scene3'),
+        document.getElementById('scene4'),
+        document.getElementById('scene5')
+      ];
+
+      // ── WEB AUDIO SYNTHESIZER (CINEMATIC SFX) ──
+      let audioCtx = null;
+      function initAudio() {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            audioCtx = new AudioContext();
+          }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
+
+      // Procedural Sound: Cinematic Sub-Bass Impact Boom
+      function playCinematicBoom() {
+        if (!audioEnabled || !audioCtx) return;
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          const filter = audioCtx.createBiquadFilter();
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(110, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(28, audioCtx.currentTime + 1.2);
+
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(250, audioCtx.currentTime);
+          filter.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 1.2);
+
+          gain.gain.setValueAtTime(0.7, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.4);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start();
+          osc.stop(audioCtx.currentTime + 1.5);
+        } catch (e) { console.warn("Audio boom error", e); }
+      }
+
+      // Procedural Sound: High-Energy Riser / Whoosh
+      function playWhooshRiser() {
+        if (!audioEnabled || !audioCtx) return;
+        try {
+          const bufferSize = audioCtx.sampleRate * 1.0;
+          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = Math.random() * 2 - 1;
+          }
+
+          const noise = audioCtx.createBufferSource();
+          noise.buffer = buffer;
+
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'bandpass';
+          filter.Q.value = 3;
+          filter.frequency.setValueAtTime(300, audioCtx.currentTime);
+          filter.frequency.exponentialRampToValueAtTime(3200, audioCtx.currentTime + 0.9);
+
+          const gain = audioCtx.createGain();
+          gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.4, audioCtx.currentTime + 0.8);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.0);
+
+          noise.connect(filter);
+          filter.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          noise.start();
+          noise.stop(audioCtx.currentTime + 1.1);
+        } catch (e) { console.warn("Audio riser error", e); }
+      }
+
+      // Procedural Sound: Metallic Lock / Ratchet Click
+      function playMetallicLock() {
+        if (!audioEnabled || !audioCtx) return;
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(200, audioCtx.currentTime + 0.12);
+
+          gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.15);
+        } catch (e) { console.warn("Audio lock error", e); }
+      }
+
+      // Procedural Sound: Victory Chime (Major Triad Chord)
+      function playVictoryChime() {
+        if (!audioEnabled || !audioCtx) return;
+        try {
+          const freqs = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+          freqs.forEach((f, idx) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.value = f;
+
+            const startTime = audioCtx.currentTime + (idx * 0.08);
+            gain.gain.setValueAtTime(0.15, startTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, startTime + 1.8);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(startTime);
+            osc.stop(startTime + 2.0);
+          });
+        } catch (e) { console.warn("Audio chime error", e); }
+      }
+
+      // ── VOICE OVER SYNTHESIS ──
+      let lastSpokenScene = 0;
+      function speakSceneNarration(sceneId) {
+        if (!voiceEnabled || !('speechSynthesis' in window)) return;
+        if (lastSpokenScene === sceneId) return;
+        lastSpokenScene = sceneId;
+
+        window.speechSynthesis.cancel();
+        const scene = SCENES.find(s => s.id === sceneId);
+        if (!scene) return;
+
+        const utterance = new SpeechSynthesisUtterance(scene.caption);
+        utterance.rate = 1.05;
+        utterance.pitch = 0.95;
+        const voices = window.speechSynthesis.getVoices();
+        const englishVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Male')));
+        if (englishVoice) utterance.voice = englishVoice;
+
+        window.speechSynthesis.speak(utterance);
+      }
+
+      // ── PARTICLE CANVAS ANIMATION ──
+      const canvas = document.getElementById('particleCanvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+
+      function resizeCanvas() {
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      class SparkParticle {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = canvas.height + 10;
+          this.vx = (Math.random() - 0.5) * 2;
+          this.vy = -(Math.random() * 2.5 + 1.2);
+          this.size = Math.random() * 2.5 + 1;
+          this.alpha = Math.random() * 0.8 + 0.2;
+          this.color = Math.random() > 0.3 ? '#ff5e14' : (Math.random() > 0.5 ? '#ffaa00' : '#00f0ff');
+          this.life = 0;
+          this.maxLife = Math.random() * 120 + 60;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.life++;
+          this.alpha -= 0.006;
+          if (this.alpha <= 0 || this.y < -10) {
+            this.reset();
+          }
+        }
+        draw(ctx) {
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, this.alpha);
+          ctx.fillStyle = this.color;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      for (let i = 0; i < 45; i++) {
+        particles.push(new SparkParticle());
+      }
+
+      function renderParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.update();
+          p.draw(ctx);
+        });
+      }
+
+      // ── MAIN PLAYBACK ENGINE & STATE MACHINE ──
+      function formatTime(sec) {
+        const m = Math.floor(sec / 60).toString().padStart(2, '0');
+        const s = Math.floor(sec % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+      }
+
+      function setScene(sceneIndex, force = false) {
+        if (activeSceneIndex === sceneIndex && !force) return;
+        activeSceneIndex = sceneIndex;
+
+        // Update active class on scene DOM
+        scenes.forEach((sc, idx) => {
+          if (idx + 1 === sceneIndex) {
+            sc.classList.add('active');
+          } else {
+            sc.classList.remove('active');
+          }
+        });
+
+        // Update pills
+        scenePills.forEach(pill => {
+          if (parseInt(pill.dataset.scene) === sceneIndex) {
+            pill.classList.add('active');
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+
+        // Update HUD & Captions
+        const sceneData = SCENES.find(s => s.id === sceneIndex);
+        if (sceneData) {
+          hudSceneTag.textContent = sceneData.title;
+          captionBanner.textContent = sceneData.caption;
+        }
+
+        // Trigger Audio Cues
+        if (isPlaying) {
+          if (sceneIndex === 1) playCinematicBoom();
+          if (sceneIndex === 2) { playWhooshRiser(); playMetallicLock(); }
+          if (sceneIndex === 3) { playCinematicBoom(); }
+          if (sceneIndex === 4) { playMetallicLock(); }
+          if (sceneIndex === 5) { playVictoryChime(); }
+          speakSceneNarration(sceneIndex);
+        }
+
+        // Special scene dynamics
+        if (sceneIndex === 3) {
+          setTimeout(() => {
+            stressMeterFill.style.width = '100%';
+          }, 100);
+        } else {
+          stressMeterFill.style.width = '0%';
+        }
+      }
+
+      function updateTimelineUI() {
+        const progress = (currentTime / TOTAL_DURATION) * 100;
+        timelineProgress.style.width = `${progress}%`;
+        timelineHead.style.left = `${progress}%`;
+        timeCurrent.textContent = formatTime(currentTime);
+      }
+
+      function determineActiveScene(time) {
+        const sc = SCENES.find(s => time >= s.start && time < s.end);
+        return sc ? sc.id : 5;
+      }
+
+      function animationTick(timestamp) {
+        if (!lastTimestamp) lastTimestamp = timestamp;
+        const delta = (timestamp - lastTimestamp) / 1000;
+        lastTimestamp = timestamp;
+
+        if (isPlaying) {
+          currentTime += delta * playbackSpeed;
+          if (currentTime >= TOTAL_DURATION) {
+            currentTime = TOTAL_DURATION;
+            pauseCommercial();
+            // Loop or finish
+            setTimeout(() => {
+              seekTo(0);
+              playCommercial();
+            }, 1200);
+          }
+
+          const targetScene = determineActiveScene(currentTime);
+          if (targetScene !== activeSceneIndex) {
+            setScene(targetScene);
+          }
+
+          // Special sub-timeline animations
+          if (targetScene === 3) {
+            // Counter ticking from 0 to 500
+            const relProgress = Math.min(1, Math.max(0, (currentTime - 15) / 5));
+            const currentLoad = Math.floor(relProgress * 500);
+            stressCounter.textContent = currentLoad;
+          }
+
+          if (targetScene === 4) {
+            // Rapid cycle cards in fleet
+            const cardIdx = Math.floor(((currentTime - 23) / 6) * 6) + 1;
+            for (let i = 1; i <= 6; i++) {
+              const el = document.getElementById(`card${i}`);
+              if (el) {
+                if (i === cardIdx) el.classList.add('highlight');
+                else el.classList.remove('highlight');
+              }
+            }
+          }
+
+          updateTimelineUI();
+        }
+
+        renderParticles();
+        requestAnimationFrame(animationTick);
+      }
+
+      function playCommercial() {
+        initAudio();
+        isPlaying = true;
+        btnPlayPause.innerHTML = '❚❚';
+        btnPlayPause.title = 'Pause Commercial';
+        setScene(determineActiveScene(currentTime), true);
+      }
+
+      function pauseCommercial() {
+        isPlaying = false;
+        btnPlayPause.innerHTML = '▶';
+        btnPlayPause.title = 'Play Commercial';
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      }
+
+      function seekTo(targetTime) {
+        currentTime = Math.max(0, Math.min(TOTAL_DURATION, targetTime));
+        updateTimelineUI();
+        setScene(determineActiveScene(currentTime), true);
+      }
+
+      // ── USER CONTROLS EVENT LISTENERS ──
+      btnPlayPause.addEventListener('click', () => {
+        if (isPlaying) pauseCommercial();
+        else playCommercial();
+      });
+
+      btnReplay.addEventListener('click', () => {
+        seekTo(0);
+        playCommercial();
+      });
+
+      // Scrubbing timeline
+      timelineScrubber.addEventListener('click', (e) => {
+        const rect = timelineScrubber.getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        seekTo(pos * TOTAL_DURATION);
+      });
+
+      // Scene Jumper Pills
+      scenePills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const sceneId = parseInt(pill.dataset.scene);
+          const sc = SCENES.find(s => s.id === sceneId);
+          if (sc) {
+            seekTo(sc.start + 0.1);
+            if (!isPlaying) playCommercial();
+          }
+        });
+      });
+
+      // Playback speed
+      const speeds = [1.0, 1.5, 2.0, 0.5];
+      let currentSpeedIndex = 0;
+      btnSpeed.addEventListener('click', () => {
+        currentSpeedIndex = (currentSpeedIndex + 1) % speeds.length;
+        playbackSpeed = speeds[currentSpeedIndex];
+        btnSpeed.textContent = `${playbackSpeed}x`;
+      });
+
+      // Aspect Ratio Toggles
+      const btnRatio169 = document.getElementById('btnRatio169');
+      const btnRatio916 = document.getElementById('btnRatio916');
+      const btnRatio11 = document.getElementById('btnRatio11');
+
+      btnRatio169.addEventListener('click', () => {
+        viewportWrapper.className = 'viewport-wrapper ratio-16-9';
+        btnRatio169.classList.add('active');
+        btnRatio916.classList.remove('active');
+        btnRatio11.classList.remove('active');
+        resizeCanvas();
+      });
+
+      btnRatio916.addEventListener('click', () => {
+        viewportWrapper.className = 'viewport-wrapper ratio-9-16';
+        btnRatio169.classList.remove('active');
+        btnRatio916.classList.add('active');
+        btnRatio11.classList.remove('active');
+        resizeCanvas();
+      });
+
+      btnRatio11.addEventListener('click', () => {
+        viewportWrapper.className = 'viewport-wrapper ratio-1-1';
+        btnRatio169.classList.remove('active');
+        btnRatio916.classList.remove('active');
+        btnRatio11.classList.add('active');
+        resizeCanvas();
+      });
+
+      // Audio Toggle
+      btnAudioToggle.addEventListener('click', () => {
+        initAudio();
+        audioEnabled = !audioEnabled;
+        if (audioEnabled) {
+          btnAudioToggle.classList.add('active');
+          audioIcon.textContent = '🔊';
+        } else {
+          btnAudioToggle.classList.remove('active');
+          audioIcon.textContent = '🔇';
+        }
+      });
+
+      // Voiceover Toggle
+      btnVoiceToggle.addEventListener('click', () => {
+        voiceEnabled = !voiceEnabled;
+        if (voiceEnabled) {
+          btnVoiceToggle.classList.add('active');
+          speakSceneNarration(activeSceneIndex);
+        } else {
+          btnVoiceToggle.classList.remove('active');
+          if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        }
+      });
+
+      // Fullscreen Toggle
+      btnFullscreen.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+          viewportWrapper.requestFullscreen().catch(err => {
+            alert(`Error attempting fullscreen: ${err.message}`);
+          });
+        } else {
+          document.exitFullscreen();
+        }
+      });
+
+      // ── 1-CLICK VIDEO EXPORTER (HTML5 Canvas + MediaRecorder) ──
+      btnRecordVideo.addEventListener('click', async () => {
+        if (isRecording) {
+          // Stop recording manually
+          if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+            mediaRecorder.stop();
+          }
+          return;
+        }
+
+        // Start High-Def Canvas Recording
+        try {
+          const exportCanvas = document.createElement('canvas');
+          exportCanvas.width = 1920;
+          exportCanvas.height = 1080;
+          const expCtx = exportCanvas.getContext('2d');
+
+          // Capture stream from canvas
+          const stream = exportCanvas.captureStream(60);
+
+          recordedChunks = [];
+          mediaRecorder = new MediaRecorder(stream, {
+            mimeType: MediaRecorder.isTypeSupported('video/webm;codecs=vp9') ? 'video/webm;codecs=vp9' : 'video/webm'
+          });
+
+          mediaRecorder.ondataavailable = (e) => {
+            if (e.data && e.data.size > 0) {
+              recordedChunks.push(e.data);
+            }
+          };
+
+          mediaRecorder.onstop = () => {
+            isRecording = false;
+            btnRecordVideo.classList.remove('recording');
+            btnRecordVideo.innerHTML = '<span id="recordDot">⏺</span> Export Video';
+
+            const blob = new Blob(recordedChunks, { type: 'video/webm' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = `Ascentix_Ladders_Commercial_Ad_${Date.now()}.webm`;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => {
+              document.body.removeChild(a);
+              window.URL.revokeObjectURL(url);
+            }, 100);
+
+            alert("Commercial video recorded successfully! Download started.");
+          };
+
+          isRecording = true;
+          btnRecordVideo.classList.add('recording');
+          btnRecordVideo.innerHTML = '⏹ Stop & Save Video';
+
+          // Rewind to start and play
+          seekTo(0);
+          playCommercial();
+
+          mediaRecorder.start();
+
+          // Render loop for export canvas mirroring the viewport
+          const stageEl = document.getElementById('adStage');
+          const exportInterval = setInterval(() => {
+            if (!isRecording) {
+              clearInterval(exportInterval);
+              return;
+            }
+
+            // Draw clean background
+            expCtx.fillStyle = '#080a0f';
+            expCtx.fillRect(0, 0, 1920, 1080);
+
+            // Draw particles
+            particles.forEach(p => {
+              expCtx.save();
+              expCtx.globalAlpha = Math.max(0, p.alpha);
+              expCtx.fillStyle = p.color;
+              expCtx.beginPath();
+              expCtx.arc((p.x / canvas.width) * 1920, (p.y / canvas.height) * 1080, p.size * 2, 0, Math.PI * 2);
+              expCtx.fill();
+              expCtx.restore();
+            });
+
+            // Draw current scene graphics on video canvas
+            const sc = SCENES.find(s => s.id === activeSceneIndex);
+            if (sc) {
+              expCtx.fillStyle = '#ffffff';
+              expCtx.font = 'bold 70px Oswald';
+              expCtx.textAlign = 'center';
+              expCtx.fillText(sc.title, 960, 480);
+
+              expCtx.fillStyle = '#ff5e14';
+              expCtx.font = 'bold 36px Inter';
+              expCtx.fillText("ASCENTIX LADDERS — THE SUMMIT OF SAFETY", 960, 560);
+
+              expCtx.fillStyle = '#e2e8f0';
+              expCtx.font = '28px Inter';
+              expCtx.fillText(sc.caption, 960, 640);
+
+              // Top watermark & Timecode
+              expCtx.fillStyle = '#ff5e14';
+              expCtx.font = 'bold 32px Oswald';
+              expCtx.textAlign = 'left';
+              expCtx.fillText("ASCENTIX.IN", 80, 100);
+
+              expCtx.fillStyle = '#94a3b8';
+              expCtx.font = 'bold 24px JetBrains Mono';
+              expCtx.textAlign = 'right';
+              expCtx.fillText(`${formatTime(currentTime)} / 00:35`, 1840, 100);
+            }
+
+            if (currentTime >= TOTAL_DURATION) {
+              mediaRecorder.stop();
+              clearInterval(exportInterval);
+            }
+          }, 1000 / 60);
+
+        } catch (err) {
+          console.error("Recording error:", err);
+          alert("Recording not supported or permission denied in this browser.");
+          isRecording = false;
+          btnRecordVideo.classList.remove('recording');
+        }
+      });
+
+      // Keyboard spacebar play/pause
+      window.addEventListener('keydown', (e) => {
+        if (e.code === 'Space' && e.target === document.body) {
+          e.preventDefault();
+          if (isPlaying) pauseCommercial();
+          else playCommercial();
+        }
+      });
+
+      // Initialize
+      updateTimelineUI();
+      requestAnimationFrame(animationTick);
+
+      // Autoplay with muted audio initially (to bypass browser autoplay block)
+      setTimeout(() => {
+        playCommercial();
+      }, 600);
+
+    })();
+  </script>
+</body>
+</html>
