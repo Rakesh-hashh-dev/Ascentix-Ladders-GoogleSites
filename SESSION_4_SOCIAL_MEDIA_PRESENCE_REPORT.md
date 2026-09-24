@@ -138,6 +138,10 @@ To avoid spreading resources thinly, platforms were rigorously evaluated against
   > 
   > *Institutional Procurement: contact@ascentix-ladders.in | Fleet Desk: +91 (022) 4987-6543"*
 * **Target Audience**: Safety Directors (EHS), Chief Engineers, Electrical Contractors, Solar Project Managers, Operations Executives.
+* **Ready-to-Post Campaign Posters**:
+  *(Detailed post copy, hashtags, and specs documented in [`SOCIAL_MEDIA_POSTER_SUITE.md`](SOCIAL_MEDIA_POSTER_SUITE.md))*:
+  1. *Poster 1*: `Modernize Your Electrical Fleet` (Asset: `assets/social/linkedin_poster_1_discom_fleet.jpg`)
+  2. *Poster 2*: `Target: Zero Lost-Time Injuries` (Asset: `assets/social/linkedin_poster_2_plant_safety.jpg`)
 
 ---
 
@@ -159,6 +163,10 @@ To avoid spreading resources thinly, platforms were rigorously evaluated against
   - 👷 *Job Sites* (User-generated tradesperson photos)
   - 🎨 *Color Line* (Cobalt, Crimson, Safety Yellow variants)
   - 📜 *BIS Certs* (Official laboratory test certificates)
+* **Ready-to-Post Visual Campaign Posters**:
+  *(Detailed post copy, hashtags, and specs documented in [`SOCIAL_MEDIA_POSTER_SUITE.md`](SOCIAL_MEDIA_POSTER_SUITE.md))*:
+  1. *Poster 1*: `14 Configurations. Zero Compromise.` (Asset: `assets/social/instagram_poster_1_multiflex.jpg`)
+  2. *Poster 2*: `Built for the Roof. Tested in the Heat.` (Asset: `assets/social/instagram_poster_2_solarstep.jpg`)
 
 ---
 

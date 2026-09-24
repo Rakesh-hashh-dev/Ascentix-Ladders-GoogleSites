@@ -43,6 +43,7 @@ Ascentix-Ladders-GoogleSites/
 │   └── team_placeholders/             # Fallback assets
 │
 ├── guides/                            # Documentation & Implementation Manuals
+│   ├── SOCIAL_MEDIA_POSTER_SUITE.md          # LinkedIn & Instagram campaign posters & copy
 │   ├── YOUTUBE_COMMUNITY_POSTS_SUITE.md      # YouTube Community Tab polls, quizzes & spotlights
 │   ├── YOUTUBE_CONTENT_UPLOAD_SUITE.md       # Complete YouTube upload scripts, descriptions & tags
 │   ├── SESSION_4_SOCIAL_MEDIA_PRESENCE_REPORT.md # Submission 3: Social Media Strategy & Brand Presence
