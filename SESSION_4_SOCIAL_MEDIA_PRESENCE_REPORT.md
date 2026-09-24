@@ -116,11 +116,12 @@ To avoid spreading resources thinly, platforms were rigorously evaluated against
   > *"Official YouTube channel of Ascentix Ladders. Aerospace-grade 7075-T6 aluminum, Toray carbon fiber, and fiberglass climbing systems certified to BIS IS 4130/4131. Watch destructive stress tests, 35kV electrical testing, and trade maintenance tutorials. Engineered for the Summit of Safety."*
 * **Channel Links**: Google Sites Hub • WhatsApp Fleet Desk • LinkedIn B2B Page
 * **Banner Graphic**: High-contrast dark industrial graphic featuring the CarbonApex X1 undergoing dielectric arc testing with the headline: *"ZERO WOBBLE. ZERO COMPROMISE. 10 MODELS CERTIFIED TO BIS STANDARDS."*
-* **Featured Playlists**:
-  1. *Destruction Lab: 4K Drop & Load Tests*
-  2. *Electrical Safety & 35kV Dielectric Proof*
-  3. *Model Guides: Setup, Folding & Ergonomics*
-  4. *Tradesperson Spotlights: Field Reviews from Indian Job Sites*
+* **Featured Playlists & Ready-to-Upload Production Packages**:
+  *(Complete upload packages with video scripts, descriptions, timestamps, tags, and thumbnails are documented in [`YOUTUBE_CONTENT_UPLOAD_SUITE.md`](YOUTUBE_CONTENT_UPLOAD_SUITE.md))*:
+  1. *Destruction Lab: 4K Drop & Load Tests* — Flagship Episode: `500 LB ANVIL vs AIRCRAFT HINGE` (Thumbnail: `assets/social/youtube_thumbnail_drop_test.jpg`)
+  2. *Electrical Safety & 35kV Dielectric Proof* — Flagship Episode: `Can 35,000 VOLTS Penetrate Carbon Fiber?` (Thumbnail: `assets/social/youtube_thumbnail_35kv_test.jpg`)
+  3. *Model Guides: Setup, Folding & Ergonomics* — Flagship Episode: `TelePro 360 One-Touch Anti-Pinch Operation`
+  4. *Tradesperson Spotlights: Field Reviews from Indian Job Sites* — Flagship Episode: `50 Solar Panels in 42°C Heat: SolarStep FX Field Review`
 
 ---
 

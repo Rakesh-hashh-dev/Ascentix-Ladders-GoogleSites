@@ -43,6 +43,7 @@ Ascentix-Ladders-GoogleSites/
 │   └── team_placeholders/             # Fallback assets
 │
 ├── guides/                            # Documentation & Implementation Manuals
+│   ├── YOUTUBE_CONTENT_UPLOAD_SUITE.md       # Complete YouTube upload scripts, descriptions & tags
 │   ├── SESSION_4_SOCIAL_MEDIA_PRESENCE_REPORT.md # Submission 3: Social Media Strategy & Brand Presence
 │   ├── SESSION_3_RESTRUCTURING_AND_SEO_GUIDE.md # SEO optimization & IA restructure guide
 │   ├── NEW_PRODUCTS_IMPLEMENTATION_GUIDE.md  # Step-by-step Google Sites setup for Models 7–10
