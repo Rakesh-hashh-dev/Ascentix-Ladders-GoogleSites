@@ -122,6 +122,8 @@ To avoid spreading resources thinly, platforms were rigorously evaluated against
   2. *Electrical Safety & 35kV Dielectric Proof* — Flagship Episode: `Can 35,000 VOLTS Penetrate Carbon Fiber?` (Thumbnail: `assets/social/youtube_thumbnail_35kv_test.jpg`)
   3. *Model Guides: Setup, Folding & Ergonomics* — Flagship Episode: `TelePro 360 One-Touch Anti-Pinch Operation`
   4. *Tradesperson Spotlights: Field Reviews from Indian Job Sites* — Flagship Episode: `50 Solar Panels in 42°C Heat: SolarStep FX Field Review`
+* **Community Tab & Engagement Suite**:
+  *(Ready-to-post interactive polls, NABL lab telemetry, safety quizzes, and tradesperson spotlights are detailed in [`YOUTUBE_COMMUNITY_POSTS_SUITE.md`](YOUTUBE_COMMUNITY_POSTS_SUITE.md))*.
 
 ---
 
