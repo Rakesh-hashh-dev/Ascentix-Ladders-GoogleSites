@@ -43,8 +43,9 @@ Ascentix-Ladders-GoogleSites/
 │   └── team_placeholders/             # Fallback assets
 │
 ├── guides/                            # Documentation & Implementation Manuals
-│   ├── NEW_PRODUCTS_IMPLEMENTATION_GUIDE.md  # Step-by-step Google Sites setup for Models 7–10
+│   ├── SESSION_4_SOCIAL_MEDIA_PRESENCE_REPORT.md # Submission 3: Social Media Strategy & Brand Presence
 │   ├── SESSION_3_RESTRUCTURING_AND_SEO_GUIDE.md # SEO optimization & IA restructure guide
+│   ├── NEW_PRODUCTS_IMPLEMENTATION_GUIDE.md  # Step-by-step Google Sites setup for Models 7–10
 │   ├── GOOGLE_SITES_EMBED_SNIPPETS.md        # Ready-to-paste responsive HTML embed snippets
 │   └── GOOGLE_SITES_STEP_BY_STEP_GUIDE.md    # End-to-end Google Sites build walkthrough
 │
