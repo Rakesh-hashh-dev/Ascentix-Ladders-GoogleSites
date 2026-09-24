@@ -63,10 +63,9 @@ These posts showcase high-level technical authority and material science proof (
 ---
 
 ### BTS Post 1: The Microscopic Secret of 7075-T6 Aluminum
-* **Post Format**: Multi-Image Carousel (2 Slides)  
-* **Visual Assets**:
-  - **Slide 1**: Side-by-side metallurgical microscope photo comparing the dense, tight crystalline grain of 7075-T6 aircraft alloy vs. the porous, brittle structure of cheap recycled cast aluminum.
-  - **Slide 2**: Digital stress-strain curve graph showing yield strength (572 MPa vs 180 MPa).
+* **Post Format**: Image Post (1:1 Square)  
+* **Visual Asset**: `assets/social/community_post_1_metallurgy.jpg`  
+  *(Visual: Materials engineer in testing lab inspecting 7075-T6 aluminum extrusion with Instron tensile tester, SEM grain boundary HUD, and stress-strain curve)*
 * **Text / Caption**:
   > 🔬 *FROM THE ASCENTIX MATERIALS LAB*  
   > 
@@ -113,8 +112,9 @@ These posts showcase high-level technical authority and material science proof (
 ---
 
 ### Quiz Post 1: Spot the Lethal Job-Site Mistake
-* **Post Format**: Single Image with Graphic Callouts  
-* **Visual Asset**: A graphic photo showing a ladder positioned against a building wall with a digital protractor angle tool overlaid.
+* **Post Format**: Image Post (1:1 Square)  
+* **Visual Asset**: `assets/social/community_post_2_safety_quiz.jpg`  
+  *(Visual: Indian construction job site with worker on yellow extension ladder and digital AR HUD showing red 55° danger arc vs green 75° safe angle)*
 * **Text / Caption**:
   > 👷‍♂️ *SAFETY OFFICER CHALLENGE #14*  
   > 
@@ -157,8 +157,9 @@ These posts showcase high-level technical authority and material science proof (
 ---
 
 ### Spotlight Post 1: Rajesh from Bangalore (Commercial Electrician)
-* **Post Format**: Real On-Site Photo + Quote Card  
-* **Visual Asset**: Candid photo of a master electrician wearing helmet and safety boots standing on the wide top platform of the *VoltShield FG5*, with his tools organized in the magnetic tray.
+* **Post Format**: Image Post (1:1 Square)  
+* **Visual Asset**: `assets/social/community_post_3_electrician.jpg`  
+  *(Visual: Master electrician on modern Bangalore commercial job site standing on VoltShield FG5 top platform with magnetic caddy holding multimeter and pliers)*
 * **Text / Caption**:
   > 🛠️ *COMMUNITY SPOTLIGHT: Rajesh K., Bangalore*  
   > Certified Master Electrician & Industrial Plant Contractor  
