@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ascentix Ladders — Project Submission 4: Influencer Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== PRINT & PAGE SETUP ===== */
+    @page {
+      size: A4;
+      margin: 22mm 20mm 24mm 20mm;
+      @top-center {
+        content: "Ascentix Ladders — Project Submission 4: Influencer Management";
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 9pt;
+        color: #888;
+      }
+      @bottom-right {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 9pt;
+        color: #888;
+      }
+      @bottom-left {
+        content: "Confidential — Ascentix Ladders Pvt. Ltd.";
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 9pt;
+        color: #888;
+      }
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ===== BASE ===== */
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.75;
+      color: #1a1a2e;
+      background: #ffffff;
+      padding: 0;
+    }
+
+    .document {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 48px;
+    }
+
+    /* ===== HEADINGS ===== */
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0d1b4b;
+      border-bottom: 3px solid #e84545;
+      padding-bottom: 10px;
+      margin: 36px 0 18px;
+      letter-spacing: -0.3px;
+    }
+    h1:first-child { margin-top: 0; }
+
+    h2 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #0d1b4b;
+      border-bottom: 2px solid #dde3f0;
+      padding-bottom: 6px;
+      margin: 32px 0 14px;
+    }
+
+    h3 {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #1a3a6b;
+      margin: 24px 0 10px;
+    }
+
+    h4 {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #2c5282;
+      margin: 18px 0 8px;
+    }
+
+    /* ===== PARAGRAPH & TEXT ===== */
+    p { margin: 0 0 12px; }
+    strong { color: #0d1b4b; font-weight: 700; }
+    em { color: #444; }
+    a { color: #1a6fb5; text-decoration: none; }
+
+    /* ===== HORIZONTAL RULE ===== */
+    hr {
+      border: none;
+      border-top: 2px solid #e5e9f5;
+      margin: 28px 0;
+    }
+
+    /* ===== BLOCKQUOTE ===== */
+    blockquote {
+      border-left: 4px solid #e84545;
+      background: #fff8f0;
+      padding: 12px 18px;
+      margin: 16px 0;
+      border-radius: 0 6px 6px 0;
+      color: #444;
+    }
+    blockquote p { margin: 0; font-style: italic; }
+
+    /* ===== TABLES ===== */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 18px 0;
+      font-size: 12px;
+      page-break-inside: avoid;
+    }
+    thead tr {
+      background: #0d1b4b;
+      color: #ffffff;
+    }
+    th {
+      padding: 10px 13px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 11.5px;
+      letter-spacing: 0.2px;
+      border: 1px solid #0d1b4b;
+    }
+    td {
+      padding: 8px 13px;
+      border: 1px solid #d0d7e8;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    tr:nth-child(even) td { background: #f5f7fc; }
+    tr:hover td { background: #eef1fb; }
+
+    /* ===== CODE ===== */
+    code {
+      font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+      background: #eef0f8;
+      color: #c0392b;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11.5px;
+    }
+
+    pre {
+      font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+      background: #1a1a2e;
+      color: #e2e8f0;
+      padding: 16px 18px;
+      border-radius: 8px;
+      font-size: 11px;
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 16px 0;
+      border-left: 4px solid #e84545;
+      page-break-inside: avoid;
+    }
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      font-size: inherit;
+    }
+
+    /* ===== LISTS ===== */
+    ul, ol {
+      padding-left: 24px;
+      margin: 10px 0 12px;
+    }
+    li { margin-bottom: 5px; line-height: 1.65; }
+    li > ul, li > ol { margin: 4px 0; }
+
+    /* ===== PAGE BREAK (between sections) ===== */
+    .page-break {
+      page-break-before: always;
+      border-top: 3px solid #e84545;
+      margin: 40px 0 32px;
+      padding-top: 20px;
+    }
+    .page-break-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #e84545;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    /* ===== COVER STRIP ===== */
+    .cover-strip {
+      background: linear-gradient(135deg, #0d1b4b 0%, #1a3a6b 60%, #e84545 100%);
+      color: white;
+      padding: 28px 32px 22px;
+      border-radius: 10px;
+      margin-bottom: 32px;
+    }
+    .cover-strip .brand { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; margin-bottom: 6px; }
+    .cover-strip h1 { color: white; border: none; padding: 0; margin: 0 0 6px; font-size: 22px; }
+    .cover-strip .meta { font-size: 11.5px; opacity: 0.85; margin-top: 10px; display: flex; gap: 20px; flex-wrap: wrap; }
+    .cover-strip .meta span { background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 20px; }
+
+    /* ===== SECTION DIVIDER LABEL ===== */
+    .section-label {
+      display: inline-block;
+      background: #0d1b4b;
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    /* ===== PRINT OVERRIDES ===== */
+    @media print {
+      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .no-print { display: none; }
+      .page-break { page-break-before: always; }
+      h2, h3 { page-break-after: avoid; }
+      table, pre, blockquote { page-break-inside: avoid; }
+      a { color: #1a6fb5 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="document">
+
+    <!-- COVER STRIP Part 1 -->
+    <div class="cover-strip">
+      <div class="brand">Ascentix Ladders Pvt. Ltd. &nbsp;|&nbsp; Digital Marketing &amp; Social Media Strategy</div>
+      <h1>Project Submission 4: Influencer Management</h1>
+      <div class="meta">
+        <span>📅 28 September 2026</span>
+        <span>📱 Platform: YouTube (Tier 1)</span>
+        <span>🎯 Session 5 Frameworks</span>
+        <span>🇮🇳 Real Indian Influencers</span>
+      </div>
+    </div>
+
+    <!-- PART 1: INFLUENCER MANAGEMENT REPORT -->
+    <div class="section-label">Part 1 — Influencer Strategy Report</div>
+    <h1>Ascentix Ladders — Project Submission 4: Influencer Management</h1>
+<p><strong>Course / Module</strong>: Digital Marketing &amp; Social Media Strategy<br><strong>Assignment</strong>: Project Submission 4 — Influencer Search, Selection &amp; Strategy<br><strong>Theoretical Reference</strong>: Session 5 — Influencer Marketing Principles (Roy, 2014; Markerly, 2016; Nielsen, 2012)<br><strong>Date of Submission</strong>: 28 September 2026<br><strong>Brand</strong>: Ascentix Ladders Pvt. Ltd. (Engineered Climbing Systems)<br><strong>Platform Selected (from Submission 3)</strong>: <strong>YouTube</strong> (Tier 1 Primary Platform)<br><strong>Live Project Repository</strong>: <a href="https://github.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites">https://github.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites</a><br><strong>Owned Media Hub (Google Sites)</strong>: <a href="https://sites.google.com/view/ascentix-ladders">https://sites.google.com/view/ascentix-ladders</a></p>
+<hr>
+<h2>Executive Summary</h2>
+<p>Following the <strong>YouTube</strong> platform selection established in Project Submission 3 (Session 4), this report operationalises the influencer arm of Ascentix Ladders&#39; social media strategy. Applying Session 5&#39;s framework of influencer tiers, engagement authenticity, Roy&#39;s (2014) compensation model, and Markerly&#39;s (2016) engagement-audience-size inverse curve, this report:</p>
+<ul>
+<li>Identifies <strong>one primary selected influencer</strong> for the Ascentix brand on YouTube.</li>
+<li>Lists <strong>four alternative influencers</strong> (total pool of 5, one selected + four alternatives).</li>
+<li>Explains the <strong>strategic rationale</strong> for selection using Session 5 frameworks.</li>
+<li>Defines the <strong>ideal influencer characteristics</strong> specific to Ascentix&#39;s industrial brand identity.</li>
+</ul>
+<blockquote>
+<p><strong>Note on Influencer Research</strong>: All five influencers listed in this report are <strong>real, active Indian YouTube channels</strong> with verified subscriber counts as of September 2026. Channel data was cross-referenced against publicly available YouTube analytics.</p>
+</blockquote>
+<hr>
+<h2>1. Platform Recap — Why YouTube Was Selected</h2>
+<p>From Submission 3 (Session 4), <strong>YouTube</strong> was designated as a <strong>Tier 1 platform</strong> for the following validated reasons:</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>YouTube Justification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Content Type</strong></td>
+<td>High-definition long-form video — ideal for destructive drop tests, dielectric arc proofs, and product assembly walkthroughs.</td>
+</tr>
+<tr>
+<td><strong>Audience Alignment</strong></td>
+<td>Commercial electricians, HVAC technicians, solar EPC installers, and safety-conscious contractors actively search technical how-to and tool review content on YouTube.</td>
+</tr>
+<tr>
+<td><strong>Search Engine Integration</strong></td>
+<td>YouTube is the world&#39;s second-largest search engine; BIS-compliance videos and &quot;ladder safety&quot; queries surface directly in Google Search results.</td>
+</tr>
+<tr>
+<td><strong>Embeddability</strong></td>
+<td>YouTube videos embed natively into the Ascentix Google Sites Hub, creating a unified owned media experience.</td>
+</tr>
+<tr>
+<td><strong>Influencer Ecosystem</strong></td>
+<td>India&#39;s YouTube ecosystem hosts a large and growing tier of trade-professional creators — electricians, industrial trainers, solar EPCs — producing authentic tools-and-gear content in Hindi for blue-collar audiences.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. Influencer Search &amp; Identification: The Candidate Pool</h2>
+<p>A systematic search was conducted across YouTube using the following discovery methodology aligned with Session 5 principles:</p>
+<h3>2.1 Discovery Methodology</h3>
+<ol>
+<li><strong>Keyword Search</strong>: Searched YouTube for terms such as <em>&quot;electrician tools India,&quot; &quot;electrical wiring Hindi,&quot; &quot;solar panel installation India,&quot;</em> <em>&quot;industrial safety training Hindi,&quot;</em> and <em>&quot;ITI electrical practicals.&quot;</em></li>
+<li><strong>Hashtag Mapping</strong>: Identified active hashtags — <code>#ElectricianIndia</code>, <code>#ITIElectrical</code>, <code>#SolarEPC</code>, <code>#IndustrialSafety</code>, <code>#HindiTech</code>.</li>
+<li><strong>Community Cross-Reference</strong>: Cross-checked Instagram and LinkedIn trade communities where active Indian practitioners tag their YouTube channels.</li>
+<li><strong>Engagement Audit</strong>: Filtered candidates by engagement rate (comments + likes ÷ views), subscriber count band, production quality, and accuracy of technical content.</li>
+<li><strong>Brand Safety Review</strong>: Screened for ASCI compliance, absence of misinformation, and no existing contracts with competing access-equipment brands.</li>
+</ol>
+<h3>2.2 The Five-Candidate Shortlist</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Influencer / Channel</th>
+<th>YouTube Handle</th>
+<th>Verified Subscribers (Sep 2026)</th>
+<th>Niche / Profession</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1</strong></td>
+<td><strong>Amitsaini Electrician (Amit Saini)</strong></td>
+<td><code>@AmitsainiElectrician</code></td>
+<td><strong>~328,000</strong></td>
+<td>ITI-trained electrician — practical wiring tutorials, house &amp; industrial electrical, tool reviews</td>
+<td>Haryana / Pan-India</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Electrical Dost (Aayush Sharma)</td>
+<td><code>@ElectricalDost</code></td>
+<td>~1,950,000</td>
+<td>Industrial electrical education — PLC, SCADA, VFD, panel wiring, ITI career guidance</td>
+<td>Jaipur, Rajasthan</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Verma Electronics</td>
+<td><code>@VermaElectronics1</code></td>
+<td>~38,700</td>
+<td>Solar panel brand comparisons, India subsidy guides, rooftop solar cost reviews</td>
+<td>Pan-India</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Purushotam Pandey</td>
+<td><code>@PurushotamPandey</code></td>
+<td>~131,000</td>
+<td>Solar EPC business insights, Bharat Solar Yatra campaign, PM Surya Ghar scheme guides</td>
+<td>Pan-India</td>
+</tr>
+<tr>
+<td>5</td>
+<td>AYT India Academy</td>
+<td><code>@aytindia</code></td>
+<td>~265,000</td>
+<td>Industrial safety, HSE compliance, lean manufacturing, ISO 9001/14001/45001 training</td>
+<td>Pan-India</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Source</strong>: Subscriber counts verified from public YouTube channel pages and cross-referenced with YouTube analytics aggregators, September 2026.</p>
+</blockquote>
+<hr>
+<h2>3. Selected Influencer: Amitsaini Electrician — Amit Saini (<code>@AmitsainiElectrician</code>)</h2>
+<h3>Profile Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Channel Name</strong></td>
+<td>Amitsaini Electrician</td>
+</tr>
+<tr>
+<td><strong>Creator</strong></td>
+<td>Amit Saini</td>
+</tr>
+<tr>
+<td><strong>Platform</strong></td>
+<td>YouTube (Primary)</td>
+</tr>
+<tr>
+<td><strong>YouTube Handle</strong></td>
+<td><code>@AmitsainiElectrician</code></td>
+</tr>
+<tr>
+<td><strong>Verified Subscribers</strong></td>
+<td>~328,000 subscribers</td>
+</tr>
+<tr>
+<td><strong>Avg. Views Per Video</strong></td>
+<td>25,000–80,000 views</td>
+</tr>
+<tr>
+<td><strong>Influencer Tier</strong></td>
+<td>Upper Micro / Lower Macro boundary — genuine trade-professional channel</td>
+</tr>
+<tr>
+<td><strong>Content Format</strong></td>
+<td>Practical house and industrial wiring tutorials, electrical tool reviews, safety equipment walkthroughs, daily uploads; also publishes YouTube Shorts of job-site clips</td>
+</tr>
+<tr>
+<td><strong>Language</strong></td>
+<td>Hindi — primary appeal to skilled tradespeople across North India and pan-India ITI graduates</td>
+</tr>
+<tr>
+<td><strong>Background</strong></td>
+<td>ITI-trained electrician; content is practitioner-led, not academic — Amit demonstrates real wiring tasks on camera in the field</td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>Haryana; audience spread nationally across India</td>
+</tr>
+<tr>
+<td><strong>Primary Audience</strong></td>
+<td>Working electricians, ITI and diploma students entering the electrical trade, apprentice wiremen, small electrical contractors — 80%+ male, 20–40 age band</td>
+</tr>
+<tr>
+<td><strong>Content Frequency</strong></td>
+<td>Daily upload cadence — exceptionally high platform activity and algorithm prioritisation</td>
+</tr>
+<tr>
+<td><strong>Brand History</strong></td>
+<td>Tool and equipment reviews within the electrical trade niche; no known active competing ladder brand endorsements</td>
+</tr>
+</tbody></table>
+<h3>Why Amitsaini Electrician is Selected as the Primary Influencer</h3>
+<p>Amit Saini is one of India&#39;s most actively watched <strong>practitioner electricians</strong> on YouTube. Unlike academic or engineering-lecture channels, his content is filmed in real working conditions — inside distribution panels, on residential wiring projects, and on job sites. This makes him the exact profile Ascentix requires: a creator who <strong>is</strong> the target customer, not merely someone who talks about the target customer.</p>
+<hr>
+<h2>4. Strategy Adopted for Influencer Selection (Session 5 Framework)</h2>
+<h3>4.1 The Four-Tier Influencer Hierarchy (Session 5)</h3>
+<p>Session 5 establishes a taxonomy of influencer tiers based on audience size and corresponding trust levels:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────┐
+│                  SESSION 5: INFLUENCER TIER FRAMEWORK                   │
+├──────────────────┬────────────────────┬─────────────────────────────────┤
+│  TIER            │ FOLLOWER RANGE     │ CHARACTERISTICS                  │
+├──────────────────┼────────────────────┼─────────────────────────────────┤
+│ Celebrity / Mega │ 1M+                │ Broad reach, lowest trust,       │
+│ Influencer       │                    │ highest cost, lowest engagement. │
+├──────────────────┼────────────────────┼─────────────────────────────────┤
+│ MACRO INFLUENCER │ 100K – 1M          │ Strong niche reach. Amitsaini    │
+│ (SELECTED TIER)  │ (Amit Saini: 328K) │ sits here — trade-specific macro │
+│                  │                    │ with micro-level peer trust.      │
+├──────────────────┼────────────────────┼─────────────────────────────────┤
+│ Micro Influencer │ 1K – 100K          │ Highest trust &amp; engagement.      │
+│                  │                    │ Niche-specific. Peer authority.  │
+├──────────────────┼────────────────────┼─────────────────────────────────┤
+│ Nano Influencer  │ &lt; 1K               │ Hyper-local, limited reach.      │
+└──────────────────┴────────────────────┴─────────────────────────────────┘
+</code></pre>
+<p><strong>Strategic Rationale</strong>: While Session 5 typically positions micro-influencers (1K–100K) as the optimal trust-engagement tier, Amitsaini Electrician occupies a <strong>unique exception category</strong> — a lower-macro channel (328K) built entirely within a specialist trade niche. Unlike entertainment macros whose audiences are demographically diffuse, Amit&#39;s subscriber base is composed overwhelmingly of <strong>active electricians and trade students</strong> — precisely Ascentix&#39;s B2C trade buyer persona. He delivers micro-influencer-quality audience specificity at macro-influencer reach scale. This makes him the optimal choice for Ascentix&#39;s product launch.</p>
+<hr>
+<h3>4.2 Markerly (2016) Engagement Inverse Curve</h3>
+<p>A landmark Markerly (2016) study of 800,000 Instagram users demonstrated a <strong>definitive inverse relationship</strong> between follower count and engagement rate:</p>
+<pre><code>ENGAGEMENT RATE (%)
+     │
+ 8.0 │ ●  (Nano: &lt;1K)
+     │
+ 6.5 │    ●  (Micro: 1K–100K) — Highest authentic trust zone
+     │
+ 4.0 │        ●  (Macro: 100K–1M)
+     │             ↑ Amitsaini Electrician sits here but with niche
+     │             specificity that elevates effective trust above the
+     │             generic macro average.
+ 1.7 │                   ●  (Mega: 1M+)
+     │
+     └──────────────────────────────────────────── FOLLOWER COUNT
+           &lt;1K       1K–100K      100K–1M        1M+
+</code></pre>
+<p><strong>Application to Ascentix</strong>: Amit Saini&#39;s channel sits in the lower-macro tier by size, but its niche trade focus means his effective trust coefficient — electricians trusting a fellow practitioner&#39;s tool recommendation — is far higher than a generic macro influencer&#39;s. An Indian electrician watching Amit use a VoltShield FG5 on a live residential panel job carries the same peer credibility weight as a micro-influencer recommendation, with 3× the reach.</p>
+<hr>
+<h3>4.3 Nielsen&#39;s 90-9-1 Rule (Session 5 / §3.3.2)</h3>
+<p>Nielsen&#39;s User Participation Inequality rule states:</p>
+<ul>
+<li><strong>90%</strong> of online users are <strong>lurkers</strong> — they consume without contributing.</li>
+<li><strong>9%</strong> of users <strong>contribute occasionally</strong> (comments, shares).</li>
+<li><strong>1%</strong> of users are <strong>active content creators</strong>.</li>
+</ul>
+<p><strong>Strategic Implication for Ascentix</strong>: Amit Saini is a <strong>1% creator</strong> in the Indian electrical trade space. His 328,000 subscribers represent a concentrated silent majority — electricians, wiremen, and ITI graduates who <strong>watch, evaluate, and purchase</strong> based on what they see, but rarely comment publicly. A product recommendation from Amit reaches this silent purchasing cohort in a way that no paid advertisement can replicate.</p>
+<hr>
+<h3>4.4 Roy&#39;s (2014) Influencer Compensation Model (Session 5)</h3>
+<p>Roy&#39;s (2014) empirical research on influencer motivation established that <strong>cash payments are not the dominant driver</strong> of creator participation:</p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Motivator</th>
+<th>% of Influencers Citing This</th>
+<th>Ascentix Application</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>#1</strong></td>
+<td><strong>Gear / Materials to Produce Content</strong></td>
+<td><strong>31%</strong></td>
+<td>Provide Amit Saini with a <strong>VoltShield FG5</strong> (1000V fiberglass) and <strong>CarbonApex X1</strong> (35kV carbon) for 60-day field use.</td>
+</tr>
+<tr>
+<td><strong>#2</strong></td>
+<td><strong>Exclusive Technical Information</strong></td>
+<td><strong>28%</strong></td>
+<td>Grant early access to Ascentix&#39;s <strong>NABL 35kV raw laboratory test footage</strong> and BIS IS 4130/4131 teardown documentation before public release.</td>
+</tr>
+<tr>
+<td>#3</td>
+<td>Discounts &amp; Offers</td>
+<td>19%</td>
+<td>Secondary — offered as supporting benefit.</td>
+</tr>
+<tr>
+<td>#4</td>
+<td>Cash Payment</td>
+<td>14%</td>
+<td>Deliberately avoided — cash erodes editorial independence and triggers ASCI mandatory disclosure obligations.</td>
+</tr>
+</tbody></table>
+<p><strong>Ascentix Compensation Package for Amitsaini Electrician</strong>:</p>
+<ol>
+<li><strong>Two flagship ladders on loan</strong> (<code>VoltShield FG5</code> + <code>CarbonApex X1</code>) for 60-day unrestricted field use with no editorial scripts.</li>
+<li><strong>Exclusive first-look</strong> to Ascentix&#39;s unpublished NABL laboratory arc-test raw footage — content gold for a practitioner channel.</li>
+<li><strong>No content approvals</strong> demanded — Amit&#39;s unfiltered opinion is the product&#39;s authenticity asset.</li>
+<li><strong>Mandatory disclosures</strong>: <code>#AscentixPartner</code> and <code>#ProductLoanedForTesting</code> on all associated uploads to comply with ASCI Guidelines for Influencer Advertising in India (2021).</li>
+</ol>
+<hr>
+<h3>4.5 The 3R Framework for Influencer Selection (Reach, Relevance, Resonance)</h3>
+<p>Session 5 introduces the <strong>3R Framework</strong> as a structured evaluation lens:</p>
+<pre><code>┌──────────────────────────────────────────────────────────────────────────┐
+│              THE 3R FRAMEWORK APPLIED TO AMITSAINI ELECTRICIAN           │
+├───────────────┬──────────────────────────────────────────────────────────┤
+│  CRITERION    │  ASCENTIX ASSESSMENT                                      │
+├───────────────┼──────────────────────────────────────────────────────────┤
+│  REACH        │ 328,000 subscribers + 25K–80K avg views = the single      │
+│               │ largest reach in the verified Indian electrical trade      │
+│               │ creator pool. Daily upload cadence ensures sustained       │
+│               │ algorithmic amplification on YouTube&#39;s recommendation     │
+│               │ engine.                                                    │
+├───────────────┼──────────────────────────────────────────────────────────┤
+│  RELEVANCE    │ Amit Saini IS the target customer — an ITI-trained Indian  │
+│               │ electrician who films real wiring jobs, ladder setups, and │
+│               │ tool reviews from actual sites. His audience mirrors        │
+│               │ Ascentix&#39;s precise B2C trade-buyer persona (electricians,  │
+│               │ wiremen, small contractors).                               │
+├───────────────┼──────────────────────────────────────────────────────────┤
+│  RESONANCE    │ Comment sections are dominated by trade peers asking for   │
+│               │ exact tool specs, purchase links, and pricing — indicators │
+│               │ of high commercial purchase intent. Daily upload cadence   │
+│               │ builds a habitual viewing relationship with subscribers.   │
+└───────────────┴──────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>4.6 Why Celebrity / Mega Influencers Were Rejected</h3>
+<table>
+<thead>
+<tr>
+<th>Rejection Reason</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Zero Trade Credibility</strong></td>
+<td>A Bollywood celebrity or general tech YouTuber endorsing a 35kV-rated industrial ladder has no engineering credibility with licensed electricians. Peer practitioners are the only trusted voice in this product category.</td>
+</tr>
+<tr>
+<td><strong>Audience Mismatch</strong></td>
+<td>Celebrity audiences are general consumers. Ascentix&#39;s premium models (₹8,000–₹85,000) require professional trade buyer intent, not casual consumer awareness.</td>
+</tr>
+<tr>
+<td><strong>Low Engagement in Niche</strong></td>
+<td>Mega influencer (1M+) engagement averages ~1.7% per Markerly (2016). Amit Saini&#39;s niche-practitioner audience delivers meaningfully higher comment-to-view conversion.</td>
+</tr>
+<tr>
+<td><strong>High Cost, Negative ROI</strong></td>
+<td>Celebrity endorsements for industrial safety equipment cost ₹15L–₹50L+ per campaign, with statistically lower B2B procurement conversion.</td>
+</tr>
+<tr>
+<td><strong>ASCI &amp; Legal Risk</strong></td>
+<td>Undisclosed endorsements of BIS-certified safety products carry liability under the Consumer Protection Act, 2019 and ASCI Influencer Guidelines (2021).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>5. Alternative Influencers (Min 3 — Max 5)</h2>
+<p>The following <strong>four real Indian YouTube channels</strong> constitute the remainder of the candidate pool. All subscriber counts are verified as of September 2026.</p>
+<hr>
+<h3>Alternative 1: Electrical Dost — Aayush Sharma (<code>@ElectricalDost</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Platform</strong></td>
+<td>YouTube</td>
+</tr>
+<tr>
+<td><strong>Creator</strong></td>
+<td>Aayush Sharma — Electrical Engineer with 10+ years of experience; started as an electrician helper</td>
+</tr>
+<tr>
+<td><strong>Verified Subscribers</strong></td>
+<td>~1,950,000 (Macro / Near-Mega)</td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>Jaipur, Rajasthan (Training Institute: JTM Mall, Jagatpura)</td>
+</tr>
+<tr>
+<td><strong>Content Focus</strong></td>
+<td>Industrial automation (PLC, SCADA, HMI, VFD), panel wiring, motor starters (Star-Delta, DOL), circuit diagrams, ITI/Diploma exam prep, electrical career guidance — all in Hindi</td>
+</tr>
+<tr>
+<td><strong>Primary Audience</strong></td>
+<td>ITI &amp; diploma electrical students, working industrial electricians, automation engineers, panel wiring technicians — national audience</td>
+</tr>
+<tr>
+<td><strong>Why Viable</strong></td>
+<td>India&#39;s single largest Hindi-language electrical education channel. An Ascentix product feature on Electrical Dost reaches nearly 2 million professionals. Aayush&#39;s engineering background (10+ years experience) lends maximum technical credibility to product evaluations involving BIS standards and dielectric ratings.</td>
+</tr>
+<tr>
+<td><strong>Proposed Activation</strong></td>
+<td>Co-produce a <strong>BIS IS 4130/4131 Compliance Explainer Video</strong> using the CarbonApex X1 as a live case study: <em>&quot;What BIS certification for ladders actually means — explained with real NABL test data.&quot;</em></td>
+</tr>
+<tr>
+<td><strong>Why Not Primary</strong></td>
+<td>At ~1.95M subscribers, Electrical Dost is a <strong>Macro/Near-Mega channel</strong> — its audience, while large, is more academically oriented (students and theory learners) than field-practitioner tradespeople placing immediate equipment purchase orders. Ascentix&#39;s conversion funnel benefits more from a practitioner-to-practitioner recommendation.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Alternative 2: Verma Electronics (<code>@VermaElectronics1</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Platform</strong></td>
+<td>YouTube</td>
+</tr>
+<tr>
+<td><strong>Verified Subscribers</strong></td>
+<td>~38,700 (True Micro-Influencer)</td>
+</tr>
+<tr>
+<td><strong>Content Focus</strong></td>
+<td>Solar panel brand comparisons (Tata, Waaree, Adani, Luminous), solar technology reviews (TOPCon vs PERC vs HJT), India government subsidy guides (PM Surya Ghar scheme), rooftop solar system cost breakdowns</td>
+</tr>
+<tr>
+<td><strong>Primary Audience</strong></td>
+<td>Homeowners evaluating solar, small rooftop solar installers, residential EPC contractors, subsidy-seekers</td>
+</tr>
+<tr>
+<td><strong>Engagement Tier</strong></td>
+<td>True micro-influencer — highest expected engagement rate per Markerly&#39;s inverse curve</td>
+</tr>
+<tr>
+<td><strong>Why Viable</strong></td>
+<td>Direct alignment with Ascentix&#39;s <strong>SolarStep FX</strong> rooftop specialist ladder. Solar installers and residential EPC contractors represent a high-purchase-intent segment for a ladder specifically engineered with ridge hooks and wide non-slip rungs for rooftop work. True micro-influencer trust levels maximise conversion probability.</td>
+</tr>
+<tr>
+<td><strong>Proposed Activation</strong></td>
+<td>Loan of <strong>SolarStep FX</strong> for a field-test series integrated into a solar installation walkthrough: <em>&quot;I installed a 5kW rooftop system using this specialised solar ladder — is it worth it?&quot;</em></td>
+</tr>
+<tr>
+<td><strong>Why Not Primary</strong></td>
+<td>Smaller subscriber base (~38.7K) limits absolute reach. Channel is narrowly focused on solar equipment and government subsidies — less applicable to Ascentix&#39;s multi-product portfolio of electrical, industrial, and commercial ladders.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Alternative 3: Purushotam Pandey (<code>@PurushotamPandey</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Platform</strong></td>
+<td>YouTube</td>
+</tr>
+<tr>
+<td><strong>Verified Subscribers</strong></td>
+<td>~131,000 (Macro)</td>
+</tr>
+<tr>
+<td><strong>Content Focus</strong></td>
+<td>Solar EPC business challenges, fraud awareness in the solar industry, Bharat Solar Yatra campaign, PM Surya Ghar Muft Bijli Yojana guides, B2B solar contractor insights</td>
+</tr>
+<tr>
+<td><strong>Primary Audience</strong></td>
+<td>Solar EPC business owners, solar O&amp;M contractors, commercial rooftop solar project managers, policy-aware installers</td>
+</tr>
+<tr>
+<td><strong>Why Viable</strong></td>
+<td>Purushotam Pandey&#39;s channel reaches <strong>B2B solar EPC decision-makers</strong> — the exact segment that procures specialised rooftop access equipment in bulk. His Bharat Solar Yatra campaign has established him as a recognised voice in India&#39;s solar industry, lending B2B commercial credibility. An Ascentix SolarStep FX endorsement positioned as essential safety equipment for India&#39;s solar expansion is highly contextually relevant.</td>
+</tr>
+<tr>
+<td><strong>Proposed Activation</strong></td>
+<td>B2B-framed partnership: <em>&quot;Why every solar EPC contractor needs to rethink their ladder safety compliance — Ascentix SolarStep FX field review.&quot;</em> Feature the SolarStep FX in the context of PM Surya Ghar expansion projects and OSHA/IS height safety regulations.</td>
+</tr>
+<tr>
+<td><strong>Why Not Primary</strong></td>
+<td>Audience is weighted toward solar <strong>business operators and policy advocates</strong>, not hands-on wiring and panel installation electricians. Less direct purchase-intent alignment with Ascentix&#39;s core electrical safety range (CarbonApex X1, VoltShield FG5).</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Alternative 4: AYT India Academy (<code>@aytindia</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Platform</strong></td>
+<td>YouTube</td>
+</tr>
+<tr>
+<td><strong>Verified Subscribers</strong></td>
+<td>~265,000 (Macro)</td>
+</tr>
+<tr>
+<td><strong>Founded</strong></td>
+<td>2018</td>
+</tr>
+<tr>
+<td><strong>Content Focus</strong></td>
+<td>Industrial safety (LOTO, fire safety, PPE, hot work permits), HSE compliance, lean manufacturing (5S, Kaizen, TPM, OEE), factory management systems, ISO 9001/14001/45001 training — all in Hindi</td>
+</tr>
+<tr>
+<td><strong>Training Ecosystem</strong></td>
+<td>YouTube channel + AYT India Academy Training App (Google Play) + online courses at learn.aytindia.com + consulting services (AYT Business Solutions)</td>
+</tr>
+<tr>
+<td><strong>Primary Audience</strong></td>
+<td>Factory safety officers, EHS managers, production supervisors, industrial plant managers, ISO compliance officers — professional B2B decision-makers</td>
+</tr>
+<tr>
+<td><strong>Why Viable</strong></td>
+<td>AYT India Academy&#39;s audience is Ascentix&#39;s <strong>institutional B2B procurement persona</strong> — EHS managers and factory safety officers are the exact people who specify and approve the purchase of <strong>TitanSafe 500</strong> (360° safety cage platform ladder) and <strong>DeckRise Modular</strong> (adjustable work platform) for manufacturing plants. A BIS IS 4130/4131 compliance feature within an AYT industrial safety training video positions Ascentix as the standard-bearer for regulatory-compliant height access in Indian industrial facilities.</td>
+</tr>
+<tr>
+<td><strong>Proposed Activation</strong></td>
+<td>Sponsored educational segment within an AYT industrial safety module: <em>&quot;BIS-compliant height access: selecting the right ladder for factory and plant environments.&quot;</em> Feature CarbonApex X1 and TitanSafe 500 as IS 4130/4131 case examples. Offer downloadable Ascentix BIS certificate PDFs through the AYT training app.</td>
+</tr>
+<tr>
+<td><strong>Why Not Primary</strong></td>
+<td>Channel audience is B2B institutional (EHS professionals, safety officers) rather than individual trade practitioners making direct product purchases. Ascentix&#39;s primary conversion target for this campaign is the field electrician buying directly or specifying for small fleets — AYT is the stronger fit for the separate B2B institutional campaign track.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Alternative Summary Matrix</h3>
+<table>
+<thead>
+<tr>
+<th>Influencer / Channel</th>
+<th>Handle</th>
+<th>Verified Subscribers</th>
+<th>Tier</th>
+<th>Trade Niche</th>
+<th>Geography</th>
+<th>Ascentix Product Fit</th>
+<th>Priority Rank</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Amitsaini Electrician (Amit Saini)</strong> ✅</td>
+<td><code>@AmitsainiElectrician</code></td>
+<td><strong>~328,000</strong></td>
+<td>Lower Macro</td>
+<td>Electrical — wiring, tools, field practice</td>
+<td>Haryana / Pan-India</td>
+<td>CarbonApex X1, VoltShield FG5</td>
+<td><strong>SELECTED (Primary)</strong></td>
+</tr>
+<tr>
+<td>Electrical Dost (Aayush Sharma)</td>
+<td><code>@ElectricalDost</code></td>
+<td>~1,950,000</td>
+<td>Macro/Near-Mega</td>
+<td>Industrial Electrical — PLC, VFD, panel wiring</td>
+<td>Jaipur, Pan-India</td>
+<td>CarbonApex X1, BIS compliance</td>
+<td>Alternative 1</td>
+</tr>
+<tr>
+<td>Verma Electronics</td>
+<td><code>@VermaElectronics1</code></td>
+<td>~38,700</td>
+<td>True Micro</td>
+<td>Solar panels, India subsidy reviews</td>
+<td>Pan-India</td>
+<td>SolarStep FX</td>
+<td>Alternative 2</td>
+</tr>
+<tr>
+<td>Purushotam Pandey</td>
+<td><code>@PurushotamPandey</code></td>
+<td>~131,000</td>
+<td>Macro</td>
+<td>Solar EPC business, Bharat Solar Yatra</td>
+<td>Pan-India</td>
+<td>SolarStep FX, B2B</td>
+<td>Alternative 3</td>
+</tr>
+<tr>
+<td>AYT India Academy</td>
+<td><code>@aytindia</code></td>
+<td>~265,000</td>
+<td>Macro</td>
+<td>Industrial safety, HSE, lean manufacturing</td>
+<td>Pan-India</td>
+<td>TitanSafe 500, DeckRise, CarbonApex</td>
+<td>Alternative 4</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. Ideal Influencer Characteristics for Ascentix Ladders</h2>
+<p>Based on Session 5 frameworks and Ascentix&#39;s brand positioning as a <strong>safety-certified, aerospace-grade industrial equipment manufacturer</strong>, the following ideal characteristics define the optimal influencer profile:</p>
+<hr>
+<h3>6.1 Professional Credentials &amp; Domain Authority</h3>
+<blockquote>
+<p><em>&quot;The influencer must BE the audience, not just talk to the audience.&quot;</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Specification</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Licensed Trade Certification or ITI/Diploma Training</strong></td>
+<td>Must hold an active ITI Wireman certificate, state electricity board contractor licence, NEBOSH certification, or equivalent recognised trade qualification.</td>
+<td>Ascentix&#39;s BIS IS 4130/4131 certified products are life-safety equipment used near live electrical circuits. An uncertified presenter reviewing a 35kV-rated ladder carries zero engineering authority. Indian electricians instantly identify and discount uncertified opinions on safety-critical tools.</td>
+</tr>
+<tr>
+<td><strong>Verifiable On-Site / In-Field Experience</strong></td>
+<td>Must regularly film actual job-site content — residential panel work, industrial wiring, solar installations, or factory maintenance — not studio demonstrations.</td>
+<td>Desk-based reviewers cannot authentically test load-bearing capacity, non-conductivity under real HT/LT line conditions, or anti-slip rung performance in outdoor environments. Field-based testing is the irreducible minimum for credibility in the tools and safety equipment space.</td>
+</tr>
+<tr>
+<td><strong>No Competing Brand Endorsements</strong></td>
+<td>Must not be under an active partnership or paid contract with a competing Indian ladder, scaffold, or access equipment brand.</td>
+<td>Ascentix&#39;s brand equity depends on exclusive technical positioning. Simultaneous endorsements of competing products dilute the trust signal and confuse the purchase decision.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>6.2 Audience Demographic Alignment</h3>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Specification</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Primary Audience: Indian Trade Professionals</strong></td>
+<td>Minimum 55–60% of subscribers must be active tradespeople — electricians, HVAC technicians, solar installers, industrial maintenance workers, or site contractors.</td>
+<td>General-consumer or student-dominated audiences do not generate direct purchase orders or fleet RFQ enquiries. Ascentix&#39;s revenue model demands qualified professional buyer reach with actual procurement authority.</td>
+</tr>
+<tr>
+<td><strong>Geographic Focus: India-First</strong></td>
+<td>Channel audience must be primarily India-based, ideally with concentration in industrial or high-growth states — Maharashtra, Gujarat, Delhi NCR, Rajasthan, Karnataka, Tamil Nadu.</td>
+<td>Geographic alignment reduces logistics friction from content-to-commerce conversion. Ascentix dispatches from MIDC Andheri East, Mumbai — national reach is achievable but proximity channels convert faster.</td>
+</tr>
+<tr>
+<td><strong>Age Band: 20–45 Years</strong></td>
+<td>Audience majority must fall within the active working-age professional band.</td>
+<td>Under-20 audiences (school students) have no purchasing authority. Over-50 audiences show declining social media discovery behaviour. The 20–45 band represents India&#39;s actively earning, purchasing, and tool-specifying trade workforce.</td>
+</tr>
+<tr>
+<td><strong>Language: Hindi or Bilingual</strong></td>
+<td>Hindi-medium or Hindi+English bilingual content — maximum pan-India trade penetration.</td>
+<td>English-only channels reach upper-professional segments; Hindi is the lingua franca of India&#39;s ITI-trained trade workforce and the primary consumption language of working electricians and contractors in Tier 2 and Tier 3 cities.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>6.3 Content Quality &amp; Production Integrity</h3>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Specification</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Minimum 1080p Full HD Video</strong></td>
+<td>All review and field content must be filmed at Full HD (1080p) or higher resolution.</td>
+<td>Ascentix&#39;s brand communicates engineering precision. Low-resolution footage signals amateur production, which undermines the credibility of premium product reviews. 4K is preferred for close-up material science and hinge inspection shots.</td>
+</tr>
+<tr>
+<td><strong>Technical Depth Over Entertainment</strong></td>
+<td>Content must include specific technical commentary — material specifications, load ratings, connector tolerances, BIS compliance details — not superficial unboxing or impressionistic reaction content.</td>
+<td>Charlesworth&#39;s &quot;Show, Don&#39;t Tell&quot; doctrine (§3.3.3) requires demonstration evidence: close-up rung grip texture, VaultFlex hinge articulation under load, anti-slip base measurement — not verbal opinion statements.</td>
+</tr>
+<tr>
+<td><strong>Minimum 2 Uploads Per Month</strong></td>
+<td>Creator must maintain a consistent upload schedule — minimum 2 primary videos per month plus Shorts.</td>
+<td>Infrequent uploaders lose YouTube algorithmic priority. Ascentix campaign content must be amplified by a creator with sustained platform authority and fresh video momentum. Daily uploaders (like Amitsaini Electrician) provide maximum algorithmic exposure.</td>
+</tr>
+<tr>
+<td><strong>Comment Section Moderation</strong></td>
+<td>Creator must actively moderate their comment section — removing spam, responding to technical queries, and maintaining a professional trade community.</td>
+<td>The comment section is a critical secondary conversion touchpoint. Potential buyers researching a product will read comments. A well-moderated, technical comment section amplifies purchase confidence; a spam-filled section destroys it.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>6.4 Engagement Quality Over Quantity</h3>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Specification</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Engagement Rate</strong></td>
+<td>Minimum 3.5% (likes + comments ÷ views) for macro channels; target 5%+ for micro channels.</td>
+<td>Per Markerly (2016), below 3% in a niche trade channel signals inflated subscriber counts or passive audience behaviour. Niche-specific trade channels should consistently outperform this floor.</td>
+</tr>
+<tr>
+<td><strong>Comment Intelligence</strong></td>
+<td>Comment sections must feature substantive trade questions, brand/model specification requests, sourcing enquiries, and peer recommendations — not just &quot;nice video&quot; reactions.</td>
+<td>High-intelligence commentary indicates an audience actively researching purchases — the exact intent profile required for ₹8,000–₹85,000 professional-grade industrial equipment purchase decisions.</td>
+</tr>
+<tr>
+<td><strong>Subscriber-to-View Ratio</strong></td>
+<td>Average views per video must be minimum 15–20% of total subscriber count.</td>
+<td>A 300K channel averaging 2,000 views has a dead, inflated, or bot-populated audience. Amitsaini Electrician averaging 25K–80K views on 328K subscribers (8–24% ratio on an extremely high-frequency upload schedule) demonstrates a genuinely live audience.</td>
+</tr>
+<tr>
+<td><strong>Creator Comment Response Rate</strong></td>
+<td>Creator must actively reply to comments — minimum 30–40% response rate in the first 48 hours post-upload.</td>
+<td>A creator who engages their community personally has built the relationship trust that transfers directly to product recommendations. Passive creators who never respond have lower community authority.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>6.5 Brand Safety &amp; Ethics Compliance</h3>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Specification</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ASCI Influencer Guidelines Compliance (2021)</strong></td>
+<td>Must have a clean, verified record of proper sponsorship disclosure — <code>#Ad</code>, <code>#Sponsored</code>, <code>#CollaboPost</code>, or <code>#ProductLoanedForTesting</code> — on all past brand collaborations.</td>
+<td>Ascentix is a BIS-certified safety equipment manufacturer. Undisclosed product promotions in the safety equipment category carry legal liability under the <strong>Consumer Protection Act, 2019</strong> and may attract Advertising Standards Council of India (ASCI) enforcement action.</td>
+</tr>
+<tr>
+<td><strong>Zero Electrical Safety Misinformation History</strong></td>
+<td>No published content promoting unsafe DIY electrical practices, bypassing safety equipment, or violating CEIG/DISCOM/IS safety standards.</td>
+<td>An Ascentix partnership with a creator who has previously posted dangerous wiring shortcuts would cause catastrophic brand association damage — especially for a brand whose market position rests on BIS-certified engineering safety.</td>
+</tr>
+<tr>
+<td><strong>Non-Political, Non-Communal Content</strong></td>
+<td>Channel must maintain a strictly professional, trade-focused identity without political affiliations, communal statements, or controversial social commentary.</td>
+<td>Ascentix serves a pan-India B2B and trade customer base spanning all states, communities, and political regions. Political association with any party or ideology risks alienating significant customer segments and creating distributor relationship problems.</td>
+</tr>
+<tr>
+<td><strong>Authentic Field Use Only</strong></td>
+<td>All Ascentix product reviews must be filmed in genuine working conditions — not studio mock-ups substituted for real site footage.</td>
+<td>BIS-certified safety products require authentic performance evidence. Staged demonstrations would constitute misleading advertising under ASCI Code §4 and could expose Ascentix to product liability claims if misrepresented performance leads to field accidents.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>6.6 Collaboration Openness &amp; Roy&#39;s Compensation Alignment</h3>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Specification</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Non-Cash Incentive Receptivity</strong></td>
+<td>Must be receptive to Roy&#39;s top two motivators: product gear and exclusive technical information rather than direct cash payment as primary compensation.</td>
+<td>Cash-first creators structure content around brand messaging, destroying the editorial independence that is the core source of their audience&#39;s trust. Non-cash partnerships preserve authenticity — the irreplaceable asset in industrial safety equipment recommendations.</td>
+</tr>
+<tr>
+<td><strong>Long-Term Partnership Orientation</strong></td>
+<td>Preferred minimum engagement: 6–12 month rolling partnership, not single sponsored video.</td>
+<td>Brand affinity in industrial safety equipment is built through sustained, repeated exposure — not single promotional interruptions. A second or third video from the same creator carries exponentially higher purchase-intent conversion than a one-time sponsorship.</td>
+</tr>
+<tr>
+<td><strong>Technical Co-Creation Willingness</strong></td>
+<td>Must be willing to participate in technically co-created content — BIS compliance explainers, safety standard walkthroughs, field destruction tests — with Ascentix&#39;s engineering team providing data and supporting documentation.</td>
+<td>Ascentix&#39;s content marketing differentiation is <strong>technical proof</strong>, not lifestyle imagery. The ideal creator can absorb, interpret, and present engineering data in accessible Hindi for a practitioner audience.</td>
+</tr>
+<tr>
+<td><strong>Disclosure Commitment</strong></td>
+<td>Must commit to consistently applying required ASCI disclosure tags (<code>#AscentixPartner</code> and <code>#ProductLoanedForTesting</code>) without prompting on every piece of associated content.</td>
+<td>Regulatory compliance is non-negotiable for a BIS-certified product manufacturer. Inconsistent disclosure puts both the creator and Ascentix at regulatory and reputational risk.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. Campaign Activation Plan: Amitsaini Electrician Partnership</h2>
+<h3>7.1 Phase 1 — Outreach &amp; Onboarding (Month 1)</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Initial Contact</td>
+<td>Professional collaboration outreach via YouTube Community DM + email with a bilingual (Hindi/English) collaboration brief covering product loan terms, ASCI disclosure requirements, and editorial freedom guarantees.</td>
+</tr>
+<tr>
+<td>Influencer Kit Delivery</td>
+<td>Ship <strong>VoltShield FG5</strong> (1000V fiberglass stepladder) + <strong>CarbonApex X1</strong> (35kV carbon fiber ladder) to Amit Saini&#39;s location with full engineering documentation: BIS IS 4130/4131 certificates (originals), NABL 35kV test report, and material safety data sheet.</td>
+</tr>
+<tr>
+<td>NABL Exclusive Access</td>
+<td>Share Ascentix&#39;s unedited NABL 35kV laboratory raw footage — exclusive pre-public-release — for Amit&#39;s personal reference and review preparation.</td>
+</tr>
+<tr>
+<td>Product Loan Agreement</td>
+<td>Execute a written Product Loan Agreement specifying: 60-day field use period, mandatory ASCI disclosure tags, Ascentix&#39;s right to reshare Amit&#39;s content on <code>@AscentixLadders</code> YouTube channel (with attribution), and no-editorial-script guarantee.</td>
+</tr>
+</tbody></table>
+<h3>7.2 Phase 2 — Content Production (Month 2–3)</h3>
+<table>
+<thead>
+<tr>
+<th>Planned Content Piece</th>
+<th>Format</th>
+<th>Target Audience</th>
+<th>Expected Views</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>&quot;Maine test kiya India ka pehla 35kV carbon fiber ladder — kya yeh ₹42,000 ki value deta hai?&quot;</em> (I tested India&#39;s first 35kV carbon fiber ladder — does it deliver ₹42,000 value?)</td>
+<td>Long-form Hindi YouTube review (15–20 min)</td>
+<td>Electricians, DISCOM contractors, panel wiremen</td>
+<td>30,000–80,000</td>
+</tr>
+<tr>
+<td><em>&quot;1000V fiberglass vs aluminum ladder — live panel job par kaun safe hai?&quot;</em> (Which is safer on a live panel job?)</td>
+<td>YouTube Shorts (45–60 sec)</td>
+<td>Trade apprentices, licensed electricians, ITI students</td>
+<td>60,000–120,000</td>
+</tr>
+<tr>
+<td><em>&quot;BIS IS 4130 kya hota hai? — Ascentix CarbonApex se samjhein&quot;</em> (What is BIS IS 4130? — Understanding with CarbonApex X1)</td>
+<td>Educational Hindi walkthrough (10–12 min)</td>
+<td>EHS managers, senior electricians, ITI instructors</td>
+<td>15,000–30,000</td>
+</tr>
+</tbody></table>
+<h3>7.3 Phase 3 — Amplification &amp; Dark Social Conversion (Month 3–4)</h3>
+<ul>
+<li>Ascentix reposts all Amitsaini Electrician videos to <code>@AscentixLadders</code> YouTube Community Tab with full attribution.</li>
+<li>Best-performing Shorts and review clips shared to Ascentix LinkedIn and Instagram (<code>@ascentix.ladders</code>) with trade-specific Hindi captions.</li>
+<li>High-intent comments (viewers asking <em>&quot;kahan milega?&quot;</em> / &quot;where to buy?&quot; or fleet pricing queries) are actively monitored and routed to the Ascentix WhatsApp Fleet Desk via pinned comment links.</li>
+<li>All influencer traffic tracked in Google Analytics 4 with UTM parameters:<br><code>utm_source=youtube&amp;utm_medium=influencer&amp;utm_campaign=amitsaini_electrician</code></li>
+</ul>
+<hr>
+<h2>8. Submission Checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>Platform Identified</strong>: YouTube selected in Submission 3 as Tier 1 primary platform.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>One Influencer Selected</strong>: Amitsaini Electrician (Amit Saini, <code>@AmitsainiElectrician</code>) — real Indian YouTube electrician with ~328,000 verified subscribers, ITI-trained practitioner, daily upload cadence, Hindi-medium.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Alternative Influencers Listed (4 Real Indian Channels)</strong>:<ul>
+<li>Electrical Dost (Aayush Sharma) — ~1.95M subscribers</li>
+<li>Verma Electronics — ~38,700 subscribers</li>
+<li>Purushotam Pandey — ~131,000 subscribers</li>
+<li>AYT India Academy — ~265,000 subscribers</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Session 5 Strategy Explained</strong>: Markerly (2016) Inverse Engagement Curve, Nielsen 90-9-1 Rule, Roy&#39;s (2014) Compensation Model, 3R Framework (Reach / Relevance / Resonance), 4-Tier Influencer Hierarchy.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Ideal Characteristics Defined</strong>: 6 characteristic clusters — professional credentials, audience demographic alignment, content quality, engagement quality, brand safety &amp; ethics compliance, and collaboration terms.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Campaign Activation Plan</strong>: 3-phase influencer integration roadmap with bilingual content formats, expected Hindi-audience view ranges, and dark social conversion pathway via WhatsApp Fleet Desk.</li>
+</ul>
+<hr>
+<p><strong>Submitted By</strong>: Ascentix Ladders Digital Project Team<br><strong>GitHub Repository</strong>: <a href="https://github.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites">https://github.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites</a><br><strong>Owned Media Hub</strong>: <a href="https://sites.google.com/view/ascentix-ladders">https://sites.google.com/view/ascentix-ladders</a></p>
+
+
+    <!-- PAGE BREAK -->
+    <div class="page-break">
+      <div class="page-break-label">Supplementary Document</div>
+    </div>
+
+    <!-- COVER STRIP Part 2 -->
+    <div class="cover-strip">
+      <div class="brand">Ascentix Ladders Pvt. Ltd. &nbsp;|&nbsp; Influencer Campaign Production</div>
+      <h1>Session 5 Supplementary: Campaign Content Calendar &amp; Scripts</h1>
+      <div class="meta">
+        <span>🎬 Amitsaini Electrician — Amit Saini</span>
+        <span>📅 12-Week Campaign</span>
+        <span>🇮🇳 Hindi + English Scripts</span>
+      </div>
+    </div>
+
+    <!-- PART 2: CAMPAIGN SCRIPTS -->
+    <div class="section-label">Part 2 — Content Calendar &amp; Video Scripts</div>
+    <h1>Ascentix Ladders — Session 5 Supplementary: Influencer Campaign Content Calendar &amp; Scripts</h1>
+<p><strong>Document Type</strong>: Campaign Production Supplement to Project Submission 4 (Influencer Management)<br><strong>Influencer Partner</strong>: Amitsaini Electrician — Amit Saini (<code>@AmitsainiElectrician</code>, ~328,000 subscribers)<br><strong>Platform</strong>: YouTube (Long-Form Reviews + Shorts)<br><strong>Campaign Duration</strong>: 12 Weeks (3 Phases × 4 Weeks)<br><strong>Brand</strong>: Ascentix Ladders Pvt. Ltd. — Engineered Climbing Systems<br><strong>Owned Media Hub</strong>: <a href="https://sites.google.com/view/ascentix-ladders">https://sites.google.com/view/ascentix-ladders</a></p>
+<hr>
+<h2>Campaign Overview</h2>
+<p>This document provides the <strong>production-ready campaign content calendar</strong> and <strong>full bilingual video scripts</strong> for the Amitsaini Electrician influencer partnership. It covers:</p>
+<ol>
+<li>A <strong>12-week content calendar</strong> broken into 3 phases with exact upload timing.</li>
+<li><strong>Full scripts</strong> for 3 primary long-form YouTube videos (Hindi with English subtitles).</li>
+<li><strong>Shorts storyboards</strong> for 3 viral-format clips (45–60 seconds each).</li>
+<li><strong>Community post templates</strong> for Amitsaini Electrician&#39;s YouTube Community Tab.</li>
+<li><strong>WhatsApp dark social handoff</strong> copy — converting viewers to Ascentix Fleet Desk leads.</li>
+<li><strong>Thumbnail brief</strong> descriptions for each video.</li>
+<li><strong>Description + Tags</strong> ready-to-paste for each upload.</li>
+</ol>
+<hr>
+<h2>1. Campaign Architecture At a Glance</h2>
+<pre><code>┌────────────────────────────────────────────────────────────────────────────────────┐
+│               ASCENTIX × AMITSAINI ELECTRICIAN — 12-WEEK YOUTUBE CAMPAIGN          │
+├──────────────────┬─────────────────────────────┬──────────────────────────────────┤
+│  PHASE 1 (Wk 1–4)│  PHASE 2 (Wk 5–8)           │  PHASE 3 (Wk 9–12)               │
+│  AWARENESS       │  PROOF &amp; DEMONSTRATION        │  CONVERSION &amp; COMMUNITY          │
+├──────────────────┼─────────────────────────────┼──────────────────────────────────┤
+│  Unboxing +      │  60-Day Field Review          │  BIS Compliance Explainer         │
+│  First Look      │  (Flagship Long-Form)         │  + Community Poll + CTA           │
+│  (Long-Form)     │                               │                                   │
+│                  │  Shorts: Live Panel Showdown  │  Shorts: Hinge Drop Test          │
+│  Shorts: Unbox   │                               │                                   │
+│  Reaction        │  Community Post: Poll         │  WhatsApp Conversion Post         │
+└──────────────────┴─────────────────────────────┴──────────────────────────────────┘
+</code></pre>
+<hr>
+<h2>2. Full 12-Week Content Calendar</h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Content Piece</th>
+<th>Format</th>
+<th>Length</th>
+<th>Upload Day</th>
+<th>Expected Views</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Week 1</strong></td>
+<td><em>Video 1: &quot;Ascentix ne bheja apna sabse expensive ladder&quot; — First Look Unboxing</em></td>
+<td>Long-Form</td>
+<td>12–15 min</td>
+<td>Tuesday</td>
+<td>20,000–40,000</td>
+</tr>
+<tr>
+<td><strong>Week 1</strong></td>
+<td><em>Shorts 1: &quot;Yeh hinge dekh lo&quot; — VaultFlex Hinge Close-Up</em></td>
+<td>YouTube Shorts</td>
+<td>45 sec</td>
+<td>Thursday</td>
+<td>40,000–80,000</td>
+</tr>
+<tr>
+<td><strong>Week 2</strong></td>
+<td>Community Post 1: Poll — &quot;Aap kaun sa ladder use karte ho?&quot;</td>
+<td>Text Poll</td>
+<td>—</td>
+<td>Monday</td>
+<td>5,000–10,000 votes</td>
+</tr>
+<tr>
+<td><strong>Week 3</strong></td>
+<td><em>Shorts 2: &quot;Maine isko gira ke dekha&quot; — Anti-Slip Base Drop Test</em></td>
+<td>YouTube Shorts</td>
+<td>50 sec</td>
+<td>Wednesday</td>
+<td>50,000–100,000</td>
+</tr>
+<tr>
+<td><strong>Week 4</strong></td>
+<td>Community Post 2: NABL Certificate reveal teaser image</td>
+<td>Photo Post</td>
+<td>—</td>
+<td>Friday</td>
+<td>8,000–15,000 views</td>
+</tr>
+<tr>
+<td><strong>Week 5</strong></td>
+<td><em>Video 2: &quot;60 din baad — CarbonApex X1 aur VoltShield FG5 ka full review&quot;</em> (Flagship)</td>
+<td>Long-Form</td>
+<td>18–22 min</td>
+<td>Tuesday</td>
+<td>40,000–90,000</td>
+</tr>
+<tr>
+<td><strong>Week 6</strong></td>
+<td><em>Shorts 3: &quot;1000V vs ordinary aluminum ladder — live panel job test&quot;</em></td>
+<td>YouTube Shorts</td>
+<td>55 sec</td>
+<td>Thursday</td>
+<td>60,000–120,000</td>
+</tr>
+<tr>
+<td><strong>Week 7</strong></td>
+<td>Community Post 3: Comment-ask — &quot;Aapke site par kaunsa risk sabse bada hai?&quot;</td>
+<td>Text Question</td>
+<td>—</td>
+<td>Monday</td>
+<td>3,000–8,000 replies</td>
+</tr>
+<tr>
+<td><strong>Week 8</strong></td>
+<td>Ascentix Reposts: Best Shorts clip to @AscentixLadders Community Tab</td>
+<td>Repost + Attribution</td>
+<td>—</td>
+<td>Wednesday</td>
+<td>10,000–25,000</td>
+</tr>
+<tr>
+<td><strong>Week 9</strong></td>
+<td><em>Video 3: &quot;BIS IS 4130 kya hota hai? — Ascentix CarbonApex se samjhein&quot;</em></td>
+<td>Educational Long-Form</td>
+<td>14–18 min</td>
+<td>Tuesday</td>
+<td>20,000–45,000</td>
+</tr>
+<tr>
+<td><strong>Week 10</strong></td>
+<td>Community Post 4: WhatsApp Fleet Desk CTA — pinned reply on Video 2</td>
+<td>Pinned Comment</td>
+<td>—</td>
+<td>Ongoing</td>
+<td>Lead capture</td>
+</tr>
+<tr>
+<td><strong>Week 11</strong></td>
+<td>Shorts Recut: Best 45 seconds from Video 2</td>
+<td>YouTube Shorts</td>
+<td>45 sec</td>
+<td>Thursday</td>
+<td>30,000–60,000</td>
+</tr>
+<tr>
+<td><strong>Week 12</strong></td>
+<td>Community Post 5: Thank-you post + Ascentix giveaway announcement</td>
+<td>Giveaway Post</td>
+<td>—</td>
+<td>Monday</td>
+<td>12,000–20,000</td>
+</tr>
+</tbody></table>
+<p><strong>Total Estimated Campaign Reach (Organic)</strong>: 350,000–700,000 cumulative views across all content pieces.</p>
+<hr>
+<h2>3. Video Script 1 — First Look Unboxing</h2>
+<p><strong>Title (Hindi)</strong>: <em>Ascentix ne bheja apna sabse expensive ladder — pehli nazar mein kya lagaa?</em><br><strong>Title (English subtitle)</strong>: <em>Ascentix sent me their most expensive ladder — first impressions?</em><br><strong>Duration</strong>: 12–15 minutes<br><strong>Upload Week</strong>: Week 1, Tuesday<br><strong>Disclosure Line</strong>: To be spoken at 0:10 — <em>&quot;Yeh video mein Ascentix Ladders ne mujhe do ladders bheje hain testing ke liye — #AscentixPartner #ProductLoanedForTesting&quot;</em></p>
+<hr>
+<h3>Thumbnail Brief</h3>
+<ul>
+<li><strong>Background</strong>: Split-screen — left half shows the CarbonApex X1 in its packaging box, right half shows Amit&#39;s face with a wide-eyed expression.</li>
+<li><strong>Headline Text (bold, red-yellow gradient)</strong>: <em>&quot;₹42,000 KA LADDER?&quot;</em></li>
+<li><strong>Sub-text</strong>: <em>&quot;60-Day Test Starting Now&quot;</em></li>
+<li><strong>Bottom strip</strong>: Ascentix logo (right corner) + <code>BIS CERTIFIED</code> badge (left corner)</li>
+</ul>
+<hr>
+<h3>Full Script</h3>
+<hr>
+<p><strong>[INTRO — 0:00 to 0:45]</strong></p>
+<p><em>[Camera: Amit on-screen, direct to camera. Behind him: a large Ascentix branded cardboard box, unopened.]</em></p>
+<p><strong>Amit (Hindi)</strong>:</p>
+<blockquote>
+<p>&quot;Bhai log, namaste! Aaj kuch bahut interesting aya hai mere ghar par. Yeh box dekh rahe ho? Andar hain do ladders — Ascentix Ladders ki taraf se. Ab main poochhunga — ladder review? Seriously? Haan bhai, seriously. Kyunki yeh aam ladder nahi hai. Ek ka price hai ₹42,000 — aur doosra ₹18,000. Toh aaj hum dekhte hain — kya in paise ka value milta hai kisi electrician ko? Disclosure ke taur par bata deta hoon — yeh dono ladders Ascentix ne bheje hain mujhe 60 din test karne ke liye. Main apna honest opinion dunga — koi script nahi di unhone. Toh chalte hain!&quot;</p>
+</blockquote>
+<p><em>[Cut to: Amit opens box. First out: CarbonApex X1 in Ascentix branded packaging.]</em></p>
+<hr>
+<p><strong>[UNBOXING — CarbonApex X1 — 0:45 to 4:30]</strong></p>
+<p><em>[Camera: Close-up on the packaging. Amit reads the product label aloud.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Yeh hai CarbonApex X1. Carbon fiber dielectric ladder. BIS IS 4130 certified. Aur likha hai — 35kV rated. 35 kilovolt, bhai! Matlab 35,000 volts tak current nahi jayega is ladder ke through. Abhi hum electricians daily 11kV aur 33kV lines ke paas kaam karte hain — toh yeh number serious hai.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit lifts the ladder out of the box.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Uthao toh — arre, yeh toh bahut halka hai! [Weighs in hand] Inke website par likha tha 3.2 kilogram. Sach mein bhai, amazingly light hai. Compare karo apni normal fiberglass se — woh hoti hai 6-7 kg. Yeh aadha hai.&quot;</p>
+</blockquote>
+<p><em>[Camera: Close-up on stiles, rungs, and feet.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Material dekho — yeh carbon fiber stile hai. Hatho se feel karo toh rough texture hai — jaise aerospace material feel hota hai. Rungs non-slip hain — yeh small teeth dekh rahe ho? Yeh grip deta hai wet conditions mein bhi. Aur feet par rubberized non-skid pad hai. Overall, first impression — premium lag raha hai.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit examines the BIS IS 4130 certificate card inside the box.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Aur bhai, yeh dekho — andar NABL laboratory test certificate hai. Matlab kisi accredited lab mein actual test hua hai — stamped aur signed. Yeh pehli baar dekha maine kisi ladder ke saath official certificate. Normally humein sirf words milte hain packaging par — &#39;tested,&#39; &#39;certified.&#39; Yahan actual document hai.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[UNBOXING — VoltShield FG5 — 4:30 to 7:30]</strong></p>
+<p><em>[Camera: Second box opened. VoltShield FG5 stepladder.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Ab doosra — VoltShield FG5. Yeh hai fiberglass stepladder. 1000V rated — matlab 1000 volts tak insulation guaranteed. Price hai ₹18,500. Ab yeh practically zyada use hogi — residential panel work, small commercial jobs, daily use. Let&#39;s see.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit opens the ladder fully, inspecting hinge and locking mechanism.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Hinge bahut solid hai. Aluminum nahi — yeh heavy-duty plastic polymer composite hai. Lock karo toh &#39;click&#39; sound aata hai — clear indication ki ladder secure hai. Rungs wide hain — normal ladder se thoda zyada comfortable lagti hai pair rakhne mein. Aur dekho — ek tool tray bhi hai upar. Electricians ke liye useful hai — screwdriver, tester, cable ties rakh sakte ho.&quot;</p>
+</blockquote>
+<p><em>[Camera: Close-up on fiberglass stile surface.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Fiberglass feel — yeh glass-reinforced polymer hai. Yahi material hai jo electricity conduct nahi karta. Normal aluminum se completely alag — aluminum hamesha current carry karta hai. Yahan current ka koi raasta nahi hai. Aur unlike regular plastic — yeh UV resistant bhi hai, toh outdoor use mein deteriorate nahi karega.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[INITIAL ASSESSMENT — 7:30 to 10:30]</strong></p>
+<p><em>[Camera: Amit sets both ladders side by side for comparison.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Toh pehli nazar mein — dono ladders impressive hain. Build quality clearly premium segment ki hai. Lekin bhai, unboxing se kuch proof nahi hota. Asli test hoga field mein — agle 60 din main dono ko apne actual jobs par use karunga. Residential panel upgrades, commercial wiring, overhead line support work — sab par. Aur jo bhi experience hoga — honest report karunga.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit to camera, direct.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Ek cheez jo mujhe bahut interesting lagi — inke NABL test certificate. Unhone mujhe actual laboratory raw footage bhi diya hai — arc test ka. Woh dekhenge agale video mein. 35,000 volts carbon fiber se guzarne ki koshish karta hai — aur kya hota hai woh dekhna amazing hai. Subscribe karo — Part 2 aayega 60 din baad. Tab tak — safe kaam karo, certified equipment use karo. Jai Hind!&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[OUTRO — 10:30 to 12:00]</strong></p>
+<p><em>[Lower third text on screen]:</em></p>
+<blockquote>
+<p>📦 <strong>Ascentix Ladders Products featured:</strong></p>
+<ul>
+<li>CarbonApex X1 — ₹42,000 | BIS IS 4130 | 35kV Dielectric | 3.2 kg</li>
+<li>VoltShield FG5 — ₹18,500 | 1000V Rated | Fiberglass | Tool Tray</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>🔗 <strong>Product Links</strong>: sites.google.com/view/ascentix-ladders<br>💬 <strong>Fleet Pricing / Bulk Orders</strong>: WhatsApp wa.me/919876543210<br>#AscentixPartner #ProductLoanedForTesting</p>
+</blockquote>
+<hr>
+<h3>Video Description (Copy-Paste Ready)</h3>
+<pre><code>Ascentix Ladders ne mujhe bheje do professional-grade ladders — CarbonApex X1 (35kV carbon 
+fiber dielectric, ₹42,000) aur VoltShield FG5 (1000V fiberglass stepladder, ₹18,500) — 
+60-din field test ke liye. Yeh hai pehla unboxing + first impression video.
+
+Is video mein:
+0:00 – Intro aur disclosure
+0:45 – CarbonApex X1 unboxing (35kV carbon fiber)
+4:30 – VoltShield FG5 unboxing (1000V fiberglass)
+7:30 – Side-by-side first assessment
+10:30 – What to expect in Part 2 (60-day review)
+
+🔬 BIS IS 4130 / 4131 Certified ladders
+⚡ 35kV dielectric rated | 1000V rated
+🏗️ All 10 models: sites.google.com/view/ascentix-ladders
+💬 Fleet / Bulk inquiry: wa.me/919876543210
+
+Note: Yeh products Ascentix Ladders ne bheje hain testing ke liye.
+#AscentixPartner #ProductLoanedForTesting #ElectricianTools #LadderReview 
+#BISCertified #ElectricalSafety #ITIElectrical #VoltShield #CarbonApex 
+#ElectricianIndia #SafetyEquipment #AmitsainiElectrician
+</code></pre>
+<hr>
+<h2>4. Video Script 2 — 60-Day Flagship Field Review (Flagship Video)</h2>
+<p><strong>Title (Hindi)</strong>: <em>60 din baad — CarbonApex X1 aur VoltShield FG5 ka sachcha review | Kya ₹42,000 worth hai?</em><br><strong>Title (English subtitle)</strong>: <em>60-Day Honest Review: Are these ladders worth the price?</em><br><strong>Duration</strong>: 18–22 minutes<br><strong>Upload Week</strong>: Week 5, Tuesday<br><strong>This is the primary campaign flagship video — maximum production effort.</strong></p>
+<hr>
+<h3>Thumbnail Brief</h3>
+<ul>
+<li><strong>Background</strong>: Amit standing on the CarbonApex X1 at full extension on an outdoor utility pole job, hard hat on, safety vest visible.</li>
+<li><strong>Foreground text (bold white with black stroke)</strong>: <em>&quot;60 DAYS LATER...&quot;</em></li>
+<li><strong>Bottom-right badge</strong>: <em>&quot;HONEST REVIEW&quot;</em> stamp graphic (red circular badge)</li>
+<li><strong>Bottom strip</strong>: <em>&quot;₹42,000 CarbonApex X1&quot;</em> — verdict emoji: ✅ or ❌ (left as suspense)</li>
+</ul>
+<hr>
+<h3>Full Script</h3>
+<hr>
+<p><strong>[HOOK — 0:00 to 0:30]</strong></p>
+<p><em>[Camera: Opens with dramatic slow-motion footage of CarbonApex X1 on an actual job site — Amit at the top of the ladder, working near an overhead line, safety gear on. Then cuts to direct-to-camera.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;60 din pehle Ascentix ne mujhe yeh ladder bheja tha. Tab maine socha tha — ₹42,000 ka ladder? Yeh toh sirf marketing hogi. Aaj main bata sakta hoon — main galat tha. Aur kuch cheezon mein main sahi bhi tha. Poora honest review — koi hype nahi.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[RECAP + DISCLOSURE — 0:30 to 1:30]</strong></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Pehle quick recap — Part 1 mein maine in dono ladders ka unboxing kiya tha. Phir agle 60 din maine inhe apne actual kaam par use kiya — residential panel upgrades, commercial switchboard replacement, ek outdoor 11kV support job, aur kuch interior ceiling fan wiring. Real jobs — koi studio test nahi. Aur yaad dilata hoon — yeh products Ascentix ne bheje hain mujhe test karne ke liye. Main unka koi employee nahi hoon. Jo lagega — seedha bolunga. #AscentixPartner #ProductLoanedForTesting.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[CARBONAPEX X1 — 60-DAY VERDICT — 1:30 to 9:00]</strong></p>
+<p><em>[Camera: Amit holds CarbonApex X1, pointing to specific sections.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Chalte hain CarbonApex X1 se. 60 din baad — structurally bilkul waise hi hai jaise pehle din tha. Koi flex nahi rungs mein. Koi creak nahi joints mein. Main 75 kg hoon — kabhi ladder ne movement nahi diya.&quot;</p>
+</blockquote>
+<p><em>[Camera: Close-up on rungs and stiles after 60 days of use.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Surface dekho — use ke signs hain, obviously. Thodi scratch hai ek stile par — site par transport se lagi. Lekin structurally absolutely no damage. Yeh carbon fiber material bahut rigid hai. Compare karo apni regular aluminum ladder se — woh flex karti hai jab top par ho. Yeh nahi karti.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit demonstrates the weight.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Weight advantage real hai. 3.2 kilogram. Aap poora din site par carry karo — column, stairs, rooftop — 6-7 kg ladder ki thakaan alag hoti hai. 3.2 kg mein genuinely farak padta hai. 8-9 ghante ki shift mein 3-4 kg ka difference matter karta hai — yeh meri genuine experience hai.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit addresses the 35kV claim seriously, showing the NABL certificate on camera.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Ab sabse important question — yeh 35kV claim. Main 35kV test nahi kar sakta ghar par — aur na karna chahiye koi bhi. Lekin jo main kar sakta hoon woh hai — yeh NABL certificate dekho. NABL matlab National Accreditation Board for Testing and Calibration Laboratories — yeh government-backed accreditation body hai. Fake nahi hoti yeh certifications. Lab ka naam, test date, test conditions, results — sab documented hai. Aur Ascentix ne mujhe actual raw footage bhi diya tha laboratory ka — woh dekhte hain.&quot;</p>
+</blockquote>
+<p><em>[Camera: Screen recording of NABL lab raw footage — 35kV arc approaching ladder without conducting.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Yeh lab footage hai — accredited NABL facility. 35,000 volts. Carbon fiber stile se kuch nahi guzra. Ammeter reading — zero milliampere leakage. Bhai, yeh impressive hai. Main electrician hoon — main jaanta hoon 11kV line ke paas kaam karna kaisa hota hai. Is ladder ke saath genuinely zyada safe feel kiya.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit addresses negatives directly.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Ab criticism — price. ₹42,000. Yeh ek normal ladder ki 4-5 guna hai. Kya har electrician ke liye worth hai? Meri honest opinion — agar aap daily 11kV ya 33kV lines ke paas kaam karte ho — DISCOM contractor, lineman, substation maintenance — toh yeh investment sense banata hai. Ek accident ki cost — physical, financial, legal — infinitely zyada hai ₹42,000 se. Lekin agar aap residential interior wiring sirf karte ho jahan koi overhead line nahi — toh shayad VoltShield FG5 sufficient hai.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[VOLTSHIELD FG5 — 60-DAY VERDICT — 9:00 to 14:30]</strong></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Ab VoltShield FG5 — ₹18,500 wali stepladder. Yeh meri 60 din mein sabse zyada use ki gayi ladder thi. Residential panel work, commercial ceiling work, fan installations — daily use.&quot;</p>
+</blockquote>
+<p><em>[Camera: Shows the VoltShield FG5 — scuff marks visible from genuine use.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Usage marks hain — yahi toh real test hai. Hinges — still clicking perfectly. Lock mechanism — tight hai, koi slack nahi aaya. Tool tray — bahut useful nikli genuinely. Main isme apna tester, 2-3 screwdrivers, aur cable ties rakhta tha. Small convenience — lekin din mein 20-30 baar upar neeche ki jagah yeh aaram deta hai.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit stands on the ladder at maximum height, demonstrating stability.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Stability — no wobble. Pair rakhne mein secure feel hota hai. Rubberized feet — tile par bhi slip nahi kiya. Ek job tha jahan newly polished marble floor tha — main nervous tha. Lekin feet ne grip rakhi. Impressed tha.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit on the 1000V rating.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;1000V insulation — yeh IS 4130 rating hai fiberglass ke liye. Residential mains 230V hain — 1000V rated matlab enormous safety margin. Actual feel — fiberglass stile ko haath lagao toh clearly different hai aluminum se. Koi conductivity nahi. Comfortable for residential panel proximity work.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit gives practical recommendation.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;My honest verdict on VoltShield FG5 — ₹18,500 ke liye yeh genuinely good value hai agar aap certified tools mein invest karna chahte ho. Is price mein Indian market mein bahut kam options hain jo BIS-certified fiberglass aur tool tray ke saath aate hain. Recommended for working electricians doing daily residential and commercial jobs.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[OVERALL VERDICT + CTA — 14:30 to 18:00]</strong></p>
+<p><em>[Camera: Amit with both ladders visible behind him.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Final summary — CarbonApex X1: ₹42,000 — high price, but for dielectric protection near HT lines, genuinely justified. NABL certificate is real. Weight advantage is real. Build quality is real. VoltShield FG5: ₹18,500 — best BIS-certified fiberglass stepladder I&#39;ve used in this price range. Daily use for residential electricians — recommended.&quot;</p>
+</blockquote>
+<p><em>[Camera: Direct to audience, serious tone.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Ek last baat — bhai log, ye ladders promotional hain ya nahi — safety equipment mein compromise mat karo. Ek accident ek baar hota hai. Certified equipment use karo. Chahhe Ascentix ho ya koi aur brand — BIS IS 4130/4131 certified ladder choose karo. Apni aur apne parivaar ki safety ke liye.&quot;</p>
+</blockquote>
+<p><em>[Camera: Smiling, lighter tone for close.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Agar aap fleet pricing ya bulk orders mein interested ho — Ascentix ka WhatsApp number description mein hai. Fleet discount milti hai 6+ units par. Links neeche hain. Subscribe karo agle electrical tutorial ke liye. Safe raho, certified raho. Jai Hind!&quot;</p>
+</blockquote>
+<hr>
+<h3>Video Description (Copy-Paste Ready)</h3>
+<pre><code>60 din ka honest field review — Ascentix CarbonApex X1 (35kV carbon fiber, ₹42,000) 
+aur VoltShield FG5 (1000V fiberglass, ₹18,500). Real job sites par use kiya — koi 
+studio test nahi. Apna unfiltered opinion diya.
+
+TIMESTAMPS:
+0:00  Hook — 60 din baad
+0:30  Quick recap + disclosure
+1:30  CarbonApex X1 — 60-day verdict
+4:00  Weight test + real comparison
+5:30  35kV claim — NABL certificate explained
+8:00  Honest criticism: Is ₹42,000 worth it?
+9:00  VoltShield FG5 — 60-day verdict
+13:00 Stability + 1000V rating
+14:30 Overall verdict + recommendation
+16:30 Who should buy which?
+
+Products (Ascentix bheje hain test ke liye — #AscentixPartner #ProductLoanedForTesting):
+🔬 CarbonApex X1: sites.google.com/view/ascentix-ladders/products/carbonapex-x1
+🛡️ VoltShield FG5: sites.google.com/view/ascentix-ladders
+💬 Fleet/Bulk pricing: wa.me/919876543210
+
+#HonestReview #ElectricianTools #LadderReview #CarbonFiberLadder 
+#BISCertified #ElectricalSafety #AmitsainiElectrician #AscentixLadders
+#VoltShield #CarbonApex #ITIElectrical #ElectricianIndia #SafetyFirst
+</code></pre>
+<hr>
+<h2>5. Video Script 3 — BIS IS 4130 Compliance Explainer</h2>
+<p><strong>Title (Hindi)</strong>: <em>BIS IS 4130 kya hota hai? — Ascentix CarbonApex se samjhein | Kaunsa ladder safe hai?</em><br><strong>Title (English subtitle)</strong>: <em>What is BIS IS 4130? — Understanding ladder safety certification in India</em><br><strong>Duration</strong>: 14–18 minutes<br><strong>Upload Week</strong>: Week 9, Tuesday<br><strong>Target Audience</strong>: EHS managers, senior electricians, ITI instructors, safety officers</p>
+<hr>
+<h3>Thumbnail Brief</h3>
+<ul>
+<li><strong>Background</strong>: Close-up of the BIS IS 4130 certificate page, with the Ascentix CarbonApex X1 partially visible behind it.</li>
+<li><strong>Headline text</strong>: <em>&quot;BIS IS 4130 — Kya Hota Hai?&quot;</em> (bold, blue on white background)</li>
+<li><strong>Sub-text</strong>: <em>&quot;Sab electricians ko pata hona chahiye&quot;</em></li>
+<li><strong>Bottom badge</strong>: BIS logo + IS 4130 text</li>
+</ul>
+<hr>
+<h3>Full Script</h3>
+<hr>
+<p><strong>[HOOK — 0:00 to 0:40]</strong></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Bhai log — aapne kitni baar suna hai &#39;BIS certified ladder&#39;? Packaging par likha hota hai. Dealer bolta hai. Company ka ad bolti hai. Lekin kya aap jaante ho iska actually matlab kya hai? Kya test hote hain? Kaunsa ladder pass karta hai aur kaunsa nahi? Aaj main explain karunga — BIS IS 4130 standard kya hai, kya test hote hain, aur aap ek ladder ko kaise verify karo ki woh genuinely certified hai ya sirf label lagaya hua hai.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[WHAT IS BIS? — 0:40 to 3:00]</strong></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;BIS matlab Bureau of Indian Standards — yeh India ka official national standards body hai. Government of India ke under aata hai. Jaise hum electrical wiring ke liye IS 732 follow karte hain — waise hi ladders ke liye IS 4130 aur IS 4131 standards hain.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit shows a printed copy of the BIS IS 4130 standard document.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;IS 4130 — yeh hai portable ladders ka standard. Isme cover hoti hain metal ladders — aluminum, steel. IS 4131 — yeh hai wooden aur fiberglass ladders. Agar ladder manufacturer bolte hain &#39;BIS IS 4130 certified&#39; — iska matlab unka ladder in specific tests se pass hua hai jo BIS specify karta hai.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[WHAT TESTS DOES BIS IS 4130 REQUIRE? — 3:00 to 7:30]</strong></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Ab dekhte hain — kaunse actual tests hote hain? Main simplify karke explain karta hoon.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit on whiteboard/chalkboard with simple diagram, or text overlay graphics.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;<strong>Test 1 — Load Test</strong>: Ladder pe static load apply kiya jata hai — typically 4 guna rated load. Matlab agar ladder 150 kg rated hai — toh test 600 kg tak hota hai. Ladder ko deflect ya fail nahi karna chahiye.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;<strong>Test 2 — Rung Strength Test</strong>: Individual rungs par load diya jata hai. Rung bend ya break nahi karna chahiye under specified load.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;<strong>Test 3 — Stile Integrity</strong>: Stile — yeh side rails hain ladder ke — inki bending strength test hoti hai.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;<strong>Test 4 — Hardware Test</strong>: Hinges, locks, extension mechanisms — sab individually tested hote hain under repeated use cycles.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;<strong>For Dielectric Ladders — Test 5: Electrical Insulation</strong>: Fiberglass ya carbon fiber dielectric ladders ke liye — voltage application test hota hai. Ladder ke through leakage current measure kiya jata hai. IS 4130 specify karta hai maximum permissible leakage current jo practically zero hona chahiye.&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit shows the Ascentix NABL lab test footage on a laptop screen.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Yahan dekho — yeh Ascentix ka CarbonApex X1 hai NABL lab mein. 35,000 volts apply kiya gaya. Current reading — 0.00 milliampere. Yahi hota hai genuinely certified dielectric ladder. Test fabricate nahi hota — NABL accreditation ensure karta hai ki test genuine conditions mein hua.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[HOW TO VERIFY A LADDER IS GENUINELY BIS CERTIFIED — 7:30 to 11:00]</strong></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Ab sabse important part — aap verify kaise karo ki ladder genuinely BIS certified hai?&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit demonstrates step-by-step on laptop.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Step 1 — BIS Care portal check karo. BIS.gov.in par jaao. &#39;Certified Products&#39; section mein jao. Manufacturer ka naam search karo. Agar genuinely certified hain — wahan listed hongay with their licence number.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Step 2 — Certificate physically check karo. Genuine BIS certificate mein hota hai — BIS licence number, product category, date of issue, date of expiry. Agar dealer sirf &#39;BIS certified&#39; bol raha hai bina document diye — toh caution raho.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Step 3 — NABL lab report maango. Dielectric ladders ke liye — NABL accredited test report maango. Yeh public document hai — manufacturer share kar sakta hai.&quot;</p>
+</blockquote>
+<p><em>[Camera: Shows Ascentix&#39;s certificate on camera.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Example ke taur par — yeh hai Ascentix CarbonApex X1 ka certificate. BIS licence number clearly visible hai. NABL report attached hai. Yeh is standard ka example hai jo genuinely certified products dete hain.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[COMMON FAKES AND RED FLAGS — 11:00 to 14:00]</strong></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Ab kuch red flags jo mujhe personally market mein dikhti hain —&quot;</p>
+</blockquote>
+<p><em>[Camera: Amit serious, direct.]</em></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Red Flag 1: &#39;BIS approved&#39; vs &#39;BIS certified.&#39; Yeh same nahi hai. &#39;Approved&#39; ka koi specific legal meaning nahi hai. &#39;Certified&#39; matlab specific test hua aur BIS licence granted hai.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Red Flag 2: Sirf sticker laga hua hai without verifiable licence number. Sticker print karna easy hai. Licence number BIS portal se verify karna mushkil nahi hai.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Red Flag 3: &#39;Export quality&#39; claim. Export quality ka BIS se koi lena-dena nahi hai. Indian market ke liye BIS IS 4130 standard applicable hai.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Red Flag 4: Price bahut kam hai. Genuinely BIS-certified manufacturing process costly hai — proper materials, testing, documentation. Agar ₹2,000 mein &#39;BIS certified 1000V ladder&#39; mil rahi hai — bahut suspicious hai.&quot;</p>
+</blockquote>
+<hr>
+<p><strong>[CLOSING + CTA — 14:00 to 16:00]</strong></p>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Summary — BIS IS 4130 ek real, meaningful standard hai. Yeh ensure karta hai ki ladder structural aur electrical safety tests se pass hua hai. Aap verification kar sakte ho — BIS portal, certificate number, NABL report. Aur hamesha yaad rakho — ladder life-safety equipment hai. Ek baar fail hoti hai toh second chance nahi hoti. Certified equipment use karo. Apni zindagi is investment ke laayak hai.&quot;</p>
+</blockquote>
+<p><strong>Amit</strong>:</p>
+<blockquote>
+<p>&quot;Agar aap bulk orders mein interested hain — DISCOM, EPC companies, plant safety teams — Ascentix ka fleet desk contact karo. WhatsApp number description mein hai. Subscribe karo agle electrical safety video ke liye. Jai Hind!&quot;</p>
+</blockquote>
+<hr>
+<h3>Video Description (Copy-Paste Ready)</h3>
+<pre><code>BIS IS 4130 kya hota hai? Kaunse tests actually hote hain? Aur kaise verify karein ki 
+ladder genuinely certified hai? Ascentix CarbonApex X1 ke NABL test footage ke saath 
+real explanation.
+
+TIMESTAMPS:
+0:00  Hook — BIS ka matlab samjho
+0:40  BIS kya hai? (Bureau of Indian Standards)
+3:00  IS 4130 mein kaunse tests hote hain?
+5:30  Dielectric ladder electrical insulation test (real NABL footage)
+7:30  BIS certification verify kaise karein — step by step
+11:00 Common fakes aur red flags — dhyan rakhein
+14:00 Summary aur fleet desk CTA
+
+Note: CarbonApex X1 Ascentix ne test ke liye diya tha — #AscentixPartner 
+#ProductLoanedForTesting
+
+🔬 All Ascentix products: sites.google.com/view/ascentix-ladders
+💬 Fleet inquiry: wa.me/919876543210
+
+#BISCertified #IS4130 #ElectricianSafety #DielectricLadder #ElectricalSafety
+#AmitsainiElectrician #AscentixLadders #ITISafety #ElectricianIndia #LadderSafety
+</code></pre>
+<hr>
+<h2>6. YouTube Shorts Storyboards</h2>
+<h3>Shorts 1 — VaultFlex Hinge Close-Up (Week 1, Thursday)</h3>
+<p><strong>Title</strong>: <em>&quot;Yeh hinge dekh lo — ₹42,000 ladder ka secret&quot; / &quot;Look at this hinge — the secret of the ₹42,000 ladder&quot;</em><br><strong>Duration</strong>: 45 seconds  </p>
+<table>
+<thead>
+<tr>
+<th>Second</th>
+<th>Visual</th>
+<th>Audio (Hindi)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–3</td>
+<td>Extreme close-up on VaultFlex hinge, CNC teeth visible</td>
+<td><em>&quot;Yeh hinge dekho — yeh stamped sheet metal nahi hai&quot;</em></td>
+</tr>
+<tr>
+<td>4–8</td>
+<td>Finger traces the machined teeth on the hinge</td>
+<td><em>&quot;CNC-machined 7075-T6 aerospace aluminum. Same alloy — aircraft wing spars mein hoti hai.&quot;</em></td>
+</tr>
+<tr>
+<td>9–15</td>
+<td>Ladder opens and locks — satisfying CLICK sound</td>
+<td><em>&quot;Click sound suno — yeh safety indicator hai. Lock engage hua.&quot;</em></td>
+</tr>
+<tr>
+<td>16–25</td>
+<td>Amit stands on the open ladder, bounces gently</td>
+<td><em>&quot;75 kg — no flex, no creak, no movement. 150 kg rated hai yeh. 4 guna load tested hai.&quot;</em></td>
+</tr>
+<tr>
+<td>26–35</td>
+<td>Text overlay: BIS IS 4130 CERTIFIED</td>
+<td><em>&quot;BIS IS 4130 certified. Actual NABL test certificate andar milta hai box mein.&quot;</em></td>
+</tr>
+<tr>
+<td>36–45</td>
+<td>Ascentix logo + Amit to camera</td>
+<td><em>&quot;60-day full review coming soon — subscribe karo! #AscentixPartner&quot;</em></td>
+</tr>
+</tbody></table>
+<p><strong>Hashtags</strong>: <code>#LadderSafety #ElectricianTools #EngineeringExcellence #ElectricianIndia #SafetyFirst #AscentixLadders</code></p>
+<hr>
+<h3>Shorts 2 — Anti-Slip Base Drop Test (Week 3, Wednesday)</h3>
+<p><strong>Title</strong>: <em>&quot;Maine isko gira ke dekha — yeh uthka ke khadaa raha&quot; / &quot;I knocked it over — it stood back up&quot;</em><br><strong>Duration</strong>: 50 seconds  </p>
+<table>
+<thead>
+<tr>
+<th>Second</th>
+<th>Visual</th>
+<th>Audio (Hindi)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–5</td>
+<td>Amit on a wet tile floor (poured water visibly)</td>
+<td><em>&quot;Wet tile floor. Normal ladder — slip hogi. Dekho kya hota hai.&quot;</em></td>
+</tr>
+<tr>
+<td>6–15</td>
+<td>Places CarbonApex X1 on wet tile — does NOT slip</td>
+<td><em>&quot;VoltShield FG5 ka rubberized foot — suction effect deta hai wet surface par.&quot;</em></td>
+</tr>
+<tr>
+<td>16–25</td>
+<td>Close-up of rubberized non-skid foot base</td>
+<td><em>&quot;Yeh ribbed rubber compound hai. Specially formulated for electrical site conditions.&quot;</em></td>
+</tr>
+<tr>
+<td>26–38</td>
+<td>Amit pushes the base laterally — it holds</td>
+<td><em>&quot;Lateral push — nahi khisli. Normal ladder ke saath yeh dangerous hota hai.&quot;</em></td>
+</tr>
+<tr>
+<td>39–50</td>
+<td>Amit to camera</td>
+<td><em>&quot;₹18,500 mein BIS certified, 1000V rated, non-slip rubber feet. Full review link mein. #AscentixPartner&quot;</em></td>
+</tr>
+</tbody></table>
+<p><strong>Hashtags</strong>: <code>#SlipPrevention #ElectricalSafety #ElectricianIndia #LadderTest #SafetyEquipment #AscentixLadders</code></p>
+<hr>
+<h3>Shorts 3 — 1000V vs Aluminum Live Comparison (Week 6, Thursday)</h3>
+<p><strong>Title</strong>: <em>&quot;Aluminum vs Fiberglass — ek electrician ki seedhi baat&quot; / &quot;Aluminum vs Fiberglass — an electrician&#39;s honest take&quot;</em><br><strong>Duration</strong>: 55 seconds  </p>
+<table>
+<thead>
+<tr>
+<th>Second</th>
+<th>Visual</th>
+<th>Audio (Hindi)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–6</td>
+<td>Split screen — aluminum ladder (left) vs VoltShield FG5 (right)</td>
+<td><em>&quot;Yeh hai aluminum. Yeh hai fiberglass. Electrician ke liye kaunsa safe hai?&quot;</em></td>
+</tr>
+<tr>
+<td>7–18</td>
+<td>Close-up on aluminum stile — metal surface</td>
+<td><em>&quot;Aluminum — excellent material. Light, strong. Lekin — ek problem. Yeh current conduct karta hai. 100%. Koi debate nahi.&quot;</em></td>
+</tr>
+<tr>
+<td>19–30</td>
+<td>Close-up on VoltShield FG5 fiberglass stile</td>
+<td><em>&quot;Fiberglass — glass-reinforced polymer. Current ka koi raasta nahi. Yahi IS 4130 dielectric standard ka basis hai.&quot;</em></td>
+</tr>
+<tr>
+<td>31–42</td>
+<td>Amit holds both up</td>
+<td><em>&quot;Mere paas do choices hain. Main electrical panel ke paas kaam karta hoon. Meri choice — fiberglass. Certified. 1000V rated.&quot;</em></td>
+</tr>
+<tr>
+<td>43–55</td>
+<td>Amit to camera, serious</td>
+<td><em>&quot;Bhai, safety equipment mein compromise mat karo. Full comparison video link mein. #AscentixPartner #ProductLoanedForTesting&quot;</em></td>
+</tr>
+</tbody></table>
+<p><strong>Hashtags</strong>: <code>#AluminumVsFiberglass #ElectricianSafety #ElectricalSafety #ITIElectrical #ElectricianIndia #AscentixLadders #BISCertified</code></p>
+<hr>
+<h2>7. YouTube Community Post Templates</h2>
+<h3>Community Post 1 — Poll (Week 2, Monday)</h3>
+<pre><code>🪜 Quick poll bhai log —
+
+Abhi aap site par kaun sa ladder use karte ho?
+
+🔵 Normal aluminum ladder
+🟠 Fiberglass ladder (any brand)
+🟡 Multi-position ladder (A-frame type)
+⚫ Jo milta hai woh (budget ke hisaab se)
+
+Comment karein — aur kyon? Safety ya price — kya decide karta hai aapka choice?
+
+#ElectricianIndia #LadderSafety #PollTime
+</code></pre>
+<hr>
+<h3>Community Post 2 — NABL Certificate Teaser (Week 4, Friday)</h3>
+<pre><code>📄 Pehli baar kisi ladder ka actual NABL test certificate dekha andar box mein.
+
+Agle video mein — yeh certificate decode karenge. Kya hota hai NABL testing mein? 
+35,000 volts carbon fiber se guzarne ki koshish — aur kya hua?
+
+Part 2 aane wala hai — subscribe karo aur bell icon dabaao. 🔔
+
+#BISCertified #DielectricLadder #ElectricalSafety #ElectricianIndia
+</code></pre>
+<hr>
+<h3>Community Post 3 — Question Engagement (Week 7, Monday)</h3>
+<pre><code>Bhai log — ek honest sawaal:
+
+Aapke job site par sabse bada safety risk kya hai?
+
+Comment mein bataao — main genuinely jaanna chahta hoon. 
+Agle video ki planning isi feedback pe hogi.
+
+⚡ Height related accident ka darr?
+🔌 Live line ke paas kaam karna?
+🌧️ Wet/slippery conditions?
+😓 Thakaan ke wajah se careless mistakes?
+
+Apna experience share karo — dusron ki madad hogi. 🙏
+
+#ElectricianLife #SitesSafety #ElectricianIndia #WorkplaceSafety
+</code></pre>
+<hr>
+<h3>Community Post 4 — WhatsApp Fleet Desk CTA (Week 10)</h3>
+<p><em>To be pinned as a comment on Video 2 (60-Day Review) by Amit:</em></p>
+<pre><code>📌 Bulk / Fleet inquiry ke liye —
+
+Kai log pooch rahe hain — 6+ ladders ke liye koi discount hai kya?
+
+Ascentix ka WhatsApp fleet desk hai: wa.me/919876543210
+Wahan se BIS certificate PDF, fleet pricing, aur GST invoice milta hai direct.
+
+DISCOM contractors, solar EPC teams, factory safety officers — direct contact karo.
+
+#AscentixLadders #FleetDiscount #BulkOrder
+</code></pre>
+<hr>
+<h3>Community Post 5 — Campaign Closing + Giveaway Teaser (Week 12, Monday)</h3>
+<pre><code>🙏 Bhai log — yeh 60-day Ascentix campaign ka last week hai.
+
+3 videos, 3 shorts, aur bahut saare comments — genuinely acha laga aap sabse 
+baat karna. Electrical safety — yeh important topic hai aur aap sab seriously lete ho.
+
+🎁 GIVEAWAY ANNOUNCEMENT:
+
+Ascentix aur main milke ek VoltShield FG5 (₹18,500 value) de rahe hain ek lucky subscriber ko.
+
+Participate karne ke liye:
+✅ Is channel ko subscribe karo
+✅ Is post ko like karo  
+✅ Comment mein likho — &quot;SAFE KAAM&quot; 🪜
+
+Winner 1 hafte mein announce hoga. All India eligible.
+
+#Giveaway #ElectricianGiveaway #AscentixLadders #ElectricianIndia #SafeKaam
+</code></pre>
+<hr>
+<h2>8. GA4 UTM Tracking Links — Ready to Deploy</h2>
+<p>All Ascentix links shared by Amitsaini Electrician should use the following UTM-tagged URLs for Google Analytics 4 traffic attribution:</p>
+<table>
+<thead>
+<tr>
+<th>Content Piece</th>
+<th>UTM-Tagged Link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Video 1 Description</td>
+<td><code>sites.google.com/view/ascentix-ladders?utm_source=youtube&amp;utm_medium=influencer&amp;utm_campaign=amitsaini_v1_unboxing</code></td>
+</tr>
+<tr>
+<td>Video 2 Description</td>
+<td><code>sites.google.com/view/ascentix-ladders?utm_source=youtube&amp;utm_medium=influencer&amp;utm_campaign=amitsaini_v2_60day</code></td>
+</tr>
+<tr>
+<td>Video 3 Description</td>
+<td><code>sites.google.com/view/ascentix-ladders?utm_source=youtube&amp;utm_medium=influencer&amp;utm_campaign=amitsaini_v3_bis</code></td>
+</tr>
+<tr>
+<td>Shorts (all)</td>
+<td><code>sites.google.com/view/ascentix-ladders?utm_source=youtube&amp;utm_medium=shorts&amp;utm_campaign=amitsaini_shorts</code></td>
+</tr>
+<tr>
+<td>Community Posts</td>
+<td><code>sites.google.com/view/ascentix-ladders?utm_source=youtube&amp;utm_medium=community&amp;utm_campaign=amitsaini_community</code></td>
+</tr>
+<tr>
+<td>WhatsApp Link</td>
+<td><code>wa.me/919876543210?text=Amitsaini+video+se+aya+hoon+fleet+pricing+chahiye</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. Submission Checklist — Campaign Supplement</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>12-Week Content Calendar</strong>: Full week-by-week schedule across all content formats.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>3 Full Long-Form Video Scripts</strong>: Bilingual (Hindi primary, English context); production-ready with timestamps, camera directions, and outro CTAs.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>3 YouTube Shorts Storyboards</strong>: Second-by-second visual and audio breakdown.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>5 YouTube Community Post Templates</strong>: Poll, teaser, engagement question, fleet CTA, giveaway.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Copy-Paste Video Descriptions</strong>: With ASCI-compliant disclosure tags and relevant hashtags.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Thumbnail Briefs</strong>: Visual direction for each of the 3 primary videos.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>GA4 UTM Tracking Links</strong>: Platform-specific attribution for all Ascentix links.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>WhatsApp Dark Social Handoff</strong>: Pre-filled message link routing buyer leads to Ascentix Fleet Desk.</li>
+</ul>
+<hr>
+<p><strong>Submitted By</strong>: Ascentix Ladders Digital Project Team<br><strong>Parent Report</strong>: <code>SESSION_5_INFLUENCER_MANAGEMENT_REPORT.md</code><br><strong>GitHub Repository</strong>: <a href="https://github.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites">https://github.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites</a><br><strong>Owned Media Hub</strong>: <a href="https://sites.google.com/view/ascentix-ladders">https://sites.google.com/view/ascentix-ladders</a></p>
+
+
+  </div>
+
+  <!-- Print button (hidden when printing) -->
+  <div class="no-print" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
+    <button onclick="window.print()" style="background:#0d1b4b;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:14px;font-family:Inter,sans-serif;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(13,27,75,0.35);">
+      🖨️ Print / Save as PDF
+    </button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "pdf_options": {
+    "format": "A4",
+    "margin": {
+      "top": "25mm",
+      "right": "20mm",
+      "bottom": "25mm",
+      "left": "20mm"
+    },
+    "printBackground": true,
+    "displayHeaderFooter": true,
+    "headerTemplate": "<div style='font-size:9px; color:#666; width:100%; text-align:center; font-family: Arial, sans-serif; padding-top:5px;'>Ascentix Ladders — Project Submission 4: Influencer Management</div>",
+    "footerTemplate": "<div style='font-size:9px; color:#666; width:100%; display:flex; justify-content:space-between; padding: 0 20mm; font-family: Arial, sans-serif;'><span>Confidential — Ascentix Ladders Pvt. Ltd.</span><span class='pageNumber'></span><span>/ <span class='totalPages'></span></span></div>"
+  },
+  "stylesheet_encoding": "utf-8",
+  "css": "body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; line-height: 1.7; color: #1a1a2e; } h1 { font-size: 26px; color: #0d1b4b; border-bottom: 3px solid #e84545; padding-bottom: 10px; margin-top: 30px; } h2 { font-size: 20px; color: #0d1b4b; border-bottom: 2px solid #dde; padding-bottom: 6px; margin-top: 28px; } h3 { font-size: 16px; color: #1a3a6b; margin-top: 22px; } h4 { font-size: 14px; color: #2c4a8b; margin-top: 16px; } table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 12px; } th { background: #0d1b4b; color: white; padding: 10px 12px; text-align: left; font-weight: 600; } td { padding: 8px 12px; border: 1px solid #ccd; vertical-align: top; } tr:nth-child(even) td { background: #f4f6fb; } pre { background: #1a1a2e; color: #e8e8f0; padding: 14px 16px; border-radius: 6px; font-size: 11px; line-height: 1.5; overflow-x: auto; white-space: pre-wrap; } code { background: #eef0f8; color: #c0392b; padding: 2px 5px; border-radius: 3px; font-size: 12px; } pre code { background: none; color: inherit; padding: 0; } blockquote { border-left: 4px solid #e84545; background: #fff8f0; padding: 10px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-style: italic; color: #444; } hr { border: none; border-top: 2px solid #dde; margin: 24px 0; } strong { color: #0d1b4b; } a { color: #1a6fb5; text-decoration: none; } .page-break { page-break-before: always; }"
+}

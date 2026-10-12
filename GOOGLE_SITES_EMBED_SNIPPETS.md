@@ -37,6 +37,13 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
 - All links inside these snippets already include `target="_top"`.
 - This ensures clicking a button opens the target page in the **main browser window** rather than being trapped inside the tiny iframe box.
 
+### Step 6: 📱 Cross-Device Responsiveness (Laptops, Tablets, and Mobile Devices)
+All snippets in this library are engineered with a **mobile-first, responsive CSS architecture** guaranteed to adapt across all display form factors:
+- **Laptops & Desktops (> 1024px)**: Full multi-column grids (3–5 columns), rich desktop padding (16px–32px), expansive typography, and widescreen specification tables.
+- **Tablets (iPad, Surface, Android Tablets — 768px to 1024px)**: 2-column auto-collapsing layouts, comfortable touch targets (minimum 44px tap area), and adjusted font sizes for high-DPI touchscreens.
+- **Mobile Phones (iPhone, Android — < 640px)**: Single-column vertical stacking, full-width buttons (`width: 100%`), and smooth touch-scrollable table wrappers (`overflow-x: auto; -webkit-overflow-scrolling: touch;`) so data tables never get clipped or distort page margins.
+- **Google Sites Testing Pro-Tip**: When previewing your page in Google Sites, click the **Preview (💻/📱)** icon in the top header and toggle between **Large screen**, **Tablet**, and **Phone** modes. Ensure you pull the bottom-center blue circle handle down enough so single-column mobile layouts display all stacked cards without internal scrollbars.
+
 ---
 
 ## Page-by-Page Embed Snippet Library
@@ -443,7 +450,8 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
 ### Snippet 3: Products Page — Full Technical Comparison Table
 > **Page**: Products  
 > **Placement**: Beneath the products list / catalog overview.  
-> **Recommended Height in Google Sites**: Drag blue handle to **~620px height** (so all 6 product rows, including VaultStep Deluxe, are visible without being cut off).
+> **Recommended Height in Google Sites**: Drag blue handle to **~920px height** (Desktop) / **~980px** (Mobile) so all 10 product rows are visible without cut-off.  
+> **Responsiveness**: Fluid layout across Laptops, Tablets, and Mobile Devices with touch-friendly horizontal scrolling on narrow screens.
 
 ```html
 <!DOCTYPE html>
@@ -469,11 +477,14 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #e2e5ea;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   .header-title { font-family: 'Oswald', sans-serif; font-size: 1.3rem; text-transform: uppercase; color: #ff5e14; letter-spacing: 1px; }
   .header-sub { font-size: 0.82rem; font-weight: 600; color: #7b8290; }
   
-  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 0.9rem; text-align: left; }
   th {
     background: #f1f3f6;
     color: #4b5563;
@@ -484,12 +495,12 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     letter-spacing: 1px;
     border-bottom: 1px solid #e2e5ea;
   }
-  td { padding: 16px 20px; border-bottom: 1px solid #edf0f4; color: #1a1d23; }
+  td { padding: 15px 20px; border-bottom: 1px solid #edf0f4; color: #1a1d23; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #fef8f5; }
   
-  .model-name { font-weight: 700; color: #1a1d23; font-size: 1rem; }
-  .model-sub { font-size: 0.78rem; color: #7b8290; margin-top: 2px; }
+  .model-name { font-weight: 700; color: #1a1d23; font-size: 0.98rem; }
+  .model-sub { font-size: 0.76rem; color: #7b8290; margin-top: 2px; }
   .badge-duty {
     display: inline-block;
     background: rgba(255, 94, 20, 0.08);
@@ -497,19 +508,26 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     border: 1px solid rgba(255, 94, 20, 0.25);
     padding: 3px 8px;
     border-radius: 4px;
-    font-size: 0.75rem;
+    font-size: 0.73rem;
     font-weight: 700;
   }
   .price { font-family: 'Oswald', sans-serif; font-size: 1.15rem; color: #ff5e14; font-weight: 700; }
+
+  @media (max-width: 768px) {
+    body { padding: 10px; }
+    .header-bar { padding: 12px 16px; flex-direction: column; align-items: flex-start; }
+    .header-title { font-size: 1.15rem; }
+    th, td { padding: 11px 14px; font-size: 0.84rem; }
+  }
 </style>
 </head>
 <body>
   <div class="table-container">
     <div class="header-bar">
       <div class="header-title">Ascentix Professional Lineup Specifications</div>
-      <div class="header-sub">BIS IS 4130 / 4131 / 1875 / 1364 — All 6 Models — Indian Standards</div>
+      <div class="header-sub">BIS IS 4130 / 4131 / 1875 / 1364 / NBC 2016 — All 10 Models — Indian Standards</div>
     </div>
-    <div style="overflow-x:auto;">
+    <div class="table-wrap">
       <table>
         <thead>
           <tr>
@@ -588,6 +606,50 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
             <td><span class="badge-duty">BIS IS 1364 T1 (150 kg)</span></td>
             <td><span class="price">₹22,999</span></td>
           </tr>
+          <tr>
+            <td>
+              <div class="model-name">SolarStep FX</div>
+              <div class="model-sub">6082-T6 Marine-Grade Alloy</div>
+            </td>
+            <td>RoofGrip™ Ridge Hook Access</td>
+            <td>19.0 ft (5.8 m)</td>
+            <td>9.2 kg</td>
+            <td><span class="badge-duty">BIS IS 1875 T1 (150 kg)</span></td>
+            <td><span class="price">₹31,999</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="model-name">VoltShield FG-5</div>
+              <div class="model-sub">Pultruded E-Glass Fibreglass</div>
+            </td>
+            <td>25 kV Dielectric Stepladder</td>
+            <td>10.5 ft (3.2 m)</td>
+            <td>6.8 kg</td>
+            <td><span class="badge-duty">BIS IS 4131 HD (150 kg)</span></td>
+            <td><span class="price">₹18,499</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="model-name">AtticMaster HA-3</div>
+              <div class="model-sub">Gas-Strut Balanced / 40mm PIR</div>
+            </td>
+            <td>Concealed Folding Loft Access</td>
+            <td>10.5 ft (3.2 m)</td>
+            <td>14.5 kg</td>
+            <td><span class="badge-duty">BIS IS 1364 / NBC (150 kg)</span></td>
+            <td><span class="price">₹24,999</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="model-name">DeckRise Modular</div>
+              <div class="model-sub">6005-T6 Extruded Box Frame</div>
+            </td>
+            <td>4-Height Rolling Work Platform</td>
+            <td>15.7 ft (4.8 m)</td>
+            <td>38.0 kg</td>
+            <td><span class="badge-duty">BIS IS 4130 XHD (200 kg)</span></td>
+            <td><span class="price">₹64,999</span></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -598,11 +660,12 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
 
 ---
 
-### Snippet 3B: Products Listing Page — All 6 Models Card Grid (BIS IS Indian Standards)
+### Snippet 3B: Products Listing Page — All 10 Models Card Grid (BIS IS Indian Standards)
 > **Page**: Products (Main catalog listing sub-page)  
 > **Placement**: Below the page heading / intro text.  
 > **Section Background**: Emphasis 1 (Light Gray)  
-> **Recommended Height in Google Sites**: Drag blue handle to ~920px height.
+> **Recommended Height in Google Sites**: Drag blue handle to **~1650px height** (Desktop 4-col/5-col) / **~3200px** (Tablet 2-col) / **~6200px** (Mobile 1-col).  
+> **Responsiveness**: Fluid responsive grid designed for Laptops, Tablets, and Mobile Devices.
 
 > 🔗 **How to link "View Details →" buttons to each product page**:
 > Because Google Sites runs embeds inside a sandboxed `<iframe>`, buttons must use the **full published URL** of each product subpage with `target="_top"` so the main browser window redirects properly:
@@ -613,12 +676,9 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
 > 📸 **How to get your Google Drive image URLs** (do this before pasting the code):
 > 1. Upload your product images to your **Google Drive** (inside your Sites project folder).
 > 2. Right-click a photo → **Share** → **Change access to "Anyone with the link"** → **Copy link**.
-> 3. The copied link looks like: `https://drive.google.com/file/d/`**`1roShJJFi19SGia4bxf8Ys9Jfr4B0tHTs`**`/view?usp=sharing`
-> 4. Extract only the **File ID** (the bold part above between `/d/` and `/view`).
-> 5. Build the working embed URL using Google's public CDN:  
->    **`https://lh3.googleusercontent.com/d/YOUR_FILE_ID`**  
->    *(Note: Do NOT use `drive.google.com/uc?export=view` — Google now blocks that format in embeds with `Cross-Origin-Resource-Policy: same-site`, causing a broken image icon!)*
-> 6. Replace each product image `src` in the code below with its corresponding `https://lh3.googleusercontent.com/d/...` URL.
+> 3. Extract only the **File ID** between `/d/` and `/view`.
+> 4. Build the embed URL: **`https://lh3.googleusercontent.com/d/YOUR_FILE_ID`**  
+> 5. Replace each product image `src` in the code below with its corresponding `https://lh3.googleusercontent.com/d/...` URL or use the included CDN fallback photos.
 
 ```html
 <!DOCTYPE html>
@@ -634,8 +694,9 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
   .badge { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; border: 1px solid rgba(255,94,20,0.28); padding: 4px 14px; border-radius: 20px; font-size: 0.74rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
   .page-title { font-family: 'Oswald', sans-serif; font-size: 1.9rem; text-transform: uppercase; letter-spacing: 1px; color: #1a1d23; margin-bottom: 6px; }
   .page-title span { color: #ff5e14; }
-  .page-sub { font-size: 0.92rem; color: #7b8290; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .page-sub { font-size: 0.92rem; color: #7b8290; max-width: 780px; margin: 0 auto; }
+  
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
   .product-card {
     background: #ffffff;
     border: 1px solid #e2e5ea;
@@ -654,7 +715,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
   .card-img-wrap {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 195px;
     background: #f4f5f7;
     overflow: hidden;
   }
@@ -719,13 +780,31 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     transition: background 0.18s;
   }
   .view-btn:hover { background: #e04f08; }
+
+  @media (max-width: 1200px) {
+    .grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    body { padding: 12px; }
+    .header { margin-bottom: 20px; }
+  }
+  @media (max-width: 580px) {
+    .grid { grid-template-columns: 1fr; gap: 16px; }
+    body { padding: 8px; }
+    .page-title { font-size: 1.5rem; }
+    .page-sub { font-size: 0.85rem; }
+    .card-img-wrap { height: 180px; }
+    .card-footer { flex-direction: column; gap: 10px; align-items: stretch; }
+    .view-btn { width: 100%; text-align: center; }
+  }
 </style>
 </head>
 <body>
   <div class="header">
-    <div class="badge">BIS IS Certified — All 6 Models</div>
+    <div class="badge">BIS IS Certified — All 10 Models</div>
     <div class="page-title">Ascentix <span>Climbing Systems</span> Portfolio</div>
-    <p class="page-sub">Six precision-engineered models covering every Indian industrial, electrical, and domestic access requirement — all BIS IS certified.</p>
+    <p class="page-sub">Ten precision-engineered models covering every Indian industrial, solar rooftop, electrical, commercial, and domestic access requirement — all BIS IS certified.</p>
   </div>
 
   <div class="grid">
@@ -756,7 +835,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     <!-- Model 02 -->
     <div class="product-card">
       <div class="card-img-wrap">
-        <img src="https://lh3.googleusercontent.com/d/YOUR_FILE_ID_CARBONAPEX" alt="CarbonApex X1">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="CarbonApex X1">
         <span class="model-num">Model 02</span>
       </div>
       <div class="card-body">
@@ -779,7 +858,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     <!-- Model 03 -->
     <div class="product-card">
       <div class="card-img-wrap">
-        <img src="https://lh3.googleusercontent.com/d/YOUR_FILE_ID_MULTIFLEX" alt="MultiFlex Transform">
+        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="MultiFlex Transform">
         <span class="model-num">Model 03</span>
       </div>
       <div class="card-body">
@@ -802,7 +881,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     <!-- Model 04 -->
     <div class="product-card">
       <div class="card-img-wrap">
-        <img src="https://lh3.googleusercontent.com/d/YOUR_FILE_ID_TITANSAFE" alt="TitanSafe Industrial">
+        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" alt="TitanSafe Industrial">
         <span class="model-num">Model 04</span>
       </div>
       <div class="card-body">
@@ -825,7 +904,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     <!-- Model 05 -->
     <div class="product-card">
       <div class="card-img-wrap">
-        <img src="https://lh3.googleusercontent.com/d/YOUR_FILE_ID_AEROREACH" alt="AeroReach Pro">
+        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=600&q=80" alt="AeroReach Pro">
         <span class="model-num">Model 05</span>
       </div>
       <div class="card-body">
@@ -848,7 +927,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     <!-- Model 06 -->
     <div class="product-card">
       <div class="card-img-wrap">
-        <img src="https://lh3.googleusercontent.com/d/YOUR_FILE_ID_VAULTSTEP" alt="VaultStep Deluxe">
+        <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80" alt="VaultStep Deluxe">
         <span class="model-num">Model 06</span>
       </div>
       <div class="card-body">
@@ -865,6 +944,98 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
       <div class="card-footer">
         <span class="price">₹22,999</span>
         <a class="view-btn" href="https://sites.google.com/view/YOUR_SITE_NAME/products/vaultstep-deluxe" target="_top">View Details →</a>
+      </div>
+    </div>
+
+    <!-- Model 07 -->
+    <div class="product-card">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80" alt="SolarStep FX">
+        <span class="model-num">Model 07</span>
+      </div>
+      <div class="card-body">
+        <div class="product-name">SolarStep FX</div>
+        <p class="product-tagline">India’s first dedicated rooftop solar ladder. RoofGrip™ Grade 304 stainless steel ridge hook (450 kg proof load) with real-time 0°–75° pitch clinometer for safe rooftop access.</p>
+        <div class="spec-chips">
+          <span class="chip">5.8 m Reach</span>
+          <span class="chip">9.2 kg</span>
+          <span class="chip">150 kg Duty</span>
+          <span class="chip accent">● BIS IS 1875</span>
+          <span class="chip">RoofGrip™ Hook</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="price">₹31,999</span>
+        <a class="view-btn" href="https://sites.google.com/view/YOUR_SITE_NAME/products/solarstep-fx" target="_top">View Details →</a>
+      </div>
+    </div>
+
+    <!-- Model 08 -->
+    <div class="product-card">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=600&q=80" alt="VoltShield FG-5">
+        <span class="model-num">Model 08</span>
+      </div>
+      <div class="card-body">
+        <div class="product-name">VoltShield FG-5</div>
+        <p class="product-tagline">Pultruded E-glass fibreglass step ladder certified to 25 kV dielectric resistance. Dual red visual positive-lock feet and 550 mm wide-stance spreader bar for Indian electricians.</p>
+        <div class="spec-chips">
+          <span class="chip">3.2 m Reach</span>
+          <span class="chip">6.8 kg</span>
+          <span class="chip">150 kg Duty</span>
+          <span class="chip accent">● BIS IS 4131</span>
+          <span class="chip">25 kV Dielectric</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="price">₹18,499</span>
+        <a class="view-btn" href="https://sites.google.com/view/YOUR_SITE_NAME/products/voltshield-fg5" target="_top">View Details →</a>
+      </div>
+    </div>
+
+    <!-- Model 09 -->
+    <div class="product-card">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="AtticMaster HA-3">
+        <span class="model-num">Model 09</span>
+      </div>
+      <div class="card-body">
+        <div class="product-name">AtticMaster HA-3</div>
+        <p class="product-tagline">Automotive gas-strut folding ceiling loft ladder with effortless 2 kg one-hand pull. 40mm PIR foam insulated hatch panel with 30-min fire resistance and telescoping legs.</p>
+        <div class="spec-chips">
+          <span class="chip">3.2 m Reach</span>
+          <span class="chip">14.5 kg</span>
+          <span class="chip">150 kg Duty</span>
+          <span class="chip accent">● BIS IS 1364</span>
+          <span class="chip">Home Solutions</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="price">₹24,999</span>
+        <a class="view-btn" href="https://sites.google.com/view/YOUR_SITE_NAME/home-solutions/atticmaster-ha3" target="_top">View Details →</a>
+      </div>
+    </div>
+
+    <!-- Model 10 -->
+    <div class="product-card">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="DeckRise Modular">
+        <span class="model-num">Model 10</span>
+      </div>
+      <div class="card-body">
+        <div class="product-name">DeckRise Modular</div>
+        <p class="product-tagline">4-height adjustable rolling work platform (1.0m to 3.0m in 60s). 200 kg heavy-duty rated with pneumatic auto-leveling feet and tool-free expandable 1,200mm deck.</p>
+        <div class="spec-chips">
+          <span class="chip">4.8 m Reach</span>
+          <span class="chip">38.0 kg</span>
+          <span class="chip">200 kg Duty</span>
+          <span class="chip accent">● BIS IS 4130 HD</span>
+          <span class="chip">Factories Act 1948</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="price">₹64,999</span>
+        <a class="view-btn" href="https://sites.google.com/view/YOUR_SITE_NAME/products/deckrise-modular" target="_top">View Details →</a>
       </div>
     </div>
 
@@ -5047,12 +5218,1282 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
 
 ---
 
+---
+
+### Snippet 14A: SolarStep FX Product Page — Key Highlights & Specifications
+> **Page**: SolarStep FX (Sub-page under *Products*)  
+> **Placement**: Below the Hero banner section.  
+> **Section Background**: Emphasis 1 (Light Gray)  
+> **Recommended Height in Google Sites**: Drag blue handle to **~800px height** (Desktop) / **~1200px** (Mobile).  
+> **Responsiveness**: Fluid layout across Laptops, Tablets (iPad), and Mobile Phones.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .badge { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; border: 1px solid rgba(255,94,20,0.28); padding: 4px 14px; border-radius: 20px; font-size: 0.74rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 1.7rem; text-transform: uppercase; letter-spacing: 1px; color: #1a1d23; margin-bottom: 6px; }
+  .section-title span { color: #ff5e14; }
+  .section-sub { color: #7b8290; font-size: 0.92rem; margin-bottom: 22px; }
+  
+  .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 28px; }
+  .highlight-card {
+    background: #fff;
+    border: 1px solid #e2e5ea;
+    border-left: 4px solid #ff5e14;
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .highlight-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,94,20,0.1); }
+  .hl-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .hl-title { font-weight: 700; font-size: 0.98rem; color: #1a1d23; margin-bottom: 6px; }
+  .hl-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.55; }
+  
+  .color-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; padding: 14px 18px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .color-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #7b8290; margin-right: 6px; }
+  .swatch { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #e2e5ea; cursor: default; }
+  .swatch-name { font-size: 0.8rem; color: #3d4350; font-weight: 600; margin-left: 4px; }
+  
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 22px; border-radius: 10px; }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; font-size: 0.89rem; }
+  th { background: #f1f3f6; color: #ff5e14; padding: 12px 18px; font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+  td { padding: 11px 18px; border-bottom: 1px solid #edf0f4; color: #3d4350; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fef8f5; }
+  td:first-child { font-weight: 600; color: #1a1d23; }
+  
+  .apps-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
+  .app-item { background: #fff; border: 1px solid #e2e5ea; border-radius: 8px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .app-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff5e14; margin-top: 5px; flex-shrink: 0; }
+  .app-text { font-size: 0.86rem; color: #3d4350; line-height: 1.5; }
+  .app-text strong { color: #1a1d23; }
+
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .section-title { font-size: 1.45rem; }
+    .highlights-grid { grid-template-columns: 1fr; gap: 14px; }
+    .color-row { padding: 12px 14px; gap: 8px; }
+    .apps-list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    body { padding: 8px; }
+    .highlight-card { padding: 16px; }
+    th, td { padding: 9px 12px; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="badge">Model 07 — Dedicated Solar Rooftop Ladder</div>
+  <div class="section-title">SolarStep FX — <span>Key Highlights</span></div>
+  <p class="section-sub">BIS IS 1875 : 2003 · 5.8m reach · 150 kg rated · RoofGrip™ Ridge Hook · Pitch Clinometer</p>
+
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <div class="hl-icon">☀️</div>
+      <div class="hl-title">RoofGrip™ Stainless Steel Ridge Hook</div>
+      <div class="hl-desc">Grade 304 stainless steel dual-arm ridge hook rated to 3× operator body weight (450 kg proof load) securely anchors over rooftop parapet walls and ridge tiles — hands-free rooftop descent up to 65° pitch.</div>
+    </div>
+    <div class="highlight-card">
+      <div class="hl-icon">📐</div>
+      <div class="hl-title">Integrated Pitch Angle Clinometer</div>
+      <div class="hl-desc">Rail-bonded bubble clinometer gauge provides instant real-time roof pitch readings (0°–75°) with safe/caution color zones — ensuring solar EPC technicians verify slope safety before ascending.</div>
+    </div>
+    <div class="highlight-card">
+      <div class="hl-icon">🌊</div>
+      <div class="hl-title">Marine-Grade 6082-T6 Aluminium</div>
+      <div class="hl-desc">ASTM B117 salt-spray tested for 1,000 hours with UV-resistant anodising. Built for 10+ year outdoor exposure in coastal climates (Mumbai, Chennai, Goa, Kerala) where regular ladders pit and corrode.</div>
+    </div>
+  </div>
+
+  <div class="color-row">
+    <span class="color-label">Available Finishes:</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#f97316 50%,#64748b 50%)" title="Solar Orange & Slate Grey"></div>
+    <span class="swatch-name">Solar Orange & Slate</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#0ea5e9 50%,#cbd5e1 50%)" title="Sky Blue & Brushed Silver"></div>
+    <span class="swatch-name">Sky Blue & Silver</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#18181b 50%,#d97706 50%)" title="Matte Black & Amber"></div>
+    <span class="swatch-name">Matte Black & Amber</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#84cc16 50%,#1c1917 50%)" title="High-Vis Lime & Carbon"></div>
+    <span class="swatch-name">High-Vis Lime & Carbon</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+      <tr><td>Maximum Extended Reach</td><td>5.80 meters (Rooftop Rated)</td><td>19.0 feet</td></tr>
+      <tr><td>Closed Transport Length</td><td>1.10 meters (Vehicle Rack Friendly)</td><td>43.3 inches</td></tr>
+      <tr><td>Total Product Weight</td><td>9.2 kg (Single-Tech Carry)</td><td>20.3 lbs</td></tr>
+      <tr><td>Duty Rating / Load Capacity</td><td>150 kg (BIS IS 1875 Type 1)</td><td>330 lbs Heavy-Duty</td></tr>
+      <tr><td>Rail Material</td><td>6082-T6 Marine-Grade Aluminium</td><td>UV + Corrosion Resistant Alloy</td></tr>
+      <tr><td>RoofGrip™ Hook Material</td><td>Grade 304 Stainless Steel</td><td>450 kg Proof Load Rated</td></tr>
+      <tr><td>Pitch Angle Range (Safe)</td><td>15°–65° (Integrated Clinometer)</td><td>Safe Use Zone Verified</td></tr>
+      <tr><td>Corrosion Resistance</td><td>ASTM B117 Salt-Spray 1,000hr Tested</td><td>Coastal Climate Ready</td></tr>
+      <tr><td>Safety Certifications</td><td><strong>BIS IS 1875 : 2003</strong> (Indian Standard)</td><td>Bureau of Indian Standards Compliant</td></tr>
+      <tr><td>Warranty</td><td>7-Year Structural / 5-Year RoofGrip™ Hook</td><td>Commercial EPC Assurance</td></tr>
+    </table>
+  </div>
+
+  <ul class="apps-list">
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>PM Surya Ghar & Residential Solar:</strong> Rooftop solar panel installation and maintenance across tiled and metal roofs with hands-free secure ridge anchoring.</div></li>
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>Commercial Rooftop EPC:</strong> Factory shed and warehouse solar array inspections up to 65° pitch without drilling or damaging roof sheets.</div></li>
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>Coastal & Marine Solar Plants:</strong> Salt-fog resistant construction for coastal installations across Maharashtra, Gujarat, Goa, and Tamil Nadu.</div></li>
+  </ul>
+</body>
+</html>
+```
+
+---
+
+### Snippet 14B: SolarStep FX — Dedicated Technical Specifications Table
+> **Page**: SolarStep FX (Sub-page under *Products*)  
+> **Placement**: Section 4 (Technical Specifications)  
+> **Section Background**: Regular (White) or Emphasis 1  
+> **Recommended Height in Google Sites**: Drag blue handle to **~720px height** (Desktop) / **~780px** (Mobile).  
+> **Responsiveness**: Smooth horizontal scroll on tablets & mobile screens with non-breaking layout.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .spec-container { background: #ffffff; border: 1px solid #e2e5ea; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+  .spec-header { background: #f8f9fa; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e5ea; flex-wrap: wrap; gap: 10px; }
+  .spec-title { font-family: 'Oswald', sans-serif; font-size: 1.35rem; text-transform: uppercase; color: #1a1d23; letter-spacing: 0.5px; }
+  .spec-title span { color: #ff5e14; }
+  .cert-badge { display: inline-block; background: rgba(255, 94, 20, 0.08); color: #ff5e14; border: 1px solid rgba(255, 94, 20, 0.28); padding: 4px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 0.91rem; text-align: left; }
+  th { background: #f1f3f6; color: #4b5563; padding: 13px 20px; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #e2e5ea; }
+  td { padding: 13px 20px; border-bottom: 1px solid #edf0f4; color: #374151; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fef8f5; }
+  td:first-child { font-weight: 600; color: #1a1d23; width: 34%; }
+  .tag-highlight { display: inline-block; background: rgba(255, 94, 20, 0.08); color: #ff5e14; font-weight: 700; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255, 94, 20, 0.25); font-size: 0.8rem; }
+  .spec-footer { background: #fafbfc; padding: 12px 24px; border-top: 1px solid #edf0f4; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #6b7280; flex-wrap: wrap; gap: 8px; }
+  .spec-footer strong { color: #ff5e14; }
+  @media (max-width: 768px) {
+    body { padding: 10px; }
+    .spec-header { padding: 12px 16px; }
+    .spec-title { font-size: 1.15rem; }
+    th, td { padding: 10px 14px; font-size: 0.83rem; }
+    .spec-footer { padding: 10px 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="spec-container">
+    <div class="spec-header">
+      <div class="spec-title">SolarStep FX <span>Technical Specifications</span></div>
+      <span class="cert-badge">● BIS IS 1875 : 2003 Certified</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th>Metric Value</th>
+            <th>Imperial Equivalent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Maximum Extended Reach</td><td>5.80 meters (Rooftop Rated)</td><td>19.0 feet</td></tr>
+          <tr><td>Closed Transport Length</td><td>1.10 meters (Vehicle Rack Friendly)</td><td>43.3 inches</td></tr>
+          <tr><td>Total Product Weight</td><td>9.2 kg (Single-Tech Carry)</td><td>20.3 lbs</td></tr>
+          <tr><td>Duty Rating / Load Capacity</td><td><span class="tag-highlight">150 kg (BIS IS 1875 Type 1)</span></td><td>330 lbs Heavy-Duty</td></tr>
+          <tr><td>Rail Material</td><td>6082-T6 Marine-Grade Aluminium</td><td>UV + Corrosion Resistant Alloy</td></tr>
+          <tr><td>RoofGrip™ Hook Material</td><td>Grade 304 Stainless Steel</td><td>450 kg Proof Load Rated</td></tr>
+          <tr><td>Pitch Angle Range (Safe)</td><td><span class="tag-highlight">15°–65° (Integrated Clinometer)</span></td><td>Safe Use Zone Verified</td></tr>
+          <tr><td>Rung Spacing</td><td>290 mm (Equal Throughout)</td><td>11.4 inches</td></tr>
+          <tr><td>Footing Type</td><td>Dual-Articulating UV-Stable Rubber</td><td>Non-Marking TPR Pads</td></tr>
+          <tr><td>Corrosion Resistance</td><td>ASTM B117 Salt-Spray 1,000hr Tested</td><td>Coastal Climate Ready</td></tr>
+          <tr><td>Safety Standards</td><td><strong>BIS IS 1875 : 2003</strong> (Indian Standard)</td><td>Bureau of Indian Standards Compliant</td></tr>
+          <tr><td>Warranty Coverage</td><td>7-Year Structural / 5-Year RoofGrip™ Hook</td><td>Commercial EPC Assurance</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="spec-footer">
+      <span>Tested to 3× Proof Load (450 kg Proof Test) · MNRE EPC Empanelment Ready</span>
+      <span><strong>Ascentix Ladders Pvt. Ltd.</strong> · Mumbai, Maharashtra</span>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+---
+
+### Snippet 14C: SolarStep FX — Dedicated Ideal Applications Grid
+> **Page**: SolarStep FX (Sub-page under *Products*)  
+> **Placement**: Section 5 (Ideal Applications)  
+> **Section Background**: Regular (White) or Emphasis 1  
+> **Recommended Height in Google Sites**: Drag blue handle to **~400px height** (Desktop) / **~720px** (Mobile stacked).  
+> **Responsiveness**: 3-column desktop grid collapsing to 1-column mobile cards.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .apps-container { background: #ffffff; border: 1px solid #e2e5ea; border-radius: 12px; padding: 24px 26px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+  .apps-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 22px; flex-wrap: wrap; gap: 12px; }
+  .badge { display: inline-block; background: rgba(255, 94, 20, 0.08); color: #ff5e14; border: 1px solid rgba(255, 94, 20, 0.28); padding: 4px 12px; border-radius: 20px; font-size: 0.74rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+  .title { font-family: 'Oswald', sans-serif; font-size: 1.45rem; text-transform: uppercase; color: #1a1d23; letter-spacing: 0.5px; line-height: 1.2; }
+  .title span { color: #ff5e14; }
+  .subtitle { font-size: 0.88rem; color: #7b8290; margin-top: 4px; max-width: 620px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .app-card { background: #f8f9fa; border: 1px solid #e2e5ea; border-radius: 10px; padding: 22px 20px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .app-card:hover { transform: translateY(-3px); border-color: #ff5e14; box-shadow: 0 8px 24px rgba(255, 94, 20, 0.1); background: #ffffff; }
+  .icon-wrap { width: 48px; height: 48px; border-radius: 10px; background: #ffffff; border: 1px solid #e2e5ea; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .app-card:hover .icon-wrap { background: #fef6f2; border-color: rgba(255, 94, 20, 0.3); }
+  .tag { font-size: 0.72rem; font-weight: 700; color: #ff5e14; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; display: block; }
+  .app-title { font-weight: 700; font-size: 1.05rem; color: #1a1d23; margin-bottom: 8px; line-height: 1.3; }
+  .app-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.55; margin-bottom: 16px; flex-grow: 1; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; background: #ffffff; border: 1px solid #e2e5ea; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: #374151; width: fit-content; }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #ff5e14; }
+  .footer-bar { margin-top: 20px; padding-top: 16px; border-top: 1px solid #edf0f4; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.82rem; color: #6b7280; }
+  .footer-cta { display: inline-flex; align-items: center; gap: 6px; background: #ff5e14; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.18s; }
+  .footer-cta:hover { background: #e04f08; }
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .apps-container { padding: 18px 16px; }
+    .grid { grid-template-columns: 1fr; gap: 14px; }
+    .footer-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+    .footer-cta { width: 100%; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+  <div class="apps-container">
+    <div class="apps-header">
+      <div>
+        <span class="badge">Field-Tested Clean Energy Sectors</span>
+        <div class="title">SolarStep FX — <span>Ideal Applications</span></div>
+        <p class="subtitle">Engineered for PM Surya Ghar rooftop solar installers, commercial solar EPCs, and coastal solar farms across India.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">☀️</div>
+          <span class="tag">Residential Solar EPC</span>
+          <div class="app-title">PM Surya Ghar Housing Projects</div>
+          <p class="app-desc">Rooftop installations on residential independent homes and row houses across India. The RoofGrip™ hook safely grips over concrete parapet walls and corrugated sheet ridges without requiring safety harness drill points.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>RoofGrip™ 450 kg Hook</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">🏭</div>
+          <span class="tag">Commercial & Industrial (C&I)</span>
+          <div class="app-title">Factory Shed & Warehouse Rooftops</div>
+          <p class="app-desc">Routine maintenance, panel washing, and inverter inspection on high-pitch industrial sheds up to 65°. Clinometer visual check ensures crews stay within certified safe slope parameters at all times.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>15°–65° Safe Clinometer</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">🌊</div>
+          <span class="tag">Coastal & Island Projects</span>
+          <div class="app-title">Coastal Maharashtra & Tamil Nadu Sites</div>
+          <p class="app-desc">Marine-grade 6082-T6 alloy with ASTM B117 salt-spray certification guarantees zero corrosion on rooftop solar installations located within 5 km of the Arabian Sea and Bay of Bengal coastlines.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>ASTM B117 Salt-Spray Tested</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Dedicated rooftop safety for PM Surya Ghar EPC installers and commercial solar crews</span>
+      <a href="https://sites.google.com/view/YOUR_SITE_NAME/contact-us" target="_top" class="footer-cta">Request Fleet Quote →</a>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+---
+
+### Snippet 15A: VoltShield FG-5 Product Page — Key Highlights & Specifications
+> **Page**: VoltShield FG-5 (Sub-page under *Products*)  
+> **Placement**: Below the Hero banner section.  
+> **Section Background**: Emphasis 1 (Light Gray)  
+> **Recommended Height in Google Sites**: Drag blue handle to **~780px height** (Desktop) / **~1200px** (Mobile).  
+> **Responsiveness**: Fluid layout across Laptops, Tablets, and Mobile Phones.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .badge { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; border: 1px solid rgba(255,94,20,0.28); padding: 4px 14px; border-radius: 20px; font-size: 0.74rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 1.7rem; text-transform: uppercase; letter-spacing: 1px; color: #1a1d23; margin-bottom: 6px; }
+  .section-title span { color: #ff5e14; }
+  .section-sub { color: #7b8290; font-size: 0.92rem; margin-bottom: 22px; }
+  
+  .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 28px; }
+  .highlight-card {
+    background: #fff;
+    border: 1px solid #e2e5ea;
+    border-left: 4px solid #ff5e14;
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .highlight-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,94,20,0.1); }
+  .hl-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .hl-title { font-weight: 700; font-size: 0.98rem; color: #1a1d23; margin-bottom: 6px; }
+  .hl-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.55; }
+  
+  .color-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; padding: 14px 18px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .color-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #7b8290; margin-right: 6px; }
+  .swatch { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #e2e5ea; cursor: default; }
+  .swatch-name { font-size: 0.8rem; color: #3d4350; font-weight: 600; margin-left: 4px; }
+  
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 22px; border-radius: 10px; }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; font-size: 0.89rem; }
+  th { background: #f1f3f6; color: #ff5e14; padding: 12px 18px; font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+  td { padding: 11px 18px; border-bottom: 1px solid #edf0f4; color: #3d4350; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fef8f5; }
+  td:first-child { font-weight: 600; color: #1a1d23; }
+  
+  .apps-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
+  .app-item { background: #fff; border: 1px solid #e2e5ea; border-radius: 8px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .app-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff5e14; margin-top: 5px; flex-shrink: 0; }
+  .app-text { font-size: 0.86rem; color: #3d4350; line-height: 1.5; }
+  .app-text strong { color: #1a1d23; }
+
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .section-title { font-size: 1.45rem; }
+    .highlights-grid { grid-template-columns: 1fr; gap: 14px; }
+    .color-row { padding: 12px 14px; gap: 8px; }
+    .apps-list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    body { padding: 8px; }
+    .highlight-card { padding: 16px; }
+    th, td { padding: 9px 12px; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="badge">Model 08 — Dielectric Fibreglass Step Ladder</div>
+  <div class="section-title">VoltShield FG-5 — <span>Key Highlights</span></div>
+  <p class="section-sub">BIS IS 4131 : 2002 · 25 kV Dielectric · 3.2m reach · 150 kg rated · Dual Red Lock Feet</p>
+
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <div class="hl-icon">⚡</div>
+      <div class="hl-title">Pultruded E-Glass Fibreglass — 25kV Rated</div>
+      <div class="hl-desc">Manufactured under 200 tonnes hydraulic pressure for uniform resin density. Tested to 25,000 Volts dielectric resistance — safe for 415V and 11kV Indian distribution panel work at an accessible price point.</div>
+    </div>
+    <div class="highlight-card">
+      <div class="hl-icon">🔴</div>
+      <div class="hl-title">Dual Red Safety Lock Feet</div>
+      <div class="hl-desc">Visual open-confirmation mechanism: outrigger feet shift from neutral grey to bright safety red when fully locked open — preventing dangerous partial-deployment falls at busy job sites.</div>
+    </div>
+    <div class="highlight-card">
+      <div class="hl-icon">📐</div>
+      <div class="hl-title">550mm Wide Chrome-Moly Spreader Bar</div>
+      <div class="hl-desc">30% wider stance footprint than conventional domestic step ladders prevents tipping on mosaic, red oxide, and unfinished concrete floors common in Indian residential and commercial buildings.</div>
+    </div>
+  </div>
+
+  <div class="color-row">
+    <span class="color-label">Available Finishes:</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#facc15 50%,#171717 50%)" title="Safety Yellow & Black"></div>
+    <span class="swatch-name">Safety Yellow & Black</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#f97316 50%,#6b7280 50%)" title="Fluorescent Orange & Grey"></div>
+    <span class="swatch-name">Fluorescent Orange & Grey</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#f8fafc 50%,#0ea5e9 50%)" title="White & Sky Blue"></div>
+    <span class="swatch-name">Cleanroom White & Sky Blue</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#475569 50%,#dc2626 50%)" title="Slate & Red Safety"></div>
+    <span class="swatch-name">Slate & Red Safety</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+      <tr><td>Ladder Height (Open)</td><td>1.52 meters (5-Step Model)</td><td>4.98 feet</td></tr>
+      <tr><td>Maximum Work Reach</td><td>3.20 meters</td><td>10.5 feet</td></tr>
+      <tr><td>Total Product Weight</td><td>6.8 kg (Lightweight Field Carry)</td><td>14.9 lbs</td></tr>
+      <tr><td>Duty Rating / Load Capacity</td><td>150 kg (BIS IS 4131 Heavy Duty)</td><td>330 lbs Duty Rating</td></tr>
+      <tr><td>Stile Material</td><td>Pultruded E-Glass Fibreglass</td><td>Non-Conductive Composite</td></tr>
+      <tr><td>Dielectric Voltage Rating</td><td>25 kV Non-Conductive Tested</td><td>Safe for 415V & 11kV Work</td></tr>
+      <tr><td>Spreader Bar</td><td>550 mm Chrome-Moly Steel (Snap-Lock)</td><td>21.6 inches Wide-Stance</td></tr>
+      <tr><td>Safety Lock Feet</td><td>Dual Red Positive-Lock Outrigger</td><td>Visual Open-Confirm System</td></tr>
+      <tr><td>Safety Standards</td><td><strong>BIS IS 4131 : 2002</strong> (Indian Standard)</td><td>Bureau of Indian Standards Compliant</td></tr>
+      <tr><td>Warranty Coverage</td><td>5-Year Structural Warranty</td><td>Trade Grade Assurance</td></tr>
+    </table>
+  </div>
+
+  <ul class="apps-list">
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>Licensed Wiremen & Electricians:</strong> Panel installations, LT wiring, MCB board fitting, and commercial lighting with 25kV arc protection.</div></li>
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>DISCOM Utility Field Crews:</strong> MSEDCL, TNEB, BESCOM last-mile LT pole maintenance and meter box servicing with BIS IS 4131 compliance.</div></li>
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>Industrial Plant Maintenance:</strong> Textile mills, FMCG plants, and auto ancillaries requiring dielectric-safe access to 415V MCCs and PLC panels.</div></li>
+  </ul>
+</body>
+</html>
+```
+
+---
+
+### Snippet 15B: VoltShield FG-5 — Dedicated Technical Specifications Table
+> **Page**: VoltShield FG-5 (Sub-page under *Products*)  
+> **Placement**: Section 4 (Technical Specifications)  
+> **Section Background**: Regular (White) or Emphasis 1  
+> **Recommended Height in Google Sites**: Drag blue handle to **~680px height** (Desktop) / **~740px** (Mobile).  
+> **Responsiveness**: Smooth horizontal scroll on tablets & mobile screens with non-breaking layout.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .spec-container { background: #ffffff; border: 1px solid #e2e5ea; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+  .spec-header { background: #f8f9fa; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e5ea; flex-wrap: wrap; gap: 10px; }
+  .spec-title { font-family: 'Oswald', sans-serif; font-size: 1.35rem; text-transform: uppercase; color: #1a1d23; letter-spacing: 0.5px; }
+  .spec-title span { color: #ff5e14; }
+  .cert-badge { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; border: 1px solid rgba(255,94,20,0.28); padding: 4px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 0.91rem; text-align: left; }
+  th { background: #f1f3f6; color: #4b5563; padding: 13px 20px; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #e2e5ea; }
+  td { padding: 13px 20px; border-bottom: 1px solid #edf0f4; color: #374151; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fef8f5; }
+  td:first-child { font-weight: 600; color: #1a1d23; width: 34%; }
+  .tag-highlight { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; font-weight: 700; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255,94,20,0.25); font-size: 0.8rem; }
+  .spec-footer { background: #fafbfc; padding: 12px 24px; border-top: 1px solid #edf0f4; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #6b7280; flex-wrap: wrap; gap: 8px; }
+  .spec-footer strong { color: #ff5e14; }
+  @media (max-width: 768px) {
+    body { padding: 10px; }
+    .spec-header { padding: 12px 16px; }
+    .spec-title { font-size: 1.15rem; }
+    th, td { padding: 10px 14px; font-size: 0.83rem; }
+    .spec-footer { padding: 10px 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="spec-container">
+    <div class="spec-header">
+      <div class="spec-title">VoltShield FG-5 <span>Technical Specifications</span></div>
+      <span class="cert-badge">● BIS IS 4131 : 2002 Certified</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th>Metric Value</th>
+            <th>Imperial Equivalent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ladder Height (Open)</td><td>1.52 meters (5-Step Model)</td><td>4.98 feet</td></tr>
+          <tr><td>Maximum Work Reach</td><td>3.20 meters</td><td>10.5 feet</td></tr>
+          <tr><td>Total Product Weight</td><td>6.8 kg (Lightweight Field Carry)</td><td>14.9 lbs</td></tr>
+          <tr><td>Duty Rating / Load Capacity</td><td><span class="tag-highlight">150 kg (BIS IS 4131 Heavy Duty)</span></td><td>330 lbs Duty Rating</td></tr>
+          <tr><td>Stile Material</td><td>Pultruded E-Glass Fibreglass</td><td>Non-Conductive Composite</td></tr>
+          <tr><td>Dielectric Voltage Rating</td><td><span class="tag-highlight">25 kV Non-Conductive Tested</span></td><td>Safe for 415V & 11kV LT/HV Work</td></tr>
+          <tr><td>Step Material</td><td>Non-Slip Ribbed Aluminium Alloy</td><td>Knurled Anti-Slip Surface</td></tr>
+          <tr><td>Spreader Bar</td><td>550 mm Chrome-Moly Steel (Snap-Lock)</td><td>21.6 inches Wide-Stance</td></tr>
+          <tr><td>Safety Lock Feet</td><td>Dual Red Positive-Lock Outrigger</td><td>Visual Open-Confirm System</td></tr>
+          <tr><td>Safety Standards</td><td><strong>BIS IS 4131 : 2002</strong> (Indian Standard)</td><td>Bureau of Indian Standards Compliant</td></tr>
+          <tr><td>Warranty Coverage</td><td>5-Year Structural Warranty</td><td>Trade Grade Assurance</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="spec-footer">
+      <span>Tested to 3× Proof Load (450 kg Proof Test) · Dielectric Proof Certified</span>
+      <span><strong>Ascentix Ladders Pvt. Ltd.</strong> · Mumbai, Maharashtra</span>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+---
+
+### Snippet 15C: VoltShield FG-5 — Dedicated Ideal Applications Grid
+> **Page**: VoltShield FG-5 (Sub-page under *Products*)  
+> **Placement**: Section 5 (Ideal Applications)  
+> **Section Background**: Regular (White) or Emphasis 1  
+> **Recommended Height in Google Sites**: Drag blue handle to **~400px height** (Desktop) / **~720px** (Mobile stacked).  
+> **Responsiveness**: 3-column desktop grid collapsing to 1-column mobile cards.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .apps-container { background: #ffffff; border: 1px solid #e2e5ea; border-radius: 12px; padding: 24px 26px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+  .apps-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 22px; flex-wrap: wrap; gap: 12px; }
+  .badge { display: inline-block; background: rgba(255, 94, 20, 0.08); color: #ff5e14; border: 1px solid rgba(255, 94, 20, 0.28); padding: 4px 12px; border-radius: 20px; font-size: 0.74rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+  .title { font-family: 'Oswald', sans-serif; font-size: 1.45rem; text-transform: uppercase; color: #1a1d23; letter-spacing: 0.5px; line-height: 1.2; }
+  .title span { color: #ff5e14; }
+  .subtitle { font-size: 0.88rem; color: #7b8290; margin-top: 4px; max-width: 620px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .app-card { background: #f8f9fa; border: 1px solid #e2e5ea; border-radius: 10px; padding: 22px 20px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .app-card:hover { transform: translateY(-3px); border-color: #ff5e14; box-shadow: 0 8px 24px rgba(255, 94, 20, 0.1); background: #ffffff; }
+  .icon-wrap { width: 48px; height: 48px; border-radius: 10px; background: #ffffff; border: 1px solid #e2e5ea; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .app-card:hover .icon-wrap { background: #fef6f2; border-color: rgba(255, 94, 20, 0.3); }
+  .tag { font-size: 0.72rem; font-weight: 700; color: #ff5e14; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; display: block; }
+  .app-title { font-weight: 700; font-size: 1.05rem; color: #1a1d23; margin-bottom: 8px; line-height: 1.3; }
+  .app-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.55; margin-bottom: 16px; flex-grow: 1; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; background: #ffffff; border: 1px solid #e2e5ea; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: #374151; width: fit-content; }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #ff5e14; }
+  .footer-bar { margin-top: 20px; padding-top: 16px; border-top: 1px solid #edf0f4; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.82rem; color: #6b7280; }
+  .footer-cta { display: inline-flex; align-items: center; gap: 6px; background: #ff5e14; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.18s; }
+  .footer-cta:hover { background: #e04f08; }
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .apps-container { padding: 18px 16px; }
+    .grid { grid-template-columns: 1fr; gap: 14px; }
+    .footer-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+    .footer-cta { width: 100%; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+  <div class="apps-container">
+    <div class="apps-header">
+      <div>
+        <span class="badge">Field-Tested Trade Sectors</span>
+        <div class="title">VoltShield FG-5 — <span>Ideal Applications</span></div>
+        <p class="subtitle">Dielectric safety at a price accessible to India's 40 lakh licensed electricians — from residential wiring to 11kV substation work.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">⚡</div>
+          <span class="tag">Residential & Commercial Wiring</span>
+          <div class="app-title">Licensed Electricians & Wiremen</div>
+          <p class="app-desc">Panel installations, LT wiring, MCB board fitting, and ceiling fan wiring in residential apartments and commercial offices — 25kV dielectric protection at an accessible trade price.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>25 kV Dielectric Certified</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">🔌</div>
+          <span class="tag">DISCOM & Utility Field Crews</span>
+          <div class="app-title">State DISCOM Field Technicians</div>
+          <p class="app-desc">MSEDCL, TNEB, BESCOM, and UPPCL field crews performing last-mile LT pole maintenance, meter box servicing, and transformer tap-changer work with BIS IS 4131 fleet compliance.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>BIS IS 4131 Fleet Ready</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">🏭</div>
+          <span class="tag">Industrial Electrical Maintenance</span>
+          <div class="app-title">Factory & Plant Electricians</div>
+          <p class="app-desc">In-house maintenance teams in textile mills, FMCG plants, and auto ancillaries requiring dielectric-safe access to 415V motor control centres, PLC panels, and overhead cable trays.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>550mm Wide-Stance Stability</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Dielectric access equipment for India's electricians, DISCOM field crews, and industrial maintenance teams</span>
+      <a href="https://sites.google.com/view/YOUR_SITE_NAME/contact-us" target="_top" class="footer-cta">Order Now →</a>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+---
+
+### Snippet 16A: AtticMaster HA-3 Product Page — Key Highlights & Specifications
+> **Page**: AtticMaster HA-3 (Sub-page under *Home Solutions*)  
+> **Placement**: Below the Hero banner section.  
+> **Section Background**: Emphasis 1 (Light Gray)  
+> **Recommended Height in Google Sites**: Drag blue handle to **~800px height** (Desktop) / **~1200px** (Mobile).  
+> **Responsiveness**: Fluid layout across Laptops, Tablets, and Mobile Phones.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .badge { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; border: 1px solid rgba(255,94,20,0.28); padding: 4px 14px; border-radius: 20px; font-size: 0.74rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 1.7rem; text-transform: uppercase; letter-spacing: 1px; color: #1a1d23; margin-bottom: 6px; }
+  .section-title span { color: #ff5e14; }
+  .section-sub { color: #7b8290; font-size: 0.92rem; margin-bottom: 22px; }
+  
+  .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 28px; }
+  .highlight-card {
+    background: #fff;
+    border: 1px solid #e2e5ea;
+    border-left: 4px solid #ff5e14;
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .highlight-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,94,20,0.1); }
+  .hl-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .hl-title { font-weight: 700; font-size: 0.98rem; color: #1a1d23; margin-bottom: 6px; }
+  .hl-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.55; }
+  
+  .color-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; padding: 14px 18px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .color-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #7b8290; margin-right: 6px; }
+  .swatch { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #e2e5ea; cursor: default; }
+  .swatch-name { font-size: 0.8rem; color: #3d4350; font-weight: 600; margin-left: 4px; }
+  
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 22px; border-radius: 10px; }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; font-size: 0.89rem; }
+  th { background: #f1f3f6; color: #ff5e14; padding: 12px 18px; font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+  td { padding: 11px 18px; border-bottom: 1px solid #edf0f4; color: #3d4350; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fef8f5; }
+  td:first-child { font-weight: 600; color: #1a1d23; }
+  
+  .apps-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
+  .app-item { background: #fff; border: 1px solid #e2e5ea; border-radius: 8px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .app-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff5e14; margin-top: 5px; flex-shrink: 0; }
+  .app-text { font-size: 0.86rem; color: #3d4350; line-height: 1.5; }
+  .app-text strong { color: #1a1d23; }
+
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .section-title { font-size: 1.45rem; }
+    .highlights-grid { grid-template-columns: 1fr; gap: 14px; }
+    .color-row { padding: 12px 14px; gap: 8px; }
+    .apps-list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    body { padding: 8px; }
+    .highlight-card { padding: 16px; }
+    th, td { padding: 9px 12px; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="badge">Model 09 — Gas-Strut Folding Loft Ladder</div>
+  <div class="section-title">AtticMaster HA-3 — <span>Key Highlights</span></div>
+  <p class="section-sub">BIS IS 1364 · 2.40m–3.20m ceiling · 150 kg rated · 2kg One-Hand Pull · 40mm PIR Insulated Hatch</p>
+
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <div class="hl-icon">🪶</div>
+      <div class="hl-title">Gas-Strut Counter-Balance (2kg Pull)</div>
+      <div class="hl-desc">Dual nitrogen gas struts allow silent, balanced one-hand deployment with just 2 kg of force. Operates smoothly without sudden dropping — ideal for Indian apartments sharing ceiling slabs.</div>
+    </div>
+    <div class="highlight-card">
+      <div class="hl-icon">🛡️</div>
+      <div class="hl-title">40mm PIR Foam Insulated Hatch Panel</div>
+      <div class="hl-desc">R-2.5 thermal insulation with reflective foil backing and 30-minute fire resistance rating prevents ceiling heat ingress, saving on AC cooling bills in hot Indian metros.</div>
+    </div>
+    <div class="highlight-card">
+      <div class="hl-icon">📏</div>
+      <div class="hl-title">Variable-Height Telescoping Legs</div>
+      <div class="hl-desc">Accommodates ceiling heights from 2.40m to 3.20m in 50mm snap-lock increments without trimming or cutting — making installation a clean half-day job for any local carpenter.</div>
+    </div>
+  </div>
+
+  <div class="color-row">
+    <span class="color-label">Available Finishes:</span>
+    <div class="swatch" style="background:#f8fafc; border:2px solid #cbd5e1;" title="Off-White Melamine"></div>
+    <span class="swatch-name">Off-White Melamine</span>
+    <div class="swatch" style="background:#9ca3af" title="Matte Grey Lam"></div>
+    <span class="swatch-name">Matte Grey Lam</span>
+    <div class="swatch" style="background:#d4a853" title="Timber Oak Veneer"></div>
+    <span class="swatch-name">Timber Oak Veneer</span>
+    <div class="swatch" style="background:#18181b" title="Matte Black Trim"></div>
+    <span class="swatch-name">Matte Black Trim</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+      <tr><td>Ceiling Opening Required</td><td>55 × 120 cm (Standard Joist Span)</td><td>21.6" × 47.2"</td></tr>
+      <tr><td>Ceiling Height Range</td><td>2.40m – 3.20m (Telescoping Legs)</td><td>7.87ft – 10.50ft</td></tr>
+      <tr><td>Ladder Reach (Fully Open)</td><td>3.20 meters (Maximum)</td><td>10.5 feet</td></tr>
+      <tr><td>Total Assembly Weight</td><td>14.5 kg (Including Hatch Panel)</td><td>31.9 lbs</td></tr>
+      <tr><td>Maximum Load Capacity</td><td>150 kg Rated</td><td>330 lbs</td></tr>
+      <tr><td>Deployment Force Required</td><td>2 kg Pull-Cord Force</td><td>Gas-Strut Balanced</td></tr>
+      <tr><td>Hatch Panel Core</td><td>40mm PIR Foam Insulated</td><td>R-2.5 Thermal Value</td></tr>
+      <tr><td>Fire Resistance</td><td>30-Minute Fire Rating</td><td>NBC 2016 Part 4 Compliant</td></tr>
+      <tr><td>Ladder Material</td><td>6005-T5 Extruded Aluminium</td><td>Mill-Pressed Anodized Alloy</td></tr>
+      <tr><td>Step Width</td><td>240 mm Wide Platform Steps</td><td>9.4 inches</td></tr>
+      <tr><td>Safety Standards</td><td><strong>BIS IS 1364 : 2002</strong> + NBC 2016</td><td>Indian Residential Compliant</td></tr>
+      <tr><td>Warranty Coverage</td><td>10-Year Mechanism / Lifetime Frame</td><td>Residential Assurance</td></tr>
+    </table>
+  </div>
+
+  <ul class="apps-list">
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>Apartment Loft Storage:</strong> Converts ceiling voids into permanent, clean loft storage in Mumbai, Bengaluru, and Pune apartments.</div></li>
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>Architectural & Mezzanine Access:</strong> Designer oak veneer and matte black finishes turn ceiling hatches into sleek architectural features.</div></li>
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>Residential Builders & Developers:</strong> High-value add-on feature that commands ₹1–2 lakh buyer perception in premium 2BHK/3BHK flats.</div></li>
+  </ul>
+</body>
+</html>
+```
+
+---
+
+### Snippet 16B: AtticMaster HA-3 — Dedicated Technical Specifications Table
+> **Page**: AtticMaster HA-3 (Sub-page under *Home Solutions*)  
+> **Placement**: Section 4 (Technical Specifications)  
+> **Section Background**: Regular (White) or Emphasis 1  
+> **Recommended Height in Google Sites**: Drag blue handle to **~720px height** (Desktop) / **~780px** (Mobile).  
+> **Responsiveness**: Smooth horizontal scroll on tablets & mobile screens with non-breaking layout.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .spec-container { background: #ffffff; border: 1px solid #e2e5ea; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+  .spec-header { background: #f8f9fa; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e5ea; flex-wrap: wrap; gap: 10px; }
+  .spec-title { font-family: 'Oswald', sans-serif; font-size: 1.35rem; text-transform: uppercase; color: #1a1d23; letter-spacing: 0.5px; }
+  .spec-title span { color: #ff5e14; }
+  .cert-badge { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; border: 1px solid rgba(255,94,20,0.28); padding: 4px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 0.91rem; text-align: left; }
+  th { background: #f1f3f6; color: #4b5563; padding: 13px 20px; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #e2e5ea; }
+  td { padding: 13px 20px; border-bottom: 1px solid #edf0f4; color: #374151; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fef8f5; }
+  td:first-child { font-weight: 600; color: #1a1d23; width: 34%; }
+  .tag-highlight { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; font-weight: 700; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255,94,20,0.25); font-size: 0.8rem; }
+  .spec-footer { background: #fafbfc; padding: 12px 24px; border-top: 1px solid #edf0f4; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #6b7280; flex-wrap: wrap; gap: 8px; }
+  .spec-footer strong { color: #ff5e14; }
+  @media (max-width: 768px) {
+    body { padding: 10px; }
+    .spec-header { padding: 12px 16px; }
+    .spec-title { font-size: 1.15rem; }
+    th, td { padding: 10px 14px; font-size: 0.83rem; }
+    .spec-footer { padding: 10px 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="spec-container">
+    <div class="spec-header">
+      <div class="spec-title">AtticMaster HA-3 <span>Technical Specifications</span></div>
+      <span class="cert-badge">● BIS IS 1364 + NBC 2016 Compliant</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th>Metric Value</th>
+            <th>Imperial Equivalent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ceiling Opening Required</td><td>55 × 120 cm (Standard Joist Span)</td><td>21.6" × 47.2"</td></tr>
+          <tr><td>Ceiling Height Range</td><td><span class="tag-highlight">2.40m – 3.20m (Telescoping Legs)</span></td><td>7.87ft – 10.50ft</td></tr>
+          <tr><td>Ladder Reach (Fully Open)</td><td>3.20 meters (Maximum)</td><td>10.5 feet</td></tr>
+          <tr><td>Total Assembly Weight</td><td>14.5 kg (Including Hatch Panel)</td><td>31.9 lbs</td></tr>
+          <tr><td>Maximum Load Capacity</td><td><span class="tag-highlight">150 kg Rated</span></td><td>330 lbs</td></tr>
+          <tr><td>Deployment Force Required</td><td>2 kg Pull-Cord Force</td><td>Gas-Strut Balanced</td></tr>
+          <tr><td>Hatch Panel Core</td><td>40mm PIR Foam Insulated</td><td>R-2.5 Thermal Value</td></tr>
+          <tr><td>Fire Resistance</td><td>30-Minute Fire Rating</td><td>NBC 2016 Part 4 Compliant</td></tr>
+          <tr><td>Ladder Material</td><td>6005-T5 Extruded Aluminium</td><td>Mill-Pressed Anodized Alloy</td></tr>
+          <tr><td>Step Width</td><td>240 mm Wide Platform Steps</td><td>9.4 inches</td></tr>
+          <tr><td>Safety Standards</td><td><strong>BIS IS 1364 : 2002</strong> + National Building Code 2016</td><td>Indian Residential Compliant</td></tr>
+          <tr><td>Warranty Coverage</td><td>10-Year on Gas-Strut Mechanism</td><td>Lifetime Structural Frame</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="spec-footer">
+      <span>Professional installation recommended · Fits between standard Indian RCC joist spans</span>
+      <span><strong>Ascentix Ladders Pvt. Ltd.</strong> · Mumbai, Maharashtra</span>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+---
+
+### Snippet 16C: AtticMaster HA-3 — Dedicated Ideal Applications Grid
+> **Page**: AtticMaster HA-3 (Sub-page under *Home Solutions*)  
+> **Placement**: Section 5 (Ideal Applications)  
+> **Section Background**: Regular (White) or Emphasis 1  
+> **Recommended Height in Google Sites**: Drag blue handle to **~400px height** (Desktop) / **~720px** (Mobile stacked).  
+> **Responsiveness**: 3-column desktop grid collapsing to 1-column mobile cards.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .apps-container { background: #ffffff; border: 1px solid #e2e5ea; border-radius: 12px; padding: 24px 26px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+  .apps-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 22px; flex-wrap: wrap; gap: 12px; }
+  .badge { display: inline-block; background: rgba(255, 94, 20, 0.08); color: #ff5e14; border: 1px solid rgba(255, 94, 20, 0.28); padding: 4px 12px; border-radius: 20px; font-size: 0.74rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+  .title { font-family: 'Oswald', sans-serif; font-size: 1.45rem; text-transform: uppercase; color: #1a1d23; letter-spacing: 0.5px; line-height: 1.2; }
+  .title span { color: #ff5e14; }
+  .subtitle { font-size: 0.88rem; color: #7b8290; margin-top: 4px; max-width: 620px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .app-card { background: #f8f9fa; border: 1px solid #e2e5ea; border-radius: 10px; padding: 22px 20px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .app-card:hover { transform: translateY(-3px); border-color: #ff5e14; box-shadow: 0 8px 24px rgba(255, 94, 20, 0.1); background: #ffffff; }
+  .icon-wrap { width: 48px; height: 48px; border-radius: 10px; background: #ffffff; border: 1px solid #e2e5ea; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .app-card:hover .icon-wrap { background: #fef6f2; border-color: rgba(255, 94, 20, 0.3); }
+  .tag { font-size: 0.72rem; font-weight: 700; color: #ff5e14; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; display: block; }
+  .app-title { font-weight: 700; font-size: 1.05rem; color: #1a1d23; margin-bottom: 8px; line-height: 1.3; }
+  .app-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.55; margin-bottom: 16px; flex-grow: 1; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; background: #ffffff; border: 1px solid #e2e5ea; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: #374151; width: fit-content; }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #ff5e14; }
+  .footer-bar { margin-top: 20px; padding-top: 16px; border-top: 1px solid #edf0f4; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.82rem; color: #6b7280; }
+  .footer-cta { display: inline-flex; align-items: center; gap: 6px; background: #ff5e14; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.18s; }
+  .footer-cta:hover { background: #e04f08; }
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .apps-container { padding: 18px 16px; }
+    .grid { grid-template-columns: 1fr; gap: 14px; }
+    .footer-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+    .footer-cta { width: 100%; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+  <div class="apps-container">
+    <div class="apps-header">
+      <div>
+        <span class="badge">Home Solutions</span>
+        <div class="title">AtticMaster HA-3 — <span>Ideal Applications</span></div>
+        <p class="subtitle">India's only premium gas-strut loft ladder — designed for urban apartments, interior renovations, and luxury residential projects.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">🏠</div>
+          <span class="tag">Urban Apartments & Loft Storage</span>
+          <div class="app-title">Homeowners Adding Loft Storage</div>
+          <p class="app-desc">Transform bare ceiling void into safe, permanent, daily-use loft storage without sacrificing precious floor room height or interior aesthetics in compact Mumbai, Bengaluru, and Pune apartments.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>2 kg One-Hand Deployment</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">🎨</div>
+          <span class="tag">Interior Design & Architecture</span>
+          <div class="app-title">Interior Designers & Architects</div>
+          <p class="app-desc">Specified for loft bedrooms, mezzanine libraries, and terrace access in luxury villas and duplexes. Timber Oak and Matte Black finishes make the ceiling hatch a showcase design feature.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>4 Designer Hatch Finishes</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">🏗️</div>
+          <span class="tag">Builder & Developer Fit-Out</span>
+          <div class="app-title">Builders & Residential Developers</div>
+          <p class="app-desc">High-margin loft conversion add-on feature that commands ₹1–2 lakh buyer value perception in specification sheets for premium 2BHK and 3BHK flats across major Indian metros.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>10-Year Mechanism Warranty</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Professional installation available across Mumbai MMR, Pune, Delhi NCR, Bengaluru, and Hyderabad</span>
+      <a href="https://sites.google.com/view/YOUR_SITE_NAME/contact-us" target="_top" class="footer-cta">Book Installation →</a>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+---
+
+### Snippet 17A: DeckRise Modular Product Page — Key Highlights & Specifications
+> **Page**: DeckRise Modular (Sub-page under *Products*)  
+> **Placement**: Below the Hero banner section.  
+> **Section Background**: Emphasis 1 (Light Gray)  
+> **Recommended Height in Google Sites**: Drag blue handle to **~800px height** (Desktop) / **~1200px** (Mobile).  
+> **Responsiveness**: Fluid layout across Laptops, Tablets, and Mobile Phones.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .badge { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; border: 1px solid rgba(255,94,20,0.28); padding: 4px 14px; border-radius: 20px; font-size: 0.74rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 1.7rem; text-transform: uppercase; letter-spacing: 1px; color: #1a1d23; margin-bottom: 6px; }
+  .section-title span { color: #ff5e14; }
+  .section-sub { color: #7b8290; font-size: 0.92rem; margin-bottom: 22px; }
+  
+  .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 28px; }
+  .highlight-card {
+    background: #fff;
+    border: 1px solid #e2e5ea;
+    border-left: 4px solid #ff5e14;
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .highlight-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,94,20,0.1); }
+  .hl-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .hl-title { font-weight: 700; font-size: 0.98rem; color: #1a1d23; margin-bottom: 6px; }
+  .hl-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.55; }
+  
+  .color-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; padding: 14px 18px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .color-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #7b8290; margin-right: 6px; }
+  .swatch { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #e2e5ea; cursor: default; }
+  .swatch-name { font-size: 0.8rem; color: #3d4350; font-weight: 600; margin-left: 4px; }
+  
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 22px; border-radius: 10px; }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; font-size: 0.89rem; }
+  th { background: #f1f3f6; color: #ff5e14; padding: 12px 18px; font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+  td { padding: 11px 18px; border-bottom: 1px solid #edf0f4; color: #3d4350; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fef8f5; }
+  td:first-child { font-weight: 600; color: #1a1d23; }
+  
+  .apps-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
+  .app-item { background: #fff; border: 1px solid #e2e5ea; border-radius: 8px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .app-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff5e14; margin-top: 5px; flex-shrink: 0; }
+  .app-text { font-size: 0.86rem; color: #3d4350; line-height: 1.5; }
+  .app-text strong { color: #1a1d23; }
+
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .section-title { font-size: 1.45rem; }
+    .highlights-grid { grid-template-columns: 1fr; gap: 14px; }
+    .color-row { padding: 12px 14px; gap: 8px; }
+    .apps-list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    body { padding: 8px; }
+    .highlight-card { padding: 16px; }
+    th, td { padding: 9px 12px; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="badge">Model 10 — 4-Height Adjustable Rolling Work Platform</div>
+  <div class="section-title">DeckRise Modular — <span>Key Highlights</span></div>
+  <p class="section-sub">BIS IS 4130 HD · Factories Act 1948 · 1.0m–3.0m in 60s · 200 kg rated · Expandable 1200mm Deck</p>
+
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <div class="hl-icon">🪜</div>
+      <div class="hl-title">4-Level Tool-Free Height Change</div>
+      <div class="hl-desc">Single operator adjusts working height between 1.0m, 1.5m, 2.0m, and 3.0m in under 60 seconds with spring-loaded stainless steel pin-locks — replacing three separate platforms.</div>
+    </div>
+    <div class="highlight-card">
+      <div class="hl-icon">⚖️</div>
+      <div class="hl-title">Pneumatic Auto-Leveling Feet (±35mm)</div>
+      <div class="hl-desc">Four independent pneumatic leveling feet automatically compensate for uneven warehouse concrete floors up to ±35mm per leg — zero time lost to manual leveling cranks.</div>
+    </div>
+    <div class="highlight-card">
+      <div class="hl-icon">🤝</div>
+      <div class="hl-title">Expandable 2-Person Deck (800 → 1200mm)</div>
+      <div class="hl-desc">Tool-free clip-on deck extension expands base 800mm deck to 1,200mm width, safely enabling simultaneous two-person stocking and overhead MEP maintenance under full 200 kg capacity.</div>
+    </div>
+  </div>
+
+  <div class="color-row">
+    <span class="color-label">Available Finishes:</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#facc15 50%,#171717 50%)" title="Safety Yellow & Black"></div>
+    <span class="swatch-name">Safety Yellow & Black</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#f8fafc 50%,#1d4ed8 50%)" title="Cleanroom White & Royal Blue"></div>
+    <span class="swatch-name">Cleanroom White & Blue</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#dc2626 50%,#cbd5e1 50%)" title="Ember Red & Silver"></div>
+    <span class="swatch-name">Ember Red & Silver</span>
+    <div class="swatch" style="background:linear-gradient(135deg,#f97316 50%,#374151 50%)" title="Orange & Graphite"></div>
+    <span class="swatch-name">Orange & Graphite</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>Specification</th><th>Metric</th><th>Imperial</th></tr>
+      <tr><td>Working Height Range</td><td>1.0m / 1.5m / 2.0m / 3.0m (4 Levels)</td><td>3.28ft / 4.92ft / 6.56ft / 9.84ft</td></tr>
+      <tr><td>Maximum Working Reach</td><td>4.80 meters</td><td>15.75 feet</td></tr>
+      <tr><td>Base Platform Deck Size</td><td>800 × 600 mm</td><td>31.5" × 23.6"</td></tr>
+      <tr><td>Extended Deck Size</td><td>1,200 × 600 mm (Clip-On Extension)</td><td>47.2" × 23.6" (2-Person Capacity)</td></tr>
+      <tr><td>Total Unit Weight</td><td>38 kg (Including Casters)</td><td>83.8 lbs</td></tr>
+      <tr><td>Duty Rating / Load Capacity</td><td>200 kg (BIS IS 4130 Extra Heavy Duty)</td><td>441 lbs Rated Capacity</td></tr>
+      <tr><td>Wheel Type & Diameter</td><td>125mm Swivel Polyurethane (4 Wheels)</td><td>Auto-Braking Step Casters</td></tr>
+      <tr><td>Leveling Foot Travel</td><td>±35 mm Per Leg (Pneumatic Auto-Level)</td><td>±1.38 inches</td></tr>
+      <tr><td>Frame Material</td><td>6005-T6 Extruded Aluminium Box Frame</td><td>Industrial Structural Grade</td></tr>
+      <tr><td>Safety Standards</td><td><strong>BIS IS 4130 HD</strong> · Factories Act 1948 Section 36</td><td>Heavy Industrial Compliant</td></tr>
+      <tr><td>Warranty Coverage</td><td>10-Year Commercial Fleet Warranty</td><td>Enterprise Trade Assurance</td></tr>
+    </table>
+  </div>
+
+  <ul class="apps-list">
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>E-Commerce Fulfilment Centres:</strong> Flipkart, Amazon India, Meesho high-bay warehouses; 4-height adjustment covers all picking rack tiers.</div></li>
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>Modern Retail Chains:</strong> DMart, Reliance Retail, Croma store planogram resets with 2-person simultaneous expandable deck stocking.</div></li>
+    <li class="app-item"><div class="app-dot"></div><div class="app-text"><strong>Pharma & FMCG Manufacturing:</strong> Sun Pharma, Cipla, HUL production floors — Factories Act 1948 Sec 36 compliance for cleanrooms and overhead conveyor maintenance.</div></li>
+  </ul>
+</body>
+</html>
+```
+
+---
+
+### Snippet 17B: DeckRise Modular — Dedicated Technical Specifications Table
+> **Page**: DeckRise Modular (Sub-page under *Products*)  
+> **Placement**: Section 4 (Technical Specifications)  
+> **Section Background**: Regular (White) or Emphasis 1  
+> **Recommended Height in Google Sites**: Drag blue handle to **~720px height** (Desktop) / **~780px** (Mobile).  
+> **Responsiveness**: Smooth horizontal scroll on tablets & mobile screens with non-breaking layout.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .spec-container { background: #ffffff; border: 1px solid #e2e5ea; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+  .spec-header { background: #f8f9fa; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e5ea; flex-wrap: wrap; gap: 10px; }
+  .spec-title { font-family: 'Oswald', sans-serif; font-size: 1.35rem; text-transform: uppercase; color: #1a1d23; letter-spacing: 0.5px; }
+  .spec-title span { color: #ff5e14; }
+  .cert-badge { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; border: 1px solid rgba(255,94,20,0.28); padding: 4px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 0.91rem; text-align: left; }
+  th { background: #f1f3f6; color: #4b5563; padding: 13px 20px; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #e2e5ea; }
+  td { padding: 13px 20px; border-bottom: 1px solid #edf0f4; color: #374151; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fef8f5; }
+  td:first-child { font-weight: 600; color: #1a1d23; width: 34%; }
+  .tag-highlight { display: inline-block; background: rgba(255,94,20,0.08); color: #ff5e14; font-weight: 700; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255,94,20,0.25); font-size: 0.8rem; }
+  .spec-footer { background: #fafbfc; padding: 12px 24px; border-top: 1px solid #edf0f4; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #6b7280; flex-wrap: wrap; gap: 8px; }
+  .spec-footer strong { color: #ff5e14; }
+  @media (max-width: 768px) {
+    body { padding: 10px; }
+    .spec-header { padding: 12px 16px; }
+    .spec-title { font-size: 1.15rem; }
+    th, td { padding: 10px 14px; font-size: 0.83rem; }
+    .spec-footer { padding: 10px 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="spec-container">
+    <div class="spec-header">
+      <div class="spec-title">DeckRise Modular <span>Technical Specifications</span></div>
+      <span class="cert-badge">● BIS IS 4130 HD · Factories Act 1948</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th>Metric Value</th>
+            <th>Imperial Equivalent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Working Height Range</td><td><span class="tag-highlight">1.0m / 1.5m / 2.0m / 3.0m (4 Levels)</span></td><td>3.28ft / 4.92ft / 6.56ft / 9.84ft</td></tr>
+          <tr><td>Maximum Working Reach</td><td>4.80 meters</td><td>15.75 feet</td></tr>
+          <tr><td>Base Platform Deck Size</td><td>800 × 600 mm</td><td>31.5" × 23.6"</td></tr>
+          <tr><td>Extended Deck Size</td><td>1,200 × 600 mm (Clip-On Extension)</td><td>47.2" × 23.6" (2-Person Capacity)</td></tr>
+          <tr><td>Total Unit Weight</td><td>38 kg (Including Casters)</td><td>83.8 lbs</td></tr>
+          <tr><td>Duty Rating / Load Capacity</td><td><span class="tag-highlight">200 kg (BIS IS 4130 Extra Heavy Duty)</span></td><td>441 lbs Rated Capacity</td></tr>
+          <tr><td>Base Footprint</td><td>1,100 × 900 mm</td><td>43.3" × 35.4"</td></tr>
+          <tr><td>Wheel Type & Diameter</td><td>125mm Swivel Polyurethane (4 Wheels)</td><td>Auto-Braking Step Casters</td></tr>
+          <tr><td>Leveling Foot Travel</td><td>±35 mm Per Leg (Pneumatic Auto-Level)</td><td>±1.38 inches</td></tr>
+          <tr><td>Frame Material</td><td>6005-T6 Extruded Aluminium Box Frame</td><td>Industrial Structural Grade</td></tr>
+          <tr><td>Height Change Time</td><td>Under 60 Seconds (Tool-Free)</td><td>Single-Operator Operation</td></tr>
+          <tr><td>Safety Standards</td><td><strong>BIS IS 4130 HD</strong> · Factories Act 1948 Section 36</td><td>Heavy Industrial Compliant</td></tr>
+          <tr><td>Warranty Coverage</td><td>10-Year Commercial Fleet Warranty</td><td>Enterprise Trade Assurance</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="spec-footer">
+      <span>Tested to 3× Proof Load (600 kg Proof Test) · GST Input Credit Available on Fleet Orders</span>
+      <span><strong>Ascentix Ladders Pvt. Ltd.</strong> · Mumbai, Maharashtra</span>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+---
+
+### Snippet 17C: DeckRise Modular — Dedicated Ideal Applications Grid
+> **Page**: DeckRise Modular (Sub-page under *Products*)  
+> **Placement**: Section 5 (Ideal Applications)  
+> **Section Background**: Regular (White) or Emphasis 1  
+> **Recommended Height in Google Sites**: Drag blue handle to **~400px height** (Desktop) / **~720px** (Mobile stacked).  
+> **Responsiveness**: 3-column desktop grid collapsing to 1-column mobile cards.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: transparent; padding: 16px; color: #1a1d23; }
+  .apps-container { background: #ffffff; border: 1px solid #e2e5ea; border-radius: 12px; padding: 24px 26px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+  .apps-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 22px; flex-wrap: wrap; gap: 12px; }
+  .badge { display: inline-block; background: rgba(255, 94, 20, 0.08); color: #ff5e14; border: 1px solid rgba(255, 94, 20, 0.28); padding: 4px 12px; border-radius: 20px; font-size: 0.74rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+  .title { font-family: 'Oswald', sans-serif; font-size: 1.45rem; text-transform: uppercase; color: #1a1d23; letter-spacing: 0.5px; line-height: 1.2; }
+  .title span { color: #ff5e14; }
+  .subtitle { font-size: 0.88rem; color: #7b8290; margin-top: 4px; max-width: 620px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .app-card { background: #f8f9fa; border: 1px solid #e2e5ea; border-radius: 10px; padding: 22px 20px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .app-card:hover { transform: translateY(-3px); border-color: #ff5e14; box-shadow: 0 8px 24px rgba(255, 94, 20, 0.1); background: #ffffff; }
+  .icon-wrap { width: 48px; height: 48px; border-radius: 10px; background: #ffffff; border: 1px solid #e2e5ea; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .app-card:hover .icon-wrap { background: #fef6f2; border-color: rgba(255, 94, 20, 0.3); }
+  .tag { font-size: 0.72rem; font-weight: 700; color: #ff5e14; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; display: block; }
+  .app-title { font-weight: 700; font-size: 1.05rem; color: #1a1d23; margin-bottom: 8px; line-height: 1.3; }
+  .app-desc { font-size: 0.86rem; color: #4b5563; line-height: 1.55; margin-bottom: 16px; flex-grow: 1; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; background: #ffffff; border: 1px solid #e2e5ea; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: #374151; width: fit-content; }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #ff5e14; }
+  .footer-bar { margin-top: 20px; padding-top: 16px; border-top: 1px solid #edf0f4; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.82rem; color: #6b7280; }
+  .footer-cta { display: inline-flex; align-items: center; gap: 6px; background: #ff5e14; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.18s; }
+  .footer-cta:hover { background: #e04f08; }
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .apps-container { padding: 18px 16px; }
+    .grid { grid-template-columns: 1fr; gap: 14px; }
+    .footer-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+    .footer-cta { width: 100%; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+  <div class="apps-container">
+    <div class="apps-header">
+      <div>
+        <span class="badge">Enterprise Trade Sectors</span>
+        <div class="title">DeckRise Modular — <span>Ideal Applications</span></div>
+        <p class="subtitle">4-height variable rolling platform engineered for India's booming e-commerce logistics, modern retail, and pharmaceutical manufacturing sectors.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">📦</div>
+          <span class="tag">E-Commerce & Logistics</span>
+          <div class="app-title">Fulfilment Centres & Warehouses</div>
+          <p class="app-desc">Flipkart, Amazon India, Meesho, and Delhivery high-bay fulfilment centres. The 4-height tool-free adjustment covers 1m, 2m, and 3m shelf levels, replacing three fixed platforms and freeing up floor space.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>4-Height in 60s, Tool-Free</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">🛒</div>
+          <span class="tag">Modern Retail</span>
+          <div class="app-title">Large-Format Retail Chains</div>
+          <p class="app-desc">DMart, Reliance Retail, Croma, and Vijay Sales store operations. The clip-on deck extension enables two-person simultaneous stocking, eliminating the primary bottleneck during planogram resets.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>Expandable 1,200mm 2-Person Deck</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="app-card">
+        <div>
+          <div class="icon-wrap">💊</div>
+          <span class="tag">Pharma & FMCG Manufacturing</span>
+          <div class="app-title">GMP Production & Cleanrooms</div>
+          <p class="app-desc">Sun Pharma, Cipla, HUL, and Nestlé India production floors requiring Factories Act 1948-compliant variable access for overhead pipe servicing and cleanroom ceiling maintenance.</p>
+        </div>
+        <div class="pill"><span class="pill-dot"></span>Factories Act 1948 Sec 36</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Enterprise fleet pricing · GST Input Credit eligible · Pan-India delivery & installation</span>
+      <a href="https://sites.google.com/view/YOUR_SITE_NAME/contact-us" target="_top" class="footer-cta">Request Fleet Quote →</a>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+---
+
 ### Snippet 18: Universal Sitewide Multi-Column SEO Master Footer
 > **Page**: Sitewide (Global Footer or bottom section of all pages)  
 > **Placement**: Very bottom of page.  
 > **Section Background**: Dark / Black (or style as desired)  
-> **Recommended Height in Google Sites**: Drag blue handle to ~420px height (Desktop) / ~620px (Mobile).  
-> **SEO Purpose**: Provides search engine crawlers (Googlebot, Bingbot) and human visitors 1-hop access to all 6 product models, compliance specs, leadership, and contact channels.  
+> **Recommended Height in Google Sites**: Drag blue handle to **~480px height** (Desktop) / **~720px** (Tablet) / **~920px** (Mobile stacked).  
+> **SEO Purpose**: Provides search engine crawlers (Googlebot, Bingbot) and human visitors 1-hop access to all 10 product models, compliance specs, leadership, and contact channels.  
+> **Responsiveness**: Fluid layout: 4 columns on Laptops, 2 columns on Tablets, 1 column on Mobile.
 
 ```html
 <!DOCTYPE html>
@@ -5109,7 +6550,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     display: inline-block;
   }
   .footer-links { list-style: none; }
-  .footer-links li { margin-bottom: 9px; }
+  .footer-links li { margin-bottom: 8px; }
   .footer-links a {
     color: #94a3b8;
     text-decoration: none;
@@ -5134,12 +6575,13 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
   }
   .bottom-bar a { color: #94a3b8; text-decoration: none; }
   .bottom-bar a:hover { color: #ff5e14; }
-  @media (max-width: 840px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
+  
+  @media (max-width: 960px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   }
-  @media (max-width: 520px) {
+  @media (max-width: 580px) {
     .footer-grid { grid-template-columns: 1fr; gap: 24px; }
-    .bottom-bar { flex-direction: column; text-align: center; }
+    .bottom-bar { flex-direction: column; text-align: center; gap: 10px; }
   }
 </style>
 </head>
@@ -5148,19 +6590,23 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     <div class="footer-grid">
       <div>
         <div class="brand-title">ASCENTIX <span>LADDERS</span></div>
-        <p class="brand-desc">India's premier manufacturer of aerospace-alloy and Toray carbon composite industrial climbing systems. BIS IS 4130 / 4131 certified for Indian job sites.</p>
-        <span class="badge-tag">BIS IS 4130 Certified • Mumbai, India</span>
+        <p class="brand-desc">India's premier manufacturer of aerospace-alloy, Toray carbon composite, and dielectric climbing systems. Certified under BIS IS 4130 / 4131 / 1875 / 1364 for Indian commercial and industrial job sites.</p>
+        <span class="badge-tag">BIS IS Certified • 10 Models • Mumbai, India</span>
       </div>
 
       <div>
-        <div class="col-heading">Product Fleet</div>
+        <div class="col-heading">Product Fleet (10 Models)</div>
         <ul class="footer-links">
           <li><a href="https://sites.google.com/view/ascentix-ladders/products/telepro-360" target="_top">TelePro 360 Telescopic</a></li>
           <li><a href="https://sites.google.com/view/ascentix-ladders/products/carbonapex-x1" target="_top">CarbonApex X1 Non-Conductive</a></li>
           <li><a href="https://sites.google.com/view/ascentix-ladders/products/multiflex-transform" target="_top">MultiFlex Transform Multi-Mode</a></li>
-          <li><a href="https://sites.google.com/view/ascentix-ladders/products/titansafe-industrial" target="_top">TitanSafe 500 Industrial</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/titansafe-industrial" target="_top">TitanSafe Industrial Cage</a></li>
           <li><a href="https://sites.google.com/view/ascentix-ladders/products/aeroreach-pro" target="_top">AeroReach Pro High-Reach</a></li>
           <li><a href="https://sites.google.com/view/ascentix-ladders/products/vaultstep-deluxe" target="_top">VaultStep Deluxe Step Stool</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/solarstep-fx" target="_top">SolarStep FX Rooftop Solar</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/voltshield-fg5" target="_top">VoltShield FG-5 Dielectric Step</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/home-solutions/atticmaster-ha3" target="_top">AtticMaster HA-3 Loft Ladder</a></li>
+          <li><a href="https://sites.google.com/view/ascentix-ladders/products/deckrise-modular" target="_top">DeckRise Modular Platform</a></li>
         </ul>
       </div>
 
@@ -5186,7 +6632,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
     </div>
 
     <div class="bottom-bar">
-      <div>© 2026 Ascentix Ladders Pvt. Ltd. All rights reserved. BIS IS 4130 / 4131 Compliant.</div>
+      <div>© 2026 Ascentix Ladders Pvt. Ltd. All rights reserved. BIS IS 4130 / 4131 / 1875 Compliant.</div>
       <div>
         <a href="https://sites.google.com/view/ascentix-ladders/home" target="_top">Home</a> • 
         <a href="https://sites.google.com/view/ascentix-ladders/products" target="_top">Products</a> • 
@@ -5201,22 +6647,25 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
 ---
 
 ### Snippet 19: Product Subpage Responsive Breadcrumbs Bar
-> **Page**: Product subpages (`/products/telepro-360`, `/products/carbonapex-x1`, etc.)  
+> **Page**: Product subpages (`/products/telepro-360`, `/products/solarstep-fx`, `/home-solutions/atticmaster-ha3`, etc.)  
 > **Placement**: Very top of the page (directly under the header).  
-> **Recommended Height in Google Sites**: Drag blue handle to ~50px height.  
+> **Recommended Height in Google Sites**: Drag blue handle to **~50px height**.  
 > **SEO Purpose**: Enhances search crawler category understanding and provides breadcrumb navigation paths for users.  
+> **Responsiveness**: Responsive font and flex-wrap across Laptops, Tablets, and Mobile screens.
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
   body { background: transparent; padding: 8px 14px; }
   .breadcrumbs {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
     font-size: 0.82rem;
     color: #64748b;
@@ -5230,17 +6679,28 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
   .breadcrumbs a:hover { color: #ff5e14; }
   .separator { color: #cbd5e1; font-size: 0.75rem; }
   .current { color: #ff5e14; font-weight: 700; }
+  @media (max-width: 480px) {
+    body { padding: 6px 10px; }
+    .breadcrumbs { font-size: 0.78rem; gap: 6px; }
+  }
 </style>
 </head>
 <body>
+  <!-- Standard Products Breadcrumb (Change 'Product Spotlight' to your specific ladder name) -->
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <a href="https://sites.google.com/view/ascentix-ladders/home" target="_top">Home</a>
     <span class="separator">/</span>
     <a href="https://sites.google.com/view/ascentix-ladders/products" target="_top">Products</a>
     <span class="separator">/</span>
-    <!-- Replace this text with the specific product name on each subpage -->
     <span class="current">Product Spotlight</span>
   </nav>
+
+  <!-- Quick Subpage Copy-Paste Presets:
+  SolarStep FX:      Home / Products / SolarStep FX
+  VoltShield FG-5:   Home / Products / VoltShield FG-5
+  AtticMaster HA-3:  Home / Home Solutions / AtticMaster HA-3
+  DeckRise Modular:  Home / Products / DeckRise Modular
+  -->
 </body>
 </html>
 ```
@@ -5357,7 +6817,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
       <div class="step-card">
         <div class="step-num">1</div>
         <h3 class="step-title">Select Your Application</h3>
-        <p class="step-desc">Browse our 6 purpose-built models — whether you need 35kV electrical non-conductivity, compact vehicle transport, or heavy industrial 500kg platforms.</p>
+        <p class="step-desc">Browse our 10 purpose-built models — whether you need solar rooftop access, 25kV/35kV electrical non-conductivity, compact vehicle transport, rolling warehouse platforms, or residential loft ladders.</p>
       </div>
 
       <!-- Step 2 -->
@@ -5485,7 +6945,7 @@ When Google Sites inserts an embed, it defaults to a small, narrow box with ugly
       <details open>
         <summary>Are Ascentix ladders certified under Indian BIS IS standards?</summary>
         <div class="answer">
-          Yes. Every Ascentix ladder is certified under <strong>BIS IS 4130 / 4131</strong> for heavy commercial duty. Units undergo independent testing for static proof load (up to 500 kg), lateral sway resistance, and 10-meter drop impact with zero structural weld failure.
+          Yes. Every Ascentix ladder across our complete 10-model lineup is certified under relevant Indian Standards (<strong>BIS IS 4130, IS 4131, IS 1875, IS 1364</strong>, and National Building Code 2016) for industrial, commercial, and residential duty. Units undergo independent testing for static proof load (up to 500 kg), lateral sway resistance, and 10-meter drop impact with zero structural weld failure.
         </div>
       </details>
 
