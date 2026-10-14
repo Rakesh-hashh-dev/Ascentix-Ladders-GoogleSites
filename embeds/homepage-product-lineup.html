@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ascentix — Featured Product Lineup</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
+html{overflow-x:clip}
+body{width:100%;background:transparent;padding:16px;color:#1a1d23}
+.section-header{margin-bottom:24px}
+.section-title{font-family:Oswald,sans-serif;font-size:2.1rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;line-height:1.1}
+.section-title span{color:#ff5e14}
+.section-subtitle{color:#7b8290;font-size:.95rem}
+.card-grid-6{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{min-width:0;overflow-wrap:break-word;background:#fff;border:1px solid #e2e5ea;border-radius:10px;padding:18px;transition:transform .22s,box-shadow .22s,border-color .22s;display:flex;flex-direction:column;box-shadow:0 2px 8px #0000000a;text-decoration:none;color:inherit}
+.card:hover{border-color:#ff5e14;transform:translateY(-4px);box-shadow:0 12px 28px #ff5e141f}
+/* Landscape frames match every image: no inner padding or letterboxing. */
+.card-img-wrap{position:relative;width:100%;aspect-ratio:4/3;flex-shrink:0;background:#f8f9fa;border-radius:8px;margin-bottom:14px;overflow:hidden}
+.card-img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;padding:0;transition:transform .25s}
+.card:hover .card-img{transform:scale(1.03)}
+.meta-row{display:flex;align-items:center;margin-bottom:6px}
+.role-badge{font-size:.72rem;color:#ff5e14;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+.card h3{font-family:Oswald,sans-serif;font-size:1.25rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;line-height:1.2}
+.card p{color:#4b5563;font-size:.85rem;line-height:1.5;margin-bottom:16px;flex-grow:1}
+.btn-secondary{width:100%;background:#fff;border:1.5px solid #d1d5db;color:#374151;padding:10px 14px;font-size:.82rem;font-weight:600;border-radius:6px;text-align:center;margin-top:auto;display:block}
+.card:hover .btn-secondary{border-color:#ff5e14;color:#ff5e14;background:#ff5e140f}
+.card:focus-visible,.view-more:focus-visible{outline:3px solid #ff5e14;outline-offset:3px}
+.range-action{text-align:center;margin:26px 0 4px}
+.view-more{display:inline-block;background:#ff5e14;color:#fff;padding:13px 28px;font-weight:700;text-decoration:none;border-radius:6px}
+@media(max-width:960px){.card-grid-6{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){body{padding:10px}.card-grid-6{gap:12px}.section-title{font-size:1.65rem}.section-subtitle{font-size:.85rem;line-height:1.45}.card{padding:10px}.card-img-wrap{margin-bottom:10px}.card h3{font-size:1.02rem;letter-spacing:0;line-height:1.25;min-height:2.5em}.role-badge{font-size:.62rem;letter-spacing:.4px}.card p{font-size:.8rem;line-height:1.45;margin-bottom:12px}.btn-secondary{padding:10px 5px;font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.card,.card-img{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="section-header">
+  <h2 class="section-title">The Product <span>Lineup</span></h2>
+  <p class="section-subtitle">Six featured designs. Choose a model to explore its details, or view the complete range below.</p>
+</div>
+<div class="card-grid-6">
+  <a class="card" target="_top" href="https://sites.google.com/view/ascentix-ladders/products/telepro-360">
+    <div class="card-img-wrap"><img class="card-img" src="https://lh3.googleusercontent.com/d/1roShJJFi19SGia4bxf8Ys9Jfr4B0tHTs" alt="TelePro 360"></div>
+    <div class="meta-row"><span class="role-badge">Telescopic</span></div><h3>TelePro 360</h3>
+    <p>Telescopic design for transport, storage and everyday maintenance.</p><span class="btn-secondary">View model →</span>
+  </a>
+  <a class="card" target="_top" href="https://sites.google.com/view/ascentix-ladders/products/multiflex-transform">
+    <div class="card-img-wrap"><img class="card-img" src="https://lh3.googleusercontent.com/d/10EbCxkAL_f3TI_iC0CMmnrcvRAMGYz8N" alt="MultiFlex Transform"></div>
+    <div class="meta-row"><span class="role-badge">Multi-position</span></div><h3>MultiFlex Transform</h3>
+    <p>Multi-position configurations for varied spaces and project setups.</p><span class="btn-secondary">View model →</span>
+  </a>
+  <a class="card" target="_top" href="https://sites.google.com/view/ascentix-ladders/products/titansafe-industrial">
+    <div class="card-img-wrap"><img class="card-img" src="https://lh3.googleusercontent.com/d/1rb4I8We62239EQkx6PqyGpsCGiR4y30m" alt="TitanSafe Industrial"></div>
+    <div class="meta-row"><span class="role-badge">Industrial platform</span></div><h3>TitanSafe Industrial</h3>
+    <p>Platform-access design for workplace and facility planning.</p><span class="btn-secondary">View model →</span>
+  </a>
+  <a class="card" target="_top" href="https://sites.google.com/view/ascentix-ladders/products/voltshield-fg5">
+    <div class="card-img-wrap"><img class="card-img" src="https://raw.githubusercontent.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites/main/assets/products/model_8_voltshield_homepage.jpg" alt="VoltShield FG-5"></div>
+    <div class="meta-row"><span class="role-badge">Fibreglass</span></div><h3>VoltShield FG-5</h3>
+    <p>Fibreglass step-ladder design. Compare specifications and approved uses.</p><span class="btn-secondary">View model →</span>
+  </a>
+  <a class="card" target="_top" href="https://sites.google.com/view/ascentix-ladders/products/solarstep-fx">
+    <div class="card-img-wrap"><img class="card-img" src="https://raw.githubusercontent.com/Rakesh-hashh-dev/Ascentix-Ladders-GoogleSites/main/assets/products/model_7_solarstep_homepage.jpg" alt="SolarStep FX"></div>
+    <div class="meta-row"><span class="role-badge">Solar projects</span></div><h3>SolarStep FX</h3>
+    <p>Specialist rooftop-access concept for solar-installation project planning.</p><span class="btn-secondary">View model →</span>
+  </a>
+  <a class="card" target="_top" href="https://sites.google.com/view/ascentix-ladders/products/vaultstep-deluxe">
+    <div class="card-img-wrap"><img class="card-img" src="https://lh3.googleusercontent.com/d/1UPRrENHWArxMG18FOhtHqJZykBjqtOrL" alt="VaultStep Deluxe"></div>
+    <div class="meta-row"><span class="role-badge">Combination</span></div><h3>VaultStep Deluxe</h3>
+    <p>Combination ladder design for maintenance and home-improvement tasks.</p><span class="btn-secondary">View model →</span>
+  </a>
+</div>
+<div class="range-action"><a class="view-more" target="_top" href="https://sites.google.com/view/ascentix-ladders/products">View more →</a></div>
+</body>
+</html>
