@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ascentix Ladders — Model Selector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: #111214;
+      color: #f1f5f9;
+      padding: 20px;
+      border-radius: 16px;
+    }
+
+    .matrix-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Header */
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+    .header-sub {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    /* Controls Bar */
+    .controls-bar {
+      background: #16181b;
+      border: 1px solid #26292e;
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 200px;
+      background: #111214;
+      border: 1px solid #2e3239;
+      color: #f1f5f9;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+    .search-input:focus {
+      border-color: #ff5e14;
+    }
+
+    .category-select {
+      background: #111214;
+      border: 1px solid #2e3239;
+      color: #f1f5f9;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      min-width: 190px;
+      outline: none;
+      cursor: pointer;
+    }
+    .category-select:focus {
+      border-color: #ff5e14;
+    }
+
+    .count-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* Table Container */
+    .table-container {
+      background: #181a1d;
+      border: 1px solid #26292e;
+      border-radius: 12px;
+      overflow-x: auto;
+      max-height: 460px;
+      overflow-y: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 640px;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: #1c1f24;
+      color: #94a3b8;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 13px 16px;
+      border-bottom: 1px solid #2a2e35;
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+      z-index: 2;
+    }
+    thead th:hover {
+      color: #ffffff;
+    }
+
+    .sort-arrow {
+      color: #ff8a52;
+      font-size: 0.75rem;
+      margin-left: 4px;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #24272d;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+    tbody tr:hover {
+      background: #20242a;
+    }
+    tbody tr.selected {
+      background: #3b241d;
+    }
+
+    td {
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+
+    .model-name {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #121417;
+      border: 1px solid #2a2e35;
+      color: #94a3b8;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* Bottom Inspector Card */
+    .detail-card {
+      background: #181a1d;
+      border: 1px solid #2a2e35;
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .detail-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .detail-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 20px;
+      align-items: end;
+    }
+
+    .detail-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    .detail-value {
+      font-size: 0.92rem;
+      color: #f1f5f9;
+      font-weight: 500;
+    }
+
+    .view-btn {
+      background: #ff5e14;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .view-btn:hover {
+      background: #e04e0b;
+    }
+
+    /* Custom Scrollbars */
+    .table-container::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .table-container::-webkit-scrollbar-track {
+      background: #141619;
+    }
+    .table-container::-webkit-scrollbar-thumb {
+      background: #333842;
+      border-radius: 3px;
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 640px) {
+      body { padding: 12px; }
+      .controls-bar { flex-direction: column; align-items: stretch; }
+      .count-label { margin-left: 0; text-align: right; }
+      .detail-grid { grid-template-columns: 1fr; gap: 12px; }
+      .view-btn { text-align: center; }
+    }
+  
+    /* Brand, focus states and a phone layout without a wide table. */
+    .search-input,.category-select{min-height:44px;max-width:100%;}
+    .detail-label{color:#94a3b8;}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,tr:focus-visible{outline:3px solid #ff8a52;outline-offset:3px;}
+    .sort-btn{appearance:none;background:transparent;border:0;color:inherit;font:inherit;cursor:pointer;padding:6px 0;text-align:left;}
+    tbody tr.selected{box-shadow:inset 3px 0 #ff5e14;}
+    .model-name{overflow-wrap:anywhere;}
+    .empty-row{cursor:default;text-align:center;color:#94a3b8;padding:28px 16px;}
+    .selector-note{font-size:.75rem;line-height:1.5;color:#94a3b8;}
+    @media(max-width:640px){
+      .search-input,.category-select{min-width:0;width:100%;flex:none;}
+      .table-container{max-height:none;overflow:visible;}
+      table{min-width:0;}
+      thead,tbody{display:block;}
+      thead tr{display:grid;grid-template-columns:1fr 1fr;}
+      thead th{position:static;white-space:normal;padding:6px 10px;}
+      tbody tr{display:block;padding:12px 0;}
+      tbody td{display:block;padding:4px 12px;}
+      tbody td:nth-child(3)::before{content:'Feature: ';color:#94a3b8;}
+      tbody td:nth-child(4)::before{content:'Application: ';color:#94a3b8;}
+      .badge{white-space:normal;}
+      .detail-card{padding:16px;}
+      .detail-top{align-items:flex-start;}
+      .view-btn{display:block;min-height:44px;padding:13px 16px;}
+    }
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;}}
+  
+    /* Light theme aligned with the Ascentix website. */
+    :root{color-scheme:light;}
+    body{background:#f8f7f4;color:#1a2332;border:1px solid #e8e6e1;}
+    .header-title{font-family:'Oswald','Inter',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#1a2332;font-size:1.8rem;}
+    .header-title span{color:#ff5e14;}
+    .header-sub,.count-label,.detail-label,.selector-note{color:#606977;}
+    .controls-bar{background:#f1f0ec;border-color:#e3e1db;}
+    .search-input,.category-select{background:#fff;border-color:#d9dce1;color:#1a2332;}
+    .search-input::placeholder{color:#697280;}
+    .table-container,.detail-card{background:#fff;border-color:#e2e4e8;box-shadow:0 3px 12px rgba(27,37,54,.035);}
+    thead th{background:#f1f2f4;color:#515c6b;border-color:#e1e4e8;}
+    thead th:hover{color:#1a2332;}
+    tbody tr{border-color:#eaecf0;}
+    tbody tr:hover{background:#faf6f2;}
+    tbody tr.selected{background:#fff0e7;box-shadow:inset 3px 0 #ff5e14;}
+    td{color:#3e4959;}
+    .model-name,.detail-title,.detail-value{color:#1a2332;}
+    .badge{background:#f4f5f7;border-color:#e2e5ea;color:#5e6877;}
+    .detail-card{border-top:3px solid #ff5e14;}
+    .view-btn{color:#fff;background:#e94c05;}
+    .view-btn:hover{background:#cb3f00;}
+    .sort-arrow{color:#c84308;}
+    .table-container::-webkit-scrollbar-track{background:#f3f3f0;}
+    .table-container::-webkit-scrollbar-thumb{background:#bfc3ca;}
+    .empty-row{color:#606977;}
+    @media(max-width:640px){tbody td:nth-child(3)::before,tbody td:nth-child(4)::before{color:#697280;}.header-title{font-size:1.55rem;}}
+  </style>
+</head>
+<body>
+
+  <div class="matrix-wrapper">
+    <!-- Header -->
+    <div>
+      <h2 class="header-title">Find Your <span>Ladder</span></h2>
+      <p class="header-sub">Search, compare and explore all 10 Ascentix models.</p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="controls-bar">
+      <input type="text" id="searchInput" class="search-input" aria-label="Search ladder models and features" placeholder="Filter models or features...">
+      <select id="categorySelect" class="category-select" aria-label="Filter by application category">
+        <option value="ALL">All Categories</option>
+      </select>
+      <span id="countLabel" class="count-label" role="status" aria-live="polite">Showing 10 of 10</span>
+    </div>
+
+    <!-- Data Table -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th data-col="model">Model <span class="sort-arrow" id="arrow-model">▲</span></th>
+            <th data-col="category">Category <span class="sort-arrow" id="arrow-category"></span></th>
+            <th data-col="feature">Material / Feature <span class="sort-arrow" id="arrow-feature"></span></th>
+            <th data-col="useCase">Primary Use Case <span class="sort-arrow" id="arrow-useCase"></span></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Selected Row Detail Card -->
+    <div class="detail-card" id="detailCard">
+      <div class="detail-top">
+        <div class="detail-title" id="detailModel">TitanSafe Industrial</div>
+        <span class="badge" id="detailCategory">Heavy Industrial</span>
+      </div>
+      <div class="detail-grid">
+        <div>
+          <div class="detail-label">Distinctive Feature</div>
+          <div class="detail-value" id="detailFeature">Heavy-Duty Aluminum</div>
+        </div>
+        <div>
+          <div class="detail-label">Primary Application</div>
+          <div class="detail-value" id="detailUseCase">Plant maintenance &amp; heavy load bearing</div>
+        </div>
+        <a href="https://sites.google.com/view/ascentix-ladders/products/titansafe-industrial" target="_top" class="view-btn" id="detailLink">View product →</a>
+      </div>
+    </div>
+    <p class="selector-note">Compare designs and intended applications. Confirm specifications, approved uses, pricing and availability on the product page or by enquiry.</p>
+  </div>
+
+  <script>
+    const fleetData = [
+      {
+        model: "AeroReach Pro",
+        category: "Specialist",
+        feature: "Extended Reach Extension",
+        useCase: "Exterior building maintenance access",
+        url: "https://sites.google.com/view/ascentix-ladders/products/aeroreach-pro"
+      },
+      {
+        model: "AtticMaster HA-3",
+        category: "Residential",
+        feature: "Folding Attic Mount",
+        useCase: "Residential attic & loft access",
+        url: "https://sites.google.com/view/ascentix-ladders/products/atticmaster-ha3"
+      },
+      {
+        model: "CarbonApex X1",
+        category: "Industrial / Electrical",
+        feature: "Carbon-Fiber Composite",
+        useCase: "Industrial access planning; request specifications",
+        url: "https://sites.google.com/view/ascentix-ladders/products/carbonapex-x1"
+      },
+      {
+        model: "DeckRise Modular",
+        category: "Scaffolding / Modular",
+        feature: "Interlocking Deck Modules",
+        useCase: "Elevated platform work areas",
+        url: "https://sites.google.com/view/ascentix-ladders/products/deckrise-modular"
+      },
+      {
+        model: "MultiFlex Transform",
+        category: "Construction",
+        feature: "Multi-position hinge design",
+        useCase: "Renovation & varied workspace layouts",
+        url: "https://sites.google.com/view/ascentix-ladders/products/multiflex-transform"
+      },
+      {
+        model: "SolarStep FX",
+        category: "Specialist / Energy",
+        feature: "Roof-hook ladder design",
+        useCase: "Solar panel installation & roof maintenance",
+        url: "https://sites.google.com/view/ascentix-ladders/products/solarstep-fx"
+      },
+      {
+        model: "TelePro 360",
+        category: "Maintenance",
+        feature: "Telescopic Aluminum",
+        useCase: "General utility & compact storage",
+        url: "https://sites.google.com/view/ascentix-ladders/products/telepro-360"
+      },
+      {
+        model: "TitanSafe Industrial",
+        category: "Heavy Industrial",
+        feature: "Heavy-Duty Aluminum",
+        useCase: "Plant maintenance & heavy load bearing",
+        url: "https://sites.google.com/view/ascentix-ladders/products/titansafe-industrial"
+      },
+      {
+        model: "VaultStep Deluxe",
+        category: "Commercial / Retail",
+        feature: "Combination ladder design",
+        useCase: "Maintenance & home-improvement tasks",
+        url: "https://sites.google.com/view/ascentix-ladders/products/vaultstep-deluxe"
+      },
+      {
+        model: "VoltShield FG-5",
+        category: "Electrical",
+        feature: "Fibreglass step-ladder design",
+        useCase: "Electrical maintenance planning; confirm suitability",
+        url: "https://sites.google.com/view/ascentix-ladders/products/voltshield-fg5"
+      }
+    ];
+
+    let sortCol = 'model';
+    let sortAsc = true;
+    let selectedModel = 'TitanSafe Industrial';
+
+    const searchInput = document.getElementById('searchInput');
+    const categorySelect = document.getElementById('categorySelect');
+    const countLabel = document.getElementById('countLabel');
+    const tableBody = document.getElementById('tableBody');
+
+    // Sort controls are real keyboard-accessible buttons.
+    document.querySelectorAll('thead th').forEach(th=>{
+      th.scope='col';
+      const button=document.createElement('button');
+      button.type='button';button.className='sort-btn';
+      while(th.firstChild)button.appendChild(th.firstChild);
+      button.setAttribute('aria-label','Sort by '+button.textContent.replace(/[▲▼]/g,'').trim());
+      th.appendChild(button);
+    });
+
+    // Populate Category Dropdown
+    const categories = [...new Set(fleetData.map(item => item.category))].sort();
+    categories.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat;
+      opt.textContent = cat;
+      categorySelect.appendChild(opt);
+    });
+
+    function updateDetailCard(item) {
+      if (!item) return;
+      document.getElementById('detailModel').textContent = item.model;
+      document.getElementById('detailCategory').textContent = item.category;
+      document.getElementById('detailFeature').textContent = item.feature;
+      document.getElementById('detailUseCase').textContent = item.useCase;
+      document.getElementById('detailLink').href = item.url;
+    }
+
+    function renderTable() {
+      const query = searchInput.value.toLowerCase().trim();
+      const catFilter = categorySelect.value;
+
+      const filtered = fleetData.filter(item => {
+        const matchesCat = catFilter === 'ALL' || item.category === catFilter;
+        const matchesQuery =
+          item.model.toLowerCase().includes(query) ||
+          item.category.toLowerCase().includes(query) ||
+          item.feature.toLowerCase().includes(query) ||
+          item.useCase.toLowerCase().includes(query);
+        return matchesCat && matchesQuery;
+      });
+
+      filtered.sort((a, b) => {
+        const valA = a[sortCol].toLowerCase();
+        const valB = b[sortCol].toLowerCase();
+        if (valA < valB) return sortAsc ? -1 : 1;
+        if (valA > valB) return sortAsc ? 1 : -1;
+        return 0;
+      });
+
+      countLabel.textContent = `Showing ${filtered.length} of ${fleetData.length}`;
+      tableBody.innerHTML = '';
+      const selected = filtered.find(item=>item.model===selectedModel) || filtered[0];
+      document.getElementById('detailCard').hidden=!selected;
+      document.getElementById('detailCard').style.display=selected?'flex':'none';
+      if(selected){selectedModel=selected.model;updateDetailCard(selected);}
+      else{
+        const empty=document.createElement('tr');
+        const cell=document.createElement('td');cell.colSpan=4;cell.className='empty-row';
+        cell.textContent='No matching models. Try another search or category.';
+        empty.appendChild(cell);tableBody.appendChild(empty);
+      }
+      document.querySelectorAll('thead th').forEach(th=>th.setAttribute('aria-sort',th.dataset.col===sortCol?(sortAsc?'ascending':'descending'):'none'));
+
+      filtered.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.tabIndex=0;
+        tr.setAttribute('aria-label','Select '+item.model);
+        tr.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tr.click();}});
+        if (item.model === selectedModel) {
+          tr.classList.add('selected');
+        }
+        tr.innerHTML = `
+          <td class="model-name">${item.model}</td>
+          <td><span class="badge">${item.category}</span></td>
+          <td>${item.feature}</td>
+          <td>${item.useCase}</td>
+        `;
+        tr.addEventListener('click', () => {
+          selectedModel = item.model;
+          updateDetailCard(item);
+          renderTable();
+        });
+        tableBody.appendChild(tr);
+      });
+    }
+
+    // Column Header Sorting
+    document.querySelectorAll('thead th').forEach(th => {
+      th.addEventListener('click', () => {
+        const col = th.getAttribute('data-col');
+        if (sortCol === col) {
+          sortAsc = !sortAsc;
+        } else {
+          sortCol = col;
+          sortAsc = true;
+        }
+        document.querySelectorAll('.sort-arrow').forEach(el => el.textContent = '');
+        document.getElementById(`arrow-${col}`).textContent = sortAsc ? '▲' : '▼';
+        renderTable();
+      });
+    });
+
+    searchInput.addEventListener('input', renderTable);
+    categorySelect.addEventListener('change', renderTable);
+
+    // Initial Render
+    renderTable();
+  </script>
+</body>
+</html>
