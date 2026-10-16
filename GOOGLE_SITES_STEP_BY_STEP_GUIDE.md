@@ -1,3 +1,5 @@
+> **Historical implementation reference.** Reconcile with the [current SEO publishing pack](seo/README.md) before reuse. Embedded metadata does not set Google Sites parent-page metadata. Verify model claims and contact details; preserve newer manual edits.
+
 # Comprehensive Step-by-Step Guide: Building the Ascentix Ladders Website on Google Sites
 
 This complete hands-on manual guides you through assembling, customising, and publishing the modern, industrial-grade **Ascentix Ladders** website on **[Google Sites](https://sites.google.com/)**. Every step includes exact button names, menu paths, visual layout selections, and fixes for commonly hidden options — tailored for the Indian market with BIS IS certifications, INR pricing, and Mumbai headquarters.

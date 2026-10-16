@@ -1,3 +1,5 @@
+> **Historical implementation reference.** Reconcile with the [current SEO publishing pack](seo/README.md) before reuse. Embedded metadata does not set Google Sites parent-page metadata. Verify model claims and contact details; preserve newer manual edits.
+
 # Google Sites Ready-to-Paste Embed Code Snippets (Light Design)
 
 This guide provides standalone, light-themed HTML/CSS code snippets designed specifically for embedding into **Google Sites**. Each container snippet replicates the premium design from `index.html` while functioning properly inside Google Sites' iframe sandbox.

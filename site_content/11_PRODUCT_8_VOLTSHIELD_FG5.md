@@ -1,3 +1,5 @@
+> **Legacy design blueprint — review before reuse.** Use the [current SEO copy map](../seo/PAGE_MAP.md) and [implementation guide](../seo/IMPLEMENTATION.md). Product specifications, certifications, prices, contact identities and testimonials below are not verified by this blueprint. Preserve newer manual site edits.
+
 # Dedicated Model Page: Ascentix VoltShield FG-5
 **Target Platform**: Google Sites (Dedicated Sub-Page under `/products/voltshield-fg5`)  
 **Page Title**: Ascentix VoltShield FG-5 | Affordable Dielectric Fibreglass Step Ladder for Indian Electricians  

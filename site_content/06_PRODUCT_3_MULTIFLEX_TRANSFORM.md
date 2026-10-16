@@ -1,3 +1,5 @@
+> **Legacy design blueprint — review before reuse.** Use the [current SEO copy map](../seo/PAGE_MAP.md) and [implementation guide](../seo/IMPLEMENTATION.md). Product specifications, certifications, prices, contact identities and testimonials below are not verified by this blueprint. Preserve newer manual site edits.
+
 # Dedicated Model Page: Ascentix MultiFlex Transform
 **Target Platform**: Google Sites (Dedicated Sub-Page under `/products/multiflex-transform`)  
 **Page Title**: Ascentix MultiFlex Transform | 14-in-1 Articulated Multi-Position Ladder  

@@ -1,3 +1,5 @@
+> **Legacy design blueprint — review before reuse.** Use the [current SEO copy map](../seo/PAGE_MAP.md) and [implementation guide](../seo/IMPLEMENTATION.md). Product specifications, certifications, prices, contact identities and testimonials below are not verified by this blueprint. Preserve newer manual site edits.
+
 # Dedicated Model Page: Ascentix AeroReach Pro
 **Target Platform**: Google Sites (Dedicated Sub-Page under `/products/aeroreach-pro`)  
 **Page Title**: Ascentix AeroReach Pro | Smart Telescoping Extension Ladder — 6.2m Reach  

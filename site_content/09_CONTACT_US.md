@@ -1,3 +1,5 @@
+> **Legacy design blueprint — review before reuse.** Use the [current SEO copy map](../seo/PAGE_MAP.md) and [implementation guide](../seo/IMPLEMENTATION.md). Product specifications, certifications, prices, contact identities and testimonials below are not verified by this blueprint. Preserve newer manual site edits.
+
 # Ascentix Ladders — Contact Us Page
 **Target Platform**: Google Sites (Contact Us Page)  
 **Page Title**: Contact Ascentix Ladders Pvt. Ltd. | India HQ, Fleet Sales & Support  

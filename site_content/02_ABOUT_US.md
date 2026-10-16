@@ -1,3 +1,5 @@
+> **Legacy design blueprint — review before reuse.** Use the [current SEO copy map](../seo/PAGE_MAP.md) and [implementation guide](../seo/IMPLEMENTATION.md). Product specifications, certifications, prices, contact identities and testimonials below are not verified by this blueprint. Preserve newer manual site edits.
+
 # Ascentix Ladders — About Us (Company Heritage & Mission)
 **Target Platform**: Google Sites (About Us Page)  
 **Page Title**: About Ascentix Ladders | Our Mission, Heritage & Engineering  

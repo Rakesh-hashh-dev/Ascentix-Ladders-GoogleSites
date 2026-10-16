@@ -1,0 +1,152 @@
+{
+  "base_url": "https://sites.google.com/view/ascentix-ladders",
+  "review_date": "2026-10-16",
+  "status": "editorial-draft",
+  "models": [
+    {
+      "name": "TelePro 360", "slug": "telepro-360", "type": "Telescopic ladder", "material": "Aluminium (catalogue description; grade unconfirmed)",
+      "image": "assets/products/model_1_telepro_360.jpg",
+      "summary": "Explore the TelePro 360 telescopic ladder design for inspection, maintenance and compact storage. Request current specifications and a quote.",
+      "overview": "TelePro 360 is Ascentix's telescopic ladder concept for inspection and maintenance planning where compact storage matters. Its extending design differs from the hinged configurations of MultiFlex Transform. Confirm extended and folded dimensions, permitted standing position and locking instructions for the exact model.",
+      "application": "Property inspection, routine maintenance and storage-space planning.",
+      "question": "How does TelePro 360 differ from MultiFlex Transform?",
+      "answer": "TelePro 360 follows a telescopic design that shortens for storage. MultiFlex Transform follows a multi-position design for varied workspace layouts. Choose the required configuration first, then compare documented dimensions and permitted setups; neither a name nor an illustration establishes suitability.",
+      "related": ["multiflex-transform", "aeroreach-pro"]
+    },
+    {
+      "name": "CarbonApex X1", "slug": "carbonapex-x1", "type": "Step-ladder concept", "material": "Carbon-composite concept; conductivity and specification unconfirmed",
+      "image": "assets/products/model_2_carbonapex_x1.jpg",
+      "summary": "Explore the CarbonApex X1 step-ladder concept for interior fit-outs and painting. Review its design and request confirmed specifications.",
+      "overview": "CarbonApex X1 is Ascentix's step-ladder concept for interior fit-outs, painting and frequent moves between rooms. The design explores carbon-composite construction, a folded profile and a standing deck. Material properties, dimensions and approved uses remain to be confirmed through model-specific evidence.",
+      "application": "Interior fit-outs, painting and studio-access planning.",
+      "question": "Is CarbonApex X1 an electrically rated ladder?",
+      "answer": "The current catalogue does not establish an electrical rating for CarbonApex X1. Carbon-composite construction is not proof of electrical suitability. Older electrical-fleet descriptions must not be used as evidence; request current independent test documentation and approved uses for the exact model.",
+      "related": ["voltshield-fg5", "vaultstep-deluxe"]
+    },
+    {
+      "name": "MultiFlex Transform", "slug": "multiflex-transform", "type": "Multi-position ladder", "material": "To be confirmed",
+      "image": "assets/products/model_3_multiflex_transform.jpg",
+      "summary": "Explore the MultiFlex Transform multi-position ladder design for renovation and varied workspaces. Compare configurations and request specifications.",
+      "overview": "MultiFlex Transform is Ascentix's multi-position ladder concept for renovation and varied workspace layouts. It explores hinged configurations rather than the telescopic storage approach of TelePro 360. The exact permitted positions, hinge-locking requirements and dimensions need confirmation before selection.",
+      "application": "Renovation, fit-outs and jobs requiring a comparison of different access configurations.",
+      "question": "Are all illustrated MultiFlex configurations approved for use?",
+      "answer": "Illustrations describe a design direction, not approved operating configurations. Ask for the current instructions, permitted positions and load rating for each setup. Compare those documents with the space and task requirements before choosing a configuration.",
+      "related": ["telepro-360", "vaultstep-deluxe"]
+    },
+    {
+      "name": "TitanSafe Industrial", "slug": "titansafe-industrial", "type": "Platform-access design", "material": "Aluminium (catalogue description; grade unconfirmed)",
+      "image": "assets/products/model_4_titansafe_industrial.jpg",
+      "summary": "Explore the TitanSafe Industrial platform-access design for facility planning. Compare platform concepts and request current model specifications.",
+      "overview": "TitanSafe Industrial is Ascentix's platform-access concept for workplace equipment and facility planning. Its catalogue design is aluminium. Platform dimensions, access arrangement, rated load and any proposed protective features require confirmation for the exact configuration.",
+      "application": "Facility maintenance and workplace platform-access planning.",
+      "question": "What should I compare between TitanSafe Industrial and DeckRise Modular?",
+      "answer": "Both are platform-access design directions. Compare the documented standing height, platform dimensions, footprint, access arrangement and permitted setup. DeckRise explores adjustable platform access; do not assume the two concepts share load ratings or protective features.",
+      "related": ["deckrise-modular", "vaultstep-deluxe"]
+    },
+    {
+      "name": "AeroReach Pro", "slug": "aeroreach-pro", "type": "Extension ladder", "material": "To be confirmed",
+      "image": "assets/products/model_5_aeroreach_pro.jpg",
+      "summary": "Explore the AeroReach Pro extension ladder design for exterior access planning. Request actual dimensions, permitted setup and model specifications.",
+      "overview": "AeroReach Pro is Ascentix's extension ladder concept for exterior building-maintenance and access-height planning. Its focus differs from the compact telescopic storage direction of TelePro 360. Confirm the actual extended length, support requirements, permitted setup and standing position for the intended task.",
+      "application": "Exterior maintenance and planning access to higher work areas.",
+      "question": "Is working reach the same as AeroReach Pro's ladder height?",
+      "answer": "No. Ladder height describes a stated configuration, while working reach depends on the person and setup. Provide the height of the task and request actual dimensions and permitted standing positions. Do not select an extension ladder from a reach estimate alone.",
+      "related": ["telepro-360", "solarstep-fx"]
+    },
+    {
+      "name": "VaultStep Deluxe", "slug": "vaultstep-deluxe", "type": "Combination ladder", "material": "To be confirmed",
+      "image": "assets/products/model_6_vaultstep_deluxe.jpg",
+      "summary": "Explore the VaultStep Deluxe combination ladder design for maintenance, stockroom access and home improvement. Request configuration details and a quote.",
+      "overview": "VaultStep Deluxe is Ascentix's combination ladder concept for maintenance, stockroom access and home-improvement planning. Compare its proposed configurations with the multi-position direction of MultiFlex Transform. Material, folded dimensions and permitted positions remain to be confirmed.",
+      "application": "Home improvement, stockroom access and general maintenance planning.",
+      "question": "How do I compare VaultStep Deluxe with MultiFlex Transform?",
+      "answer": "Start with the configuration needed for the task, then compare permitted setups, footprint, storage size and locking instructions from current model documents. The catalogue labels distinguish design directions; they do not establish interchangeable capabilities.",
+      "related": ["multiflex-transform", "carbonapex-x1"]
+    },
+    {
+      "name": "SolarStep FX", "slug": "solarstep-fx", "type": "Roof-hook ladder concept", "material": "To be confirmed",
+      "image": "assets/products/model_7_solarstep_fx.jpg",
+      "summary": "Explore the SolarStep FX roof-hook ladder concept for solar-project and roof-maintenance access planning. Confirm compatibility and approved uses.",
+      "overview": "SolarStep FX is Ascentix's roof-hook ladder concept for solar-project and roof-maintenance access planning. It describes a different access arrangement from AeroReach Pro's extension design. Roof compatibility, support and installation requirements must be established for the actual site and documented model.",
+      "application": "Solar-project and roof-maintenance access planning.",
+      "question": "Does the SolarStep FX concept fit every roof?",
+      "answer": "No universal roof compatibility is established. Ask for documented compatibility, setup requirements and approved uses for the exact roof and model. A roof-hook illustration is not evidence of a fall-protection system or permission to use the concept on a roof.",
+      "related": ["aeroreach-pro", "telepro-360"]
+    },
+    {
+      "name": "VoltShield FG-5", "slug": "voltshield-fg5", "type": "Fibreglass step-ladder design", "material": "Fibreglass (catalogue description; electrical rating unconfirmed)",
+      "image": "assets/products/model_8_voltshield_fg5.jpg",
+      "summary": "Explore the VoltShield FG-5 fibreglass step-ladder design for electrical-work access planning. Request documented ratings and approved uses.",
+      "overview": "VoltShield FG-5 is Ascentix's fibreglass step-ladder design for electrical-work access planning. Its material description does not establish electrical suitability. Request model-specific test evidence, approved uses and current instructions before treating any rating as verified.",
+      "application": "Planning access requirements for electrical-work environments, subject to documented approval.",
+      "question": "Does fibreglass mean VoltShield FG-5 is approved for live electrical work?",
+      "answer": "No. Material alone does not establish an electrical-use rating or approval. The exact model, condition, test documentation and approved uses matter. No live-work suitability is established by this catalogue; do not infer it from the VoltShield name.",
+      "related": ["carbonapex-x1", "titansafe-industrial"]
+    },
+    {
+      "name": "AtticMaster HA-3", "slug": "atticmaster-ha3", "type": "Folding attic-mount ladder", "material": "To be confirmed",
+      "image": "assets/products/model_9_atticmaster_ha3.jpg",
+      "summary": "Explore the AtticMaster HA-3 folding attic-mount ladder design for loft access. Request opening dimensions, mounting requirements and specifications.",
+      "overview": "AtticMaster HA-3 is Ascentix's folding attic-mount concept for residential attic and loft-access planning. It is an installed access direction rather than a portable maintenance-ladder concept. Opening dimensions, ceiling height, mounting requirements and rated load must be confirmed before planning an installation.",
+      "application": "Residential attic and loft-access planning.",
+      "question": "What measurements are needed for an AtticMaster HA-3 enquiry?",
+      "answer": "Provide the ceiling height, opening dimensions and available clearance, along with information about the mounting location. Request confirmed model dimensions and installation requirements. An illustration does not establish structural compatibility with an existing opening.",
+      "related": ["telepro-360", "vaultstep-deluxe"]
+    },
+    {
+      "name": "DeckRise Modular", "slug": "deckrise-modular", "type": "Adjustable work-platform design", "material": "To be confirmed",
+      "image": "assets/products/model_10_deckrise_modular.jpg",
+      "summary": "Explore the DeckRise Modular adjustable work-platform design for warehouse maintenance and fit-outs. Request dimensions, setup details and a quote.",
+      "overview": "DeckRise Modular is Ascentix's adjustable work-platform concept for warehouse maintenance, fit-outs and platform-access planning. Compare its proposed work area and adjustment arrangement with TitanSafe Industrial. The exact platform dimensions, permitted heights, setup and load rating remain to be confirmed.",
+      "application": "Warehouse maintenance, fit-outs and platform-access planning.",
+      "question": "What should a DeckRise Modular specification include?",
+      "answer": "Request platform dimensions, permitted heights, overall footprint, access arrangement, rated load and setup instructions for the exact configuration. Confirm any proposed mobility or locking features through current documents rather than inferring them from an image.",
+      "related": ["titansafe-industrial", "multiflex-transform"]
+    }
+  ],
+  "pages": [
+    {
+      "path": "/home", "title": "Ascentix Ladders | Compare Ladder Designs and Access Concepts",
+      "heading": "Ladder designs for home, maintenance and specialist access",
+      "intent": "Brand discovery and ladder-type comparison",
+      "summary": "Compare ten Ascentix ladder designs for home, maintenance, industrial and specialist access. Explore models and request confirmed specifications.",
+      "body": "Ascentix Ladders presents ten ladder and work-platform concepts for home improvement, maintenance, workplace and specialist access planning. Explore telescopic, multi-position, extension, step-ladder, attic-mount and platform designs, then compare the configuration your task needs.\n\nThe catalogue describes design directions. Confirm dimensions, rated load, approved uses, price, availability and warranty for the exact model before ordering.",
+      "links": [["Compare all ten ladder designs", "/products"], ["Explore TelePro 360 telescopic access", "/products/telepro-360"], ["Explore MultiFlex Transform configurations", "/products/multiflex-transform"], ["Request model specifications", "/contact-us"]]
+    },
+    {
+      "path": "/products", "title": "Ascentix Ladder Designs | Compare All Ten Models",
+      "heading": "Explore all Ascentix models", "intent": "Compare ladder types and shortlist models",
+      "summary": "Compare ten Ascentix ladder and platform designs by type and intended application. Open model pages and request current specifications and pricing.",
+      "body": "Compare designs for home, maintenance, industrial and specialist applications. Open a product page to review its design, finishes and reference specifications.\n\nPricing on enquiry. Confirm current specifications, approved uses, availability and delivery terms before ordering.",
+      "links": [["Request specifications and a quote", "/contact-us"]]
+    },
+    {
+      "path": "/about-us", "title": "About Ascentix Ladders | Access Design Approach",
+      "heading": "About Ascentix Ladders", "intent": "Understand the brand and its design approach",
+      "summary": "Learn about Ascentix Ladders and its catalogue of ladder and work-platform concepts. Explore the models, project team and enquiry process.",
+      "body": "Ascentix Ladders brings together ladder and work-platform design concepts for different access needs. The catalogue helps visitors compare configurations for home improvement, maintenance, workplace and specialist applications.\n\nOur approach is to describe each design clearly, distinguish intended applications and identify specifications that still need confirmation. A product illustration or design proposal is not independent evidence of a tested safety rating.",
+      "links": [["Explore the model catalogue", "/products"], ["Meet the project team", "/about-us/the-team"], ["Ask about a design", "/contact-us"]]
+    },
+    {
+      "path": "/about-us/the-team", "title": "Ascentix Ladders Project Team", "heading": "The Ascentix project team",
+      "intent": "Find who is responsible for the project",
+      "summary": "Meet the Ascentix Ladders project team and learn how to contact the team about catalogue content and product-design enquiries.",
+      "body": "The Ascentix project team develops the brand presentation, model catalogue and digital experience. For a question about a model description, specification reference or enquiry, contact the team through the enquiry page.\n\nModel specifications and test evidence should be confirmed independently of the site's marketing descriptions.",
+      "links": [["About the project", "/about-us"], ["Contact the project team", "/contact-us"]]
+    },
+    {
+      "path": "/social-media-hub", "title": "Ascentix Ladders | Videos and Social Channels", "heading": "Ascentix videos and social channels",
+      "intent": "Find the brand's supplied social channels",
+      "summary": "Find Ascentix Ladders on YouTube and Instagram for brand videos and design updates. Compare the model catalogue for current design information.",
+      "body": "Explore Ascentix Ladders videos and design updates through the channels linked below. Use the model catalogue to compare intended applications and request current specifications.\n\nSocial visuals describe design concepts; they do not independently establish product ratings or approved uses.",
+      "links": [["Ascentix Ladders on YouTube", "https://www.youtube.com/@AscentixLadders"], ["Ascentix Ladders on Instagram", "https://www.instagram.com/ascentix_ladders/"], ["Compare ladder designs", "/products"]]
+    },
+    {
+      "path": "/contact-us", "title": "Contact Ascentix Ladders | Specifications and Enquiries", "heading": "Request model specifications and a quote",
+      "intent": "Submit a model or bulk enquiry",
+      "summary": "Ask Ascentix Ladders about model specifications, pricing and availability. Share the application, required height, quantity and delivery location.",
+      "body": "Share the model name, intended application, required access height, quantity and delivery location. Include site constraints or installation measurements where relevant so the enquiry can address your actual requirements.\n\nAsk for the current specification sheet, permitted configurations, applicable test evidence, price, availability, warranty terms and delivery estimate for the exact model. Prices, lead times and commercial terms are confirmed on enquiry.",
+      "links": [["Compare models before enquiring", "/products"], ["About Ascentix", "/about-us"]]
+    }
+  ]
+}
