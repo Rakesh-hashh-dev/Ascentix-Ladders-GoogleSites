@@ -1,0 +1,22 @@
+# Page intent and copy map
+
+Editorial drafts; keep existing URLs. Suggested titles/summaries are not deployed metadata.
+
+| Page | Search intent | Recommended title | Copy |
+|---|---|---|---|
+| [/home](https://sites.google.com/view/ascentix-ladders/home) | Brand discovery and ladder-type comparison | Ascentix Ladders | Compare Ladder Designs and Access Concepts | [home.md](pages/home.md) |
+| [/products](https://sites.google.com/view/ascentix-ladders/products) | Compare ladder types and shortlist models | Ascentix Ladder Designs | Compare All Ten Models | [products.md](pages/products.md) |
+| [/about-us](https://sites.google.com/view/ascentix-ladders/about-us) | Understand the brand and its design approach | About Ascentix Ladders | Access Design Approach | [about-us.md](pages/about-us.md) |
+| [/about-us/the-team](https://sites.google.com/view/ascentix-ladders/about-us/the-team) | Find who is responsible for the project | Ascentix Ladders Project Team | [about-us--the-team.md](pages/about-us--the-team.md) |
+| [/social-media-hub](https://sites.google.com/view/ascentix-ladders/social-media-hub) | Find the brand's supplied social channels | Ascentix Ladders | Videos and Social Channels | [social-media-hub.md](pages/social-media-hub.md) |
+| [/contact-us](https://sites.google.com/view/ascentix-ladders/contact-us) | Submit a model or bulk enquiry | Contact Ascentix Ladders | Specifications and Enquiries | [contact-us.md](pages/contact-us.md) |
+| [/products/telepro-360](https://sites.google.com/view/ascentix-ladders/products/telepro-360) | Evaluate TelePro 360 and compare related configurations | TelePro 360 | Telescopic ladder | Ascentix Ladders | [products--telepro-360.md](pages/products--telepro-360.md) |
+| [/products/carbonapex-x1](https://sites.google.com/view/ascentix-ladders/products/carbonapex-x1) | Evaluate CarbonApex X1 and compare related configurations | CarbonApex X1 | Step-ladder concept | Ascentix Ladders | [products--carbonapex-x1.md](pages/products--carbonapex-x1.md) |
+| [/products/multiflex-transform](https://sites.google.com/view/ascentix-ladders/products/multiflex-transform) | Evaluate MultiFlex Transform and compare related configurations | MultiFlex Transform | Multi-position ladder | Ascentix Ladders | [products--multiflex-transform.md](pages/products--multiflex-transform.md) |
+| [/products/titansafe-industrial](https://sites.google.com/view/ascentix-ladders/products/titansafe-industrial) | Evaluate TitanSafe Industrial and compare related configurations | TitanSafe Industrial | Platform-access design | Ascentix Ladders | [products--titansafe-industrial.md](pages/products--titansafe-industrial.md) |
+| [/products/aeroreach-pro](https://sites.google.com/view/ascentix-ladders/products/aeroreach-pro) | Evaluate AeroReach Pro and compare related configurations | AeroReach Pro | Extension ladder | Ascentix Ladders | [products--aeroreach-pro.md](pages/products--aeroreach-pro.md) |
+| [/products/vaultstep-deluxe](https://sites.google.com/view/ascentix-ladders/products/vaultstep-deluxe) | Evaluate VaultStep Deluxe and compare related configurations | VaultStep Deluxe | Combination ladder | Ascentix Ladders | [products--vaultstep-deluxe.md](pages/products--vaultstep-deluxe.md) |
+| [/products/solarstep-fx](https://sites.google.com/view/ascentix-ladders/products/solarstep-fx) | Evaluate SolarStep FX and compare related configurations | SolarStep FX | Roof-hook ladder concept | Ascentix Ladders | [products--solarstep-fx.md](pages/products--solarstep-fx.md) |
+| [/products/voltshield-fg5](https://sites.google.com/view/ascentix-ladders/products/voltshield-fg5) | Evaluate VoltShield FG-5 and compare related configurations | VoltShield FG-5 | Fibreglass step-ladder design | Ascentix Ladders | [products--voltshield-fg5.md](pages/products--voltshield-fg5.md) |
+| [/products/atticmaster-ha3](https://sites.google.com/view/ascentix-ladders/products/atticmaster-ha3) | Evaluate AtticMaster HA-3 and compare related configurations | AtticMaster HA-3 | Folding attic-mount ladder | Ascentix Ladders | [products--atticmaster-ha3.md](pages/products--atticmaster-ha3.md) |
+| [/products/deckrise-modular](https://sites.google.com/view/ascentix-ladders/products/deckrise-modular) | Evaluate DeckRise Modular and compare related configurations | DeckRise Modular | Adjustable work-platform design | Ascentix Ladders | [products--deckrise-modular.md](pages/products--deckrise-modular.md) |

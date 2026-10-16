@@ -1,3 +1,5 @@
+> **Legacy design blueprint — review before reuse.** Use the [current SEO copy map](../seo/PAGE_MAP.md) and [implementation guide](../seo/IMPLEMENTATION.md). Product specifications, certifications, prices, contact identities and testimonials below are not verified by this blueprint. Preserve newer manual site edits.
+
 # Dedicated Model Page: Ascentix DeckRise Modular
 **Target Platform**: Google Sites (Dedicated Sub-Page under `/products/deckrise-modular`)  
 **Page Title**: Ascentix DeckRise Modular | Height-Adjustable Rolling Work Platform for Indian Warehouses & Retail  

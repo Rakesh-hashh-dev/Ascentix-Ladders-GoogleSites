@@ -1,3 +1,5 @@
+> **Historical implementation reference.** Reconcile with the [current SEO publishing pack](seo/README.md) before reuse. Embedded metadata does not set Google Sites parent-page metadata. Verify model claims and contact details; preserve newer manual edits.
+
 # Google Sites Ready-to-Paste Embed Code Snippets (Top 5 Flagship Edition)
 
 > **Curated Top 5 Lineup Edition**: This file contains the complete, tested HTML/CSS responsive embed snippets customized specifically for the **Top 5 core models** of Ascentix Ladders:

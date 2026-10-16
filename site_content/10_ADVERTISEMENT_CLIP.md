@@ -1,3 +1,5 @@
+> **Legacy design blueprint — review before reuse.** Use the [current SEO copy map](../seo/PAGE_MAP.md) and [implementation guide](../seo/IMPLEMENTATION.md). Product specifications, certifications, prices, contact identities and testimonials below are not verified by this blueprint. Preserve newer manual site edits.
+
 # Ascentix Ladders — Commercial Advertisement Clip Blueprint
 **Target Platforms**: Google Sites Embed, Instagram Reels, YouTube Shorts, WhatsApp Broadcast  
 **Duration**: 35 Seconds (Dynamic Motion Commercial)  

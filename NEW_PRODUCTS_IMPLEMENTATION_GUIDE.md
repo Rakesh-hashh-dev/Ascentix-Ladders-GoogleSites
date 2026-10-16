@@ -1,3 +1,5 @@
+> **Historical implementation reference.** Reconcile with the [current SEO publishing pack](seo/README.md) before reuse. Embedded metadata does not set Google Sites parent-page metadata. Verify model claims and contact details; preserve newer manual edits.
+
 # Ascentix Ladders — Implementation Guide for New Products & Phase 3 Updates
 
 This complete hands-on manual guides you through building all 4 newly added products on **[Google Sites](https://sites.google.com/)** and applying the Phase 3 restructuring changes.
